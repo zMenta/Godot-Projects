@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Wall.tscn" type="PackedScene" id=1]
+
+[node name="WallContainer" type="Node"]
+
+[node name="Wall" parent="." instance=ExtResource( 1 )]
+position = Vector2( 17, 195 )
+rotation = 1.25488
+
+[node name="Wall2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 101, 436 )
+rotation = 0.252422
+
+[node name="Wall3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 367, 505 )
+rotation = -0.012344
+
+[node name="Wall4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 649, 501 )
+rotation = -0.415753
+
+[node name="Wall5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 874, 421 )
+rotation = -1.0642
+
+[node name="Wall6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 337, 302 )
+rotation = -1.0642
+
+[node name="Wall7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 549, 316 )
+rotation = -1.95166
