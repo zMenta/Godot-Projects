@@ -6,7 +6,6 @@ var score: int
 
 func _ready():
 	randomize()
-	new_game()
 
 
 func game_over() -> void:
@@ -16,6 +15,8 @@ func game_over() -> void:
 
 
 func new_game() -> void:
+	get_tree().call_group("mobs", "queue_free")
+	
 	score = 0
 	$StartGameTimer.start()
 	$Player.start($StartPostion.position)
