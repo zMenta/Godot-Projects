@@ -5,12 +5,12 @@ signal hit
 export var speed := 400
 var screen_size
 
-func _ready() -> void:
+func _ready():
 	screen_size = get_viewport_rect().size
 	hide()
 
 # Player Movement and Animation logic
-func _process(delta: float) -> void:
+func _process(delta: float):
 	var direction := Vector2.ZERO 
 	var velocity := Vector2.ZERO
 	if Input.is_action_pressed("ui_up"):
@@ -43,14 +43,14 @@ func _process(delta: float) -> void:
 	position.y = clamp(position.y, 0, screen_size.y)
 
 
-func start(player_position: Vector2) -> void:
+func start(player_position: Vector2):
 	position = player_position
 	show()
 	$CollisionShape2D.disabled = false
 
 
 # warning-ignore:unused_argument
-func _on_Player_body_entered(body: Node) -> void:
+func _on_Player_body_entered(body: Node):
 	hide()
 	emit_signal("hit")
 	$CollisionShape2D.set_deferred("disabled",true)

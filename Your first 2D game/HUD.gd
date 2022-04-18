@@ -30,4 +30,5 @@ func _on_MessageTimer_timeout() -> void:
 
 func _on_StartButton_pressed() -> void:
 	$StartButton.hide()
+	$ScoreLabel.show()
 	emit_signal("start_game")

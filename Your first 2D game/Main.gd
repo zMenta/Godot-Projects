@@ -1,21 +1,24 @@
 extends Node
 
 export(PackedScene) var mob_scene
-var score: int
 
+var score: int 
 
 func _ready():
 	randomize()
 
 
-func game_over() -> void:
+func game_over():
 	$ScoreTimer.stop()
 	$MobTimer.stop()
 	$HUD.show_game_over()
+	$MusicLoop.stop()
+	$DeathSound.play()
 
 
-func new_game() -> void:
+func new_game():
 	get_tree().call_group("mobs", "queue_free")
+	$MusicLoop.play()
 	
 	score = 0
 	$StartGameTimer.start()
@@ -26,17 +29,17 @@ func new_game() -> void:
 	$HUD.show_message("Get Ready")
 
 
-func _on_ScoreTimer_timeout() -> void:
+func _on_ScoreTimer_timeout():
 	score += 1
 	$HUD.update_score(score)
 
 
-func _on_StartGameTimer_timeout() -> void:
+func _on_StartGameTimer_timeout():
 	$ScoreTimer.start()
 	$MobTimer.start()
 
-
-func _on_MobTimer_timeout() -> void:
+# Mob spawner
+func _on_MobTimer_timeout():
 	var mob = mob_scene.instance()
 	
 	var mob_spawn_location = $MobPath/MobSpawnLocation
