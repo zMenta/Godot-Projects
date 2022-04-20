@@ -51,6 +51,6 @@ func start(player_position: Vector2):
 
 # warning-ignore:unused_argument
 func _on_Player_body_entered(body: Node):
-	hide()
 	emit_signal("hit")
+	hide()
 	$CollisionShape2D.set_deferred("disabled",true)
