@@ -12,4 +12,9 @@ func _ready() -> void:
 
 
 func _on_Area2D_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
-	print("body")
+	print("body entered:", body)
+	
+	yield(get_tree().create_timer(2),"timeout")
+	
+	print(body)
+	
