@@ -23,7 +23,7 @@ color = Color( 0.207843, 0.639216, 0.894118, 1 )
 position = Vector2( 62.5, 400 )
 shape = SubResource( 1 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["blocks"]]
 position = Vector2( 0, -2 )
 collision_layer = 4
 __meta__ = {
@@ -35,4 +35,4 @@ modulate = Color( 0.482353, 0.831373, 0.0627451, 1 )
 position = Vector2( 62.5, -5 )
 shape = SubResource( 2 )
 
-[connection signal="body_shape_entered" from="Area2D" to="." method="_on_Area2D_body_shape_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
