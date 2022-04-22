@@ -18,3 +18,12 @@ position = Vector2( 3, 357 )
 
 [node name="Block2" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( 285, 225 )
+
+[node name="Block3" parent="Blocks" instance=ExtResource( 2 )]
+position = Vector2( 566, 262 )
+
+[node name="Block4" parent="Blocks" instance=ExtResource( 2 )]
+position = Vector2( 872, 390 )
+
+[node name="Block5" parent="Blocks" instance=ExtResource( 2 )]
+position = Vector2( 1177, 290 )
