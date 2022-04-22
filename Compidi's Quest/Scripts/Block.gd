@@ -26,4 +26,3 @@ func _on_Area2D_body_entered(body: Node) -> void:
 
 func move(distance: Vector2):
 	self.position += distance
-	self.integra
