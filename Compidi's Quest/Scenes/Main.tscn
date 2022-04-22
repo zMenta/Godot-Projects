@@ -19,8 +19,8 @@ process_mode = 0
 limit_left = -200
 limit_bottom = 720
 
-[node name="Block" parent="." instance=ExtResource( 2 )]
-position = Vector2( 3, 357 )
-
 [node name="BlockPosition" type="Position2D" parent="."]
-position = Vector2( 66, 368 )
+position = Vector2( 16, 376 )
+
+[node name="PlayerPosition" type="Position2D" parent="."]
+position = Vector2( 55, 303 )

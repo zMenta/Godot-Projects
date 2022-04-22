@@ -14,7 +14,6 @@ func _ready() -> void:
 	# Making the block color reach the end of the screen.
 	screen_size = get_viewport_rect().size
 	rect_size_x = $ColorRect.get_size().x
-	
 	$ColorRect.set_size(Vector2(rect_size_x , screen_size.y))
 
 
