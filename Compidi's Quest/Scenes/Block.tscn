@@ -8,7 +8,7 @@ extents = Vector2( 62.5, 400 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 60, 5 )
 
-[node name="Block" type="StaticBody2D"]
+[node name="Block" type="StaticBody2D" groups=["blocks"]]
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -23,7 +23,7 @@ color = Color( 0.207843, 0.639216, 0.894118, 1 )
 position = Vector2( 62.5, 400 )
 shape = SubResource( 1 )
 
-[node name="Area2D" type="Area2D" parent="." groups=["blocks"]]
+[node name="Area2D" type="Area2D" parent="."]
 position = Vector2( 0, -2 )
 collision_layer = 4
 __meta__ = {
