@@ -59,10 +59,3 @@ margin_right = 56.0
 margin_bottom = -55.0
 theme = SubResource( 5 )
 max_value = 800.0
-
-[node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2( 150, 0 )
-current = true
-process_mode = 0
-limit_left = -200
-limit_bottom = 720

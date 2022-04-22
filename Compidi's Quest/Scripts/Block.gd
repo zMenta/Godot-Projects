@@ -18,6 +18,10 @@ func _ready() -> void:
 	$ColorRect.set_size(Vector2(rect_size_x , screen_size.y))
 
 
+func connect_to_owner(target: Node) -> void:
+	connect("point_made", target, "_on_point_made")
+
+
 func _on_Area2D_body_entered(body: Node) -> void:
 	yield(get_tree().create_timer(2),"timeout")
 	
