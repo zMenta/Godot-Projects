@@ -1,20 +1,13 @@
 extends RigidBody2D
 
 
-signal player_jumped
-
 var direction : Vector2
 var velocity := 0
-var speed_y := 0
-var speed_x := 0
+var speed_y : float
+var speed_x : float
 
 
-func _ready() -> void:
-	connect("player_jumped", owner, "_on_player_jump")
-
-
-func _process(delta: float) -> void:
-	
+func _physics_process(delta: float) -> void:
 	#Animation
 	if linear_velocity.length() > 70:
 		$AnimatedSprite.set_animation("jump")
@@ -28,18 +21,8 @@ func _process(delta: float) -> void:
 		velocity += 10
 		$ProgressBar.value = velocity
 	if Input.is_action_just_released("m1_click"):
-		speed_y = direction.y * $ProgressBar.value
-		speed_x = direction.x * $ProgressBar.value
-		
-		linear_velocity += Vector2(0,speed_y)
-		emit_signal("player_jumped", speed_x)
+		linear_velocity += direction * $ProgressBar.value
 		
 		velocity = 0	
 		$ProgressBar.value = 0
 
-func move(distance: Vector2):
-	pass
-#	print("cat moved")
-#	print(position)
-#	var new_position = position + distance
-#	self.set_position(new_position) 

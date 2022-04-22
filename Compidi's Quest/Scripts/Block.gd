@@ -1,5 +1,6 @@
 extends StaticBody2D
 
+
 signal point_made
 
 var screen_size 
@@ -22,7 +23,3 @@ func _on_Area2D_body_entered(body: Node) -> void:
 	
 	if $Area2D.overlaps_body(body):
 		emit_signal("point_made")
-
-
-func move(distance: Vector2):
-	self.position += distance

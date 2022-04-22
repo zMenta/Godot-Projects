@@ -32,7 +32,6 @@ ProgressBar/styles/fg = SubResource( 4 )
 
 [node name="Player" type="RigidBody2D"]
 collision_mask = 7
-mass = 3.06122
 physics_material_override = SubResource( 3 )
 gravity_scale = 6.0
 script = ExtResource( 3 )
@@ -60,3 +59,10 @@ margin_right = 56.0
 margin_bottom = -55.0
 theme = SubResource( 5 )
 max_value = 1000.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 150, 0 )
+current = true
+process_mode = 0
+limit_left = -200
+limit_bottom = 720
