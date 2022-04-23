@@ -4,8 +4,12 @@ export(PackedScene) var block_scene
 
 func _ready() -> void:
 	randomize()
+	new_game()
+
 
 func new_game() -> void:
+	var first_block = spawn_block()
+	first_block.is_point_obtainable = false
 	spawn_block()
 	spawn_block()
 	
@@ -17,11 +21,11 @@ func spawn_block():
 	var x_random_position := int(rand_range(250, 320))
 	
 	block.position = block_spawn_location.position
-	print(block.position)
 	block_spawn_location.position += Vector2(x_random_position, y_random_position)
 	
 	block.connect_to_owner(self)
 	add_child(block)
+	return block
 
 func _on_point_made():
 	spawn_block()
