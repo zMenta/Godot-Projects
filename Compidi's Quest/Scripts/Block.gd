@@ -23,7 +23,7 @@ func connect_to_owner(target: Node) -> void:
 
 
 func _on_Area2D_body_entered(body: Node) -> void:
-	yield(get_tree().create_timer(2),"timeout")
+	yield(get_tree().create_timer(1),"timeout")
 	
 	if $Area2D.overlaps_body(body) and is_point_obtainable == true:
 		emit_signal("point_made")
