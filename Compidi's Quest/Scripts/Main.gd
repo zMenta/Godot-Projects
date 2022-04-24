@@ -26,7 +26,7 @@ func spawn_block():
 	var block = block_scene.instance()
 	var block_spawn_location = $BlockPosition
 	var y_random_position := int(rand_range(-100, 100))
-	var x_random_position := int(rand_range(250, 320))
+	var x_random_position := int(rand_range(250, 300))
 	
 	block.position = block_spawn_location.position
 	block_spawn_location.position += Vector2(x_random_position, y_random_position)
