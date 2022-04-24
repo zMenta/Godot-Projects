@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal restart_button_pressed
+
 func _ready():
 	yield(get_tree().create_timer(3),"timeout")
 	$Title.hide()
@@ -7,4 +9,8 @@ func _ready():
 
 func update_score_label(score: int) -> void:
 	$ScoreLabel.text = str(score)
+	
 
+func _on_RestartButton_pressed():
+	$RestartButton.hide()
+	emit_signal("restart_button_pressed")

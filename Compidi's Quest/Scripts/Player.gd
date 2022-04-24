@@ -1,5 +1,6 @@
 extends RigidBody2D
 
+signal game_over
 
 var direction : Vector2
 var velocity := 0
@@ -22,7 +23,6 @@ func _integrate_forces(state):
 			$ProgressBar.value = 0
 
 func _process(delta: float) -> void:
-	
 	# Animation
 	if linear_velocity.length() > 70:
 		$AnimatedSprite.set_animation("jump")
@@ -30,3 +30,5 @@ func _process(delta: float) -> void:
 		$AnimatedSprite.set_animation("rest")
 		
 
+func _on_VisibilityNotifier2D_screen_exited():
+	emit_signal("game_over")

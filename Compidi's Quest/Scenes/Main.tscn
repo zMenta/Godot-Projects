@@ -26,3 +26,6 @@ limit_top = -100
 limit_bottom = 720
 
 [node name="HUD" parent="Player" instance=ExtResource( 4 )]
+
+[connection signal="game_over" from="Player" to="." method="_on_Player_game_over"]
+[connection signal="restart_button_pressed" from="Player/HUD" to="." method="_on_HUD_restart_button_pressed"]

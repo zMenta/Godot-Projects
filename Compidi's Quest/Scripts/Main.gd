@@ -14,6 +14,10 @@ func _process(delta) -> void:
 		get_tree().reload_current_scene()
 
 
+func _on_HUD_restart_button_pressed():
+	get_tree().reload_current_scene()
+
+
 func new_game() -> void:
 	score = 0
 	var first_block = spawn_block()
@@ -40,3 +44,7 @@ func _on_point_made():
 	spawn_block()
 	score += 1
 	$Player/HUD.update_score_label(score)
+
+
+func _on_Player_game_over():
+	$Player/HUD/RestartButton.show()
