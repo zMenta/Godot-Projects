@@ -9,6 +9,11 @@ func _ready() -> void:
 	new_game()
 
 
+func _process(delta) -> void:
+	if Input.is_action_pressed("restart"):
+		get_tree().reload_current_scene()
+
+
 func new_game() -> void:
 	score = 0
 	var first_block = spawn_block()
