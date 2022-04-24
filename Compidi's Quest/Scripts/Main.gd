@@ -31,11 +31,7 @@ func spawn_block():
 	return block
 
 
-func update_score_label(score: int) -> void:
-	$Player/Camera/Hud/ScoreLabel.text = str(score)
-
-
 func _on_point_made():
 	spawn_block()
 	score += 1
-	update_score_label(score)
+	$Player/HUD.update_score_label(score)

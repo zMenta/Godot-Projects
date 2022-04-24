@@ -1,13 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Block.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=3]
-[ext_resource path="res://Assets/Fonts/ARIAL.TTF" type="DynamicFontData" id=4]
-
-[sub_resource type="DynamicFont" id=1]
-size = 35
-font_data = ExtResource( 4 )
+[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=4]
 
 [node name="Main" type="Node"]
 script = ExtResource( 3 )
@@ -29,13 +25,4 @@ limit_left = -200
 limit_top = -100
 limit_bottom = 720
 
-[node name="Hud" type="CanvasLayer" parent="Player/Camera"]
-
-[node name="ScoreLabel" type="Label" parent="Player/Camera/Hud"]
-anchor_right = 1.0
-margin_top = 48.0
-margin_bottom = 50.0
-custom_fonts/font = SubResource( 1 )
-text = "0"
-align = 1
-valign = 1
+[node name="HUD" parent="Player" instance=ExtResource( 4 )]
