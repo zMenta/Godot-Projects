@@ -31,4 +31,6 @@ func _on_Area2D_body_entered(body: Node) -> void:
 
 
 func _on_VisibilityNotifier2D_screen_exited():
-	queue_free()
+	yield(get_tree().create_timer(5),"timeout")
+	if not $VisibilityNotifier2D.is_on_screen():
+		queue_free()
