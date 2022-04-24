@@ -18,7 +18,7 @@ func _ready() -> void:
 	$ColorRect.set_size(Vector2(rect_size_x , screen_size.y))
 
 
-func connect_to_owner(target: Node) -> void:
+func connect_to_target(target: Node) -> void:
 	connect("point_made", target, "_on_point_made")
 
 

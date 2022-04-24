@@ -10,13 +10,12 @@ block_scene = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 55, 303 )
-rotation = -0.00877057
 
 [node name="Camera" type="Camera2D" parent="Player"]
 offset = Vector2( 150, 0 )
 current = true
-process_mode = 0
 limit_left = -200
+limit_top = -100
 limit_bottom = 720
 
 [node name="BlockPosition" type="Position2D" parent="."]

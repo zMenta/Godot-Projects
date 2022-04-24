@@ -1,6 +1,8 @@
 extends Node
 
 export(PackedScene) var block_scene
+var score: int
+
 
 func _ready() -> void:
 	randomize()
@@ -8,6 +10,7 @@ func _ready() -> void:
 
 
 func new_game() -> void:
+	score = 0
 	var first_block = spawn_block()
 	first_block.is_point_obtainable = false
 	spawn_block()
@@ -23,12 +26,12 @@ func spawn_block():
 	block.position = block_spawn_location.position
 	block_spawn_location.position += Vector2(x_random_position, y_random_position)
 	
-	block.connect_to_owner(self)
+	block.connect_to_target(self)
 	add_child(block)
 	return block
 
+
 func _on_point_made():
 	spawn_block()
-	print("point made!")
-	$Player.set_sleeping(true)
-	
+	score += 1
+	print("score: ",score)
