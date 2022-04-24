@@ -28,3 +28,7 @@ func _on_Area2D_body_entered(body: Node) -> void:
 	if $Area2D.overlaps_body(body) and is_point_obtainable == true:
 		emit_signal("point_made")
 		is_point_obtainable = false
+
+
+func _on_VisibilityNotifier2D_screen_exited():
+	queue_free()
