@@ -48,3 +48,4 @@ func _on_point_made():
 
 func _on_Player_game_over():
 	$Player/HUD/RestartButton.show()
+	$Player/HUD/Title.show()
