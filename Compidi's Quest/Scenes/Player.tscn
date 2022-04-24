@@ -62,6 +62,7 @@ theme = SubResource( 5 )
 min_value = 100.0
 max_value = 600.0
 value = 100.0
+percent_visible = false
 
 [node name="IsOnFloorRay" type="RayCast2D" parent="."]
 enabled = true
