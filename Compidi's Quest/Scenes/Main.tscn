@@ -31,7 +31,7 @@ limit_bottom = 720
 
 [node name="Hud" type="CanvasLayer" parent="Player/Camera"]
 
-[node name="Label" type="Label" parent="Player/Camera/Hud"]
+[node name="ScoreLabel" type="Label" parent="Player/Camera/Hud"]
 anchor_right = 1.0
 margin_top = 48.0
 margin_bottom = 50.0
