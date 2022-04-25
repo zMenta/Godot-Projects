@@ -6,11 +6,11 @@ var direction : Vector2
 var velocity := 0
 var speed_y : float
 var speed_x : float
-onready var ray_cast = $IsOnFloorRay
+onready var bottom_ray_cast = $IsOnFloorRay
 
-func _integrate_forces(state):
+func _integrate_forces(state):	
 	# RayCast2D
-	if ray_cast.is_colliding():
+	if bottom_ray_cast.is_colliding():
 		# Controls
 		if Input.is_action_pressed("m1_click"):
 			direction = get_local_mouse_position().normalized()
@@ -23,6 +23,10 @@ func _integrate_forces(state):
 			$ProgressBar.value = 0
 
 func _process(delta: float) -> void:
+	# If is flipped
+	if $OnTopRay.is_colliding():
+		emit_signal("game_over")
+	
 	# Animation
 	if linear_velocity.length() > 70:
 		$AnimatedSprite.set_animation("jump")
