@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Sprites/Tank sprite.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 19.3581
+height = 59.3537
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CannonPivot" type="Position2D" parent="."]
+position = Vector2( 0, -20 )
+
+[node name="Cannon" type="Sprite" parent="CannonPivot"]
+position = Vector2( 25, 0 )
+rotation = 1.5708
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 9, -1, 36, 58 )
+
+[node name="Hull" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 59.5978, 102, 42.4022 )
+
+[node name="WheelLeft" type="Sprite" parent="."]
+position = Vector2( -31, 14 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 48, 3, 54, 54 )
+
+[node name="WheelRight" type="Sprite" parent="."]
+position = Vector2( 30, 14 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 48, 3, 54, 54 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 1 )

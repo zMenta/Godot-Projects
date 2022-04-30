@@ -24,6 +24,7 @@ func new_game() -> void:
 	first_block.is_point_obtainable = false
 	spawn_block()
 	spawn_block()
+	spawn_block()
 	
 
 func spawn_block():
