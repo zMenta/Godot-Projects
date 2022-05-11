@@ -9,9 +9,6 @@ height = 52.0002
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CannonPivot" type="Position2D" parent="."]
 position = Vector2( 0, -20 )
@@ -28,20 +25,29 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 59.5978, 102, 42.4022 )
 
-[node name="WheelLeft" type="Sprite" parent="."]
-position = Vector2( -31, 14 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 48, 3, 54, 54 )
-
-[node name="WheelRight" type="Sprite" parent="."]
-position = Vector2( 30, 14 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 48, 3, 54, 54 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource( 1 )
+
+[node name="Wheels" type="Node2D" parent="."]
+
+[node name="Wheel1" type="Sprite" parent="Wheels"]
+position = Vector2( -41, 14 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 48, 3, 54, 54 )
+
+[node name="Wheel2" type="Sprite" parent="Wheels"]
+position = Vector2( -2, 15 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 48, 3, 54, 54 )
+
+[node name="Wheel3" type="Sprite" parent="Wheels"]
+position = Vector2( 37, 15 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 48, 3, 54, 54 )

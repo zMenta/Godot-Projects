@@ -4,6 +4,7 @@ export var SPEED := 350
 export var WHEEL_ROTATION_SPEED := 6
 
 var screen = OS.get_window_safe_area().size
+onready var wheels := $Wheels.get_children()
 
 func _physics_process(delta: float) -> void:
 	position.x = clamp(position.x, 0+60, screen.x-60)
@@ -13,11 +14,11 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_pressed("ui_left"):
 		direction.x = -1
-		$WheelRight.rotation_degrees -= WHEEL_ROTATION_SPEED
-		$WheelLeft.rotation_degrees -= WHEEL_ROTATION_SPEED
+		for wheel in wheels:
+			wheel.rotation_degrees -= WHEEL_ROTATION_SPEED
 	if Input.is_action_pressed("ui_right"):
-		$WheelRight.rotation_degrees += WHEEL_ROTATION_SPEED
-		$WheelLeft.rotation_degrees += WHEEL_ROTATION_SPEED
+		for wheel in wheels:
+			wheel.rotation_degrees += WHEEL_ROTATION_SPEED
 		direction.x = 1
 
 	move_and_slide(SPEED*direction, Vector2.UP)
