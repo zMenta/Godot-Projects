@@ -40,7 +40,7 @@ position = Vector2( -52, -14 )
 curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="UfoPath"]
-position = Vector2( 39.0441, 151.735 )
+position = Vector2( 307, 173 )
 rotation = 0.231507
 rotate = false
 
