@@ -7,7 +7,7 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 245.107, -130.688, -245.107, 130.688, 307, 173, 0, 0, 0, 0, 370, 266, -60.4348, 82.4174, 60.4348, -82.4174, 899, 271, 120, -2, -120, 2, 549, 105, 0, 0, 0, 0, 307, 173 )
+"points": PoolVector2Array( 245.107, -130.688, -245.107, 130.688, 307, 173, 0, 0, 0, 0, 370, 266, -60.4348, 82.4174, 60.4348, -82.4174, 716, 271, 120, -2, -120, 2, 549, 105, 0, 0, 0, 0, 307, 173 )
 }
 
 [node name="Main" type="Node"]
@@ -45,4 +45,28 @@ rotation = 0.231507
 rotate = false
 
 [node name="Ufo" parent="UfoPath/PathFollow2D" instance=ExtResource( 3 )]
+rotation = -0.218166
+
+[node name="Ufo2" parent="UfoPath/PathFollow2D" instance=ExtResource( 3 )]
+position = Vector2( 120.344, -38.6432 )
+rotation = -0.218166
+
+[node name="Ufo3" parent="UfoPath/PathFollow2D" instance=ExtResource( 3 )]
+position = Vector2( 239.896, -54.4967 )
+rotation = -0.218166
+
+[node name="Ufo4" parent="UfoPath/PathFollow2D" instance=ExtResource( 3 )]
+position = Vector2( 355.395, -39.6 )
+rotation = -0.218166
+
+[node name="Ufo5" parent="UfoPath/PathFollow2D" instance=ExtResource( 3 )]
+position = Vector2( 272.748, 45.6371 )
+rotation = -0.218166
+
+[node name="Ufo6" parent="UfoPath/PathFollow2D" instance=ExtResource( 3 )]
+position = Vector2( 134.181, 50.5618 )
+rotation = -0.218166
+
+[node name="Ufo7" parent="UfoPath/PathFollow2D" instance=ExtResource( 3 )]
+position = Vector2( -12.6241, 72.8398 )
 rotation = -0.218166

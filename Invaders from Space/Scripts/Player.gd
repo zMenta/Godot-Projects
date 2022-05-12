@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+export (PackedScene) var Bullet 
 export var SPEED := 350
 export var WHEEL_ROTATION_SPEED := 6
 
@@ -11,7 +12,9 @@ func _physics_process(delta: float) -> void:
 	var direction := Vector2.ZERO
 	var mouse_position = get_global_mouse_position()
 	$CannonPivot.look_at(mouse_position)
-
+	
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
 	if Input.is_action_pressed("ui_left"):
 		direction.x = -1
 		for wheel in wheels:
@@ -22,3 +25,10 @@ func _physics_process(delta: float) -> void:
 		direction.x = 1
 
 	move_and_slide(SPEED*direction, Vector2.UP)
+	
+func shoot() -> void:
+	var bullet = Bullet.instance()
+	owner.add_child(bullet)
+	bullet.transform = $CannonPivot/Cannon/MuzzlePosition.global_transform
+	
+	
