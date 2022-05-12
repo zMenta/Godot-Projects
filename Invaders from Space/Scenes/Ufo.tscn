@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Sprites/Alien.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/AlienBullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Ufo.gd" type="Script" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -24,6 +26,8 @@ height = 180.0
 
 [node name="Ufo" type="Area2D" groups=["aliens"]]
 scale = Vector2( 0.3, 0.3 )
+script = ExtResource( 3 )
+Bullet = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
@@ -32,3 +36,12 @@ playing = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource( 4 )
+
+[node name="Muzzle" type="Position2D" parent="."]
+position = Vector2( 0, 100 )
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]
