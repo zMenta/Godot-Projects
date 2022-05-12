@@ -3,6 +3,8 @@ extends KinematicBody2D
 export (PackedScene) var Bullet 
 export var SPEED := 350
 export var WHEEL_ROTATION_SPEED := 6
+export (Vector2) var recoil 
+export (float) var recoil_recovery_time
 
 var can_shoot := true
 
@@ -32,10 +34,22 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide(SPEED*direction, Vector2.UP)
 	
+
 func shoot() -> void:
 	var bullet = Bullet.instance()
 	owner.add_child(bullet)
 	bullet.transform = $CannonPivot/Cannon/MuzzlePosition.global_transform
+	recoil()
+	
+func recoil() -> void:
+	"""
+	Cannon and Hull recoil on shoot()
+	"""
+	$CannonPivot/Cannon.position -= recoil
+	$Hull.position += Vector2(0,recoil.x/6)
+	yield(get_tree().create_timer(recoil_recovery_time), "timeout")
+	$Hull.position -= Vector2(0,recoil.x/6)
+	$CannonPivot/Cannon.position += recoil
 	
 	
 func _on_ShootCooldown_timeout() -> void:
