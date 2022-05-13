@@ -11,6 +11,9 @@ height = 3.0
 collision_layer = 4
 collision_mask = 10
 script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": "Tonk Bullet"
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 rotation = 1.5708

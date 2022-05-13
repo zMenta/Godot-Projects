@@ -38,6 +38,7 @@ func _physics_process(delta: float) -> void:
 func shoot() -> void:
 	var bullet = Bullet.instance()
 	owner.add_child(bullet)
+	bullet.connect("alien_hit", owner, "on_Alien_hit")
 	bullet.transform = $CannonPivot/Cannon/MuzzlePosition.global_transform
 	recoil()
 	

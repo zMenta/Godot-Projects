@@ -2,6 +2,7 @@ extends Area2D
 
 export var speed := 600
 
+signal alien_hit
 
 func _physics_process(delta: float) -> void:
 	position += transform.x * delta * speed
@@ -13,10 +14,11 @@ func _physics_process(delta: float) -> void:
 #		body.queue_free()
 #	queue_free()
 
+
 #Aliens are AREA2D
 func _on_Bullet_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
 	if area.is_in_group("aliens"):
-		area.queue_free()
+		emit_signal("alien_hit")
 	queue_free()
 
 func _on_VisibilityNotifier2D_screen_exited() -> void:
