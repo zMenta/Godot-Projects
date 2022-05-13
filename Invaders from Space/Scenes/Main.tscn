@@ -37,6 +37,8 @@ texture = ExtResource( 2 )
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2( 514, 587 )
+collision_layer = 0
+collision_mask = 12
 __meta__ = {
 "_edit_group_": true
 }
