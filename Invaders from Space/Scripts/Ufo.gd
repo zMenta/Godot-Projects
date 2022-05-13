@@ -2,6 +2,8 @@ extends Area2D
 
 export (PackedScene) var Bullet 
 
+var screen = OS.get_window_safe_area().size
+
 
 func death():
 	queue_free()
