@@ -52,6 +52,8 @@ func recoil() -> void:
 	$Hull.position -= Vector2(0,recoil.x/6)
 	$CannonPivot/Cannon.position += recoil
 	
+func death():
+	queue_free()
 	
 func _on_ShootCooldown_timeout() -> void:
 	can_shoot = true
