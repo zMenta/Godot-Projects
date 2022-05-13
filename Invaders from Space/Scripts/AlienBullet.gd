@@ -10,4 +10,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_AlienBullet_body_entered(body: Node) -> void:
 	queue_free()
-	print("Body entered")
+
+
+func _on_AlienBullet_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
+	queue_free()

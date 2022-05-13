@@ -9,6 +9,7 @@ radius = 16.9999
 height = 52.0002
 
 [node name="Player" type="KinematicBody2D"]
+collision_mask = 10
 script = ExtResource( 2 )
 Bullet = ExtResource( 3 )
 recoil = Vector2( 20, 0 )
@@ -61,7 +62,6 @@ region_enabled = true
 region_rect = Rect2( 48, 3, 54, 54 )
 
 [node name="ShootCooldown" type="Timer" parent="."]
-wait_time = 1.25
 one_shot = true
 
 [connection signal="timeout" from="ShootCooldown" to="." method="_on_ShootCooldown_timeout"]

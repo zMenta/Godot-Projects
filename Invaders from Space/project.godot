@@ -22,6 +22,13 @@ shoot={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="tank"
+2d_physics/layer_2="aliens"
+2d_physics/layer_3="tankBullet"
+2d_physics/layer_4="alienBullet"
+
 [physics]
 
 common/enable_pause_aware_picking=true
