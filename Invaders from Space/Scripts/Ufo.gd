@@ -3,7 +3,7 @@ extends Area2D
 export (PackedScene) var Bullet 
 
 var screen := OS.get_window_safe_area().size
-var speed := 100
+var speed := 150
 var velocity := Vector2.ZERO
 onready var new_position := position
 
@@ -14,7 +14,7 @@ func _physics_process(delta):
 	if new_position != position:
 		var direction = position.direction_to(new_position)
 		var lenght = position.distance_to(new_position)
-		if lenght > 1:
+		if lenght > 3:
 			velocity = direction * speed * delta
 		else:
 			velocity = Vector2.ZERO
