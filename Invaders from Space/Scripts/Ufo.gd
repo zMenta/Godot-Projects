@@ -13,13 +13,16 @@ func _physics_process(delta):
 	position.y = clamp(position.y, 0, screen.y)
 	if new_position != position:
 		var direction = position.direction_to(new_position)
-		var lenght = (position - new_position).length()
+		var lenght = position.distance_to(new_position)
 		if lenght > 1:
 			velocity = direction * speed * delta
 		else:
 			velocity = Vector2.ZERO
 		position += velocity
 		
+
+func create_new_position():
+	new_position = Vector2(rand_range(0,screen.x - 60), rand_range(0,screen.y - 150))
 
 
 func death():
@@ -31,6 +34,7 @@ func shoot() -> void:
 	owner.add_child(bullet)
 	bullet.connect("player_hit", owner, "on_Player_hit")
 	bullet.transform = $Muzzle.global_transform
+	create_new_position()
 
 
 func _on_ShootTimer_timeout() -> void:
