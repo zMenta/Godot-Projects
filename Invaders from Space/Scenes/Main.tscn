@@ -48,122 +48,92 @@ position = Vector2( 491, 535 )
 [node name="Ufo" parent="." instance=ExtResource( 3 )]
 position = Vector2( 958, 80 )
 rotation = 0.013341
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Ufo2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 967, 352 )
 rotation = 0.013341
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Ufo3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 99, 334 )
 rotation = 0.013341
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Ufo4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 86, 106 )
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Ufo5" parent="." instance=ExtResource( 3 )]
 position = Vector2( 515, 178 )
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Ufo6" parent="." instance=ExtResource( 3 )]
 position = Vector2( 515, 178 )
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Ufo7" parent="." instance=ExtResource( 3 )]
 position = Vector2( 515, 178 )
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Ufo8" parent="." instance=ExtResource( 3 )]
 position = Vector2( 515, 178 )
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Ufo9" parent="." instance=ExtResource( 3 )]
 position = Vector2( 515, 178 )
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Ufo10" parent="." instance=ExtResource( 3 )]
 position = Vector2( 515, 178 )
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Ufo11" parent="." instance=ExtResource( 3 )]
 position = Vector2( 515, 178 )
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Ufo12" parent="." instance=ExtResource( 3 )]
 position = Vector2( 515, 178 )
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Ufo13" parent="." instance=ExtResource( 3 )]
 position = Vector2( 515, 178 )
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Ufo14" parent="." instance=ExtResource( 3 )]
 position = Vector2( 515, 178 )
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Ufo15" parent="." instance=ExtResource( 3 )]
 position = Vector2( 515, 178 )
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Ufo16" parent="." instance=ExtResource( 3 )]
 position = Vector2( 515, 178 )
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Ufo17" parent="." instance=ExtResource( 3 )]
 position = Vector2( 515, 178 )
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Ufo18" parent="." instance=ExtResource( 3 )]
 position = Vector2( 515, 178 )
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Ufo19" parent="." instance=ExtResource( 3 )]
 position = Vector2( 515, 178 )
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Ufo20" parent="." instance=ExtResource( 3 )]
 position = Vector2( 515, 178 )
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Ufo21" parent="." instance=ExtResource( 3 )]
 position = Vector2( 515, 178 )
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Ufo22" parent="." instance=ExtResource( 3 )]
 position = Vector2( 515, 178 )
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Ufo23" parent="." instance=ExtResource( 3 )]
 position = Vector2( 515, 178 )
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Ufo24" parent="." instance=ExtResource( 3 )]
 position = Vector2( 515, 178 )
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Ufo25" parent="." instance=ExtResource( 3 )]
 position = Vector2( 515, 178 )
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Ufo26" parent="." instance=ExtResource( 3 )]
 position = Vector2( 515, 178 )
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Ufo27" parent="." instance=ExtResource( 3 )]
 position = Vector2( 515, 178 )
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Ufo28" parent="." instance=ExtResource( 3 )]
 position = Vector2( 515, 178 )
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Ufo29" parent="." instance=ExtResource( 3 )]
 position = Vector2( 515, 178 )
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Ufo30" parent="." instance=ExtResource( 3 )]
 position = Vector2( 515, 178 )
-scale = Vector2( 0.3, 0.3 )

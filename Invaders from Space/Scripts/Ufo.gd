@@ -9,8 +9,6 @@ onready var new_position := position
 
 
 func _physics_process(delta):
-	position.x = clamp(position.x, 0+60, screen.x-60)
-	position.y = clamp(position.y, 0, screen.y)
 	if new_position != position:
 		var direction = position.direction_to(new_position)
 		var lenght = position.distance_to(new_position)
