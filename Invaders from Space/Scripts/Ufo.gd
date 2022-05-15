@@ -29,8 +29,8 @@ func death():
 
 func shoot() -> void:
 	var bullet = Bullet.instance()
-	owner.add_child(bullet)
-	bullet.connect("player_hit", owner, "on_Player_hit")
+	get_parent().add_child(bullet)
+	bullet.connect("player_hit", get_parent(), "on_Player_hit")
 	bullet.transform = $Muzzle.global_transform
 	create_new_position()
 
