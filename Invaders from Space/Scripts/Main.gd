@@ -1,6 +1,7 @@
 extends Node
 
 export (PackedScene) var Ufo
+var score := 0
 
 func _ready():
 	randomize()
@@ -26,6 +27,8 @@ func on_Player_hit():
 
 
 func on_Alien_hit(alien):
+	score += 1
+	$Hud/Score.text = str(score)
 	alien.death()
 
 

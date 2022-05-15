@@ -62,4 +62,22 @@ rotate = false
 [node name="AlienSpawnTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="Hud" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Score" type="Label" parent="Hud"]
+margin_left = 16.0
+margin_top = 80.0
+margin_right = 57.0
+margin_bottom = 94.0
+text = "SCORE"
+
+[node name="Time" type="Label" parent="Hud"]
+margin_left = 16.0
+margin_top = 104.0
+margin_right = 56.0
+margin_bottom = 118.0
+text = "TIME"
+
 [connection signal="timeout" from="AlienSpawnTimer" to="." method="_on_AlienSpawnTimer_timeout"]
