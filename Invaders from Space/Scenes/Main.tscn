@@ -71,7 +71,7 @@ margin_left = 16.0
 margin_top = 80.0
 margin_right = 57.0
 margin_bottom = 94.0
-text = "SCORE"
+text = "Kills"
 
 [node name="Time" type="Label" parent="Hud"]
 margin_left = 16.0
@@ -79,5 +79,12 @@ margin_top = 104.0
 margin_right = 56.0
 margin_bottom = 118.0
 text = "TIME"
+
+[node name="GameScore" type="Label" parent="Hud"]
+margin_left = 14.0
+margin_top = 56.0
+margin_right = 54.0
+margin_bottom = 70.0
+text = "SCORE:"
 
 [connection signal="timeout" from="AlienSpawnTimer" to="." method="_on_AlienSpawnTimer_timeout"]
