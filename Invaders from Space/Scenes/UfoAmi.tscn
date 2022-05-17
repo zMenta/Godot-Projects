@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Sprites/Alien.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/Ufo.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/UfoAmi.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/AlienBullet.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Sprites/Tank sprite.png" type="Texture" id=4]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -24,12 +25,33 @@ animations = [ {
 radius = 66.0
 height = 180.0
 
-[node name="Ufo" type="Area2D" groups=["aliens"]]
+[node name="UfoAmi" type="Area2D" groups=["aliens"]]
+modulate = Color( 1, 0.243137, 0.47451, 1 )
 scale = Vector2( 0.3, 0.3 )
 collision_layer = 2
-collision_mask = 4
+collision_mask = 5
 script = ExtResource( 2 )
 Bullet = ExtResource( 3 )
+
+[node name="CannonPivot" type="Position2D" parent="."]
+position = Vector2( 0, 40 )
+rotation = 1.5708
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Cannon" type="Sprite" parent="CannonPivot"]
+modulate = Color( 1, 0.243137, 0.47451, 1 )
+position = Vector2( 66.6666, 3.05176e-05 )
+rotation = 1.5708
+scale = Vector2( 2.3, 2 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 9, -1, 36, 58 )
+
+[node name="Muzzle" type="Position2D" parent="CannonPivot"]
+position = Vector2( 113.333, 1.72956e-05 )
+rotation = -1.5708
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
@@ -38,9 +60,6 @@ playing = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource( 4 )
-
-[node name="Muzzle" type="Position2D" parent="."]
-position = Vector2( 0, 100 )
 
 [node name="ShootTimer" type="Timer" parent="."]
 wait_time = 2.0
