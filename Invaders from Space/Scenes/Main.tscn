@@ -17,6 +17,7 @@ _data = {
 [node name="Main" type="Node"]
 script = ExtResource( 4 )
 Ufo = ExtResource( 3 )
+UfoAmi = ExtResource( 5 )
 
 [node name="Background" type="Node2D" parent="."]
 position = Vector2( -58, 248 )
@@ -61,6 +62,7 @@ rotation = -1.58966
 rotate = false
 
 [node name="AlienSpawnTimer" type="Timer" parent="."]
+autostart = true
 
 [node name="Hud" type="Control" parent="."]
 margin_right = 40.0
@@ -86,8 +88,5 @@ margin_top = 56.0
 margin_right = 54.0
 margin_bottom = 70.0
 text = "SCORE:"
-
-[node name="UfoAmi" parent="." instance=ExtResource( 5 )]
-position = Vector2( 485, 206 )
 
 [connection signal="timeout" from="AlienSpawnTimer" to="." method="_on_AlienSpawnTimer_timeout"]

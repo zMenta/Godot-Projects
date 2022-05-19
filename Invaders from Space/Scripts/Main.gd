@@ -1,6 +1,7 @@
 extends Node
 
 export (PackedScene) var Ufo
+export (PackedScene) var UfoAmi
 var score := 0
 var seconds := 0
 var minutes := 0
@@ -13,8 +14,13 @@ func _ready():
 
 
 func spawn_alien():
-	var Alien = Ufo.instance()
-
+	var Alien = null
+	if randi() % 100 >= 80:
+		Alien = UfoAmi.instance()
+		Alien.player = $Player
+	else:
+		Alien = Ufo.instance()
+	
 	var alien_spawn_path = $AlienSpawnPath/PathFollow2D
 	alien_spawn_path.offset = randi()
 
