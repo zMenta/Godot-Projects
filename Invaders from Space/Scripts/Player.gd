@@ -9,7 +9,7 @@ export (float) var recoil_recovery_time
 var can_shoot := true
 var alive := true
 
-var screen = OS.get_window_safe_area().size
+onready var screen := get_viewport().get_visible_rect().size
 onready var wheels := $Wheels.get_children()
 
 func _physics_process(delta: float) -> void:
