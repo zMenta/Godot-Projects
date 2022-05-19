@@ -83,10 +83,17 @@ margin_bottom = 118.0
 text = "TIME"
 
 [node name="GameScore" type="Label" parent="Hud"]
-margin_left = 14.0
-margin_top = 56.0
-margin_right = 54.0
-margin_bottom = 70.0
-text = "SCORE:"
+margin_left = 655.0
+margin_top = 573.0
+margin_right = 700.0
+margin_bottom = 587.0
+text = "Total score:"
+
+[node name="RestartText" type="Label" parent="Hud"]
+margin_left = 29.0
+margin_top = 568.0
+margin_right = 69.0
+margin_bottom = 582.0
+text = "Press \"R\" to restart"
 
 [connection signal="timeout" from="AlienSpawnTimer" to="." method="_on_AlienSpawnTimer_timeout"]
