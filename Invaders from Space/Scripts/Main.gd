@@ -51,9 +51,9 @@ func on_Alien_hit(alien):
 
 func _on_AlienSpawnTimer_timeout():
 	if player_alive == true:
-		$Hud/Time.text = "Time " + str(minutes) + " : " + str(seconds)	
 		seconds += 1
-		$Hud/GameScore.text = "Total score: " + str(seconds + score)
+		$Hud/GameScore.text = "Total score: " + str((minutes * 60) + seconds + score)
+		$Hud/Time.text = "Time " + str(minutes) + " : " + str(seconds)	
 	if seconds >= 60:
 		minutes += 1
 		seconds = 0
