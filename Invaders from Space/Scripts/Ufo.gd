@@ -2,7 +2,7 @@ extends Area2D
 
 export (PackedScene) var Bullet 
 
-var screen := OS.get_window_safe_area().size
+onready var screen := get_viewport().get_visible_rect().size
 var speed := 150
 var velocity := Vector2.ZERO
 onready var new_position := position
@@ -20,7 +20,7 @@ func _physics_process(delta):
 		
 
 func create_new_position():
-	new_position = Vector2(rand_range(0,screen.x - 60), rand_range(0,screen.y - 150))
+	new_position = Vector2(rand_range(0,screen.x - 60), rand_range(0,screen.y * 0.6))
 
 
 func death():

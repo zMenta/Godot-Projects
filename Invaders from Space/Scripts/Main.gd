@@ -10,7 +10,13 @@ var enemy_list := []
 
 
 func _ready():
+	OS.window_maximized = true
 	randomize()
+	
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_pressed("restart_game"):
+		get_tree().reload_current_scene()
 
 
 func spawn_alien():
