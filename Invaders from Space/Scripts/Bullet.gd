@@ -4,6 +4,9 @@ export var speed := 600
 
 signal alien_hit(alien)
 
+func _ready() -> void:
+	$OnreadyExplosion.emitting = true
+
 func _physics_process(delta: float) -> void:
 	position += transform.x * delta * speed
 	
@@ -18,9 +21,9 @@ func _on_Bullet_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index
 	if area.is_in_group("aliens"):
 		emit_signal("alien_hit", area)
 	speed = 0
-	$BulletExplosion.emitting = true
+	$Explosion.emitting = true
 	$Sprite.hide()
-	yield(get_tree().create_timer($BulletExplosion.lifetime),"timeout")
+	yield(get_tree().create_timer($Explosion.lifetime),"timeout")
 	queue_free()
 
 
