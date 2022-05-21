@@ -24,6 +24,9 @@ func create_new_position():
 
 
 func death():
+#	$BulletExplosion.emitting = true
+#	$CollisionShape2D.disabled = true
+#	yield(get_tree().create_timer($BulletExplosion.lifetime),"timeout")
 	queue_free()
 
 

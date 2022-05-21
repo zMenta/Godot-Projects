@@ -14,8 +14,13 @@ func _on_Bullet_body_entered(body: Node) -> void:
 
 #Aliens are AREA2D
 func _on_Bullet_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
+	$CollisionShape2D.set_deferred("disabled", true)
 	if area.is_in_group("aliens"):
 		emit_signal("alien_hit", area)
+	speed = 0
+	$BulletExplosion.emitting = true
+	$Sprite.hide()
+	yield(get_tree().create_timer($BulletExplosion.lifetime),"timeout")
 	queue_free()
 
 
