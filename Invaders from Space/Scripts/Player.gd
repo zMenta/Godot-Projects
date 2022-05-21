@@ -56,6 +56,8 @@ func recoil() -> void:
 	
 func death():
 	alive = false
+	$Explosion.emitting = true
+	yield(get_tree().create_timer($Explosion.lifetime),"timeout")
 	hide()
 	
 func _on_ShootCooldown_timeout() -> void:
