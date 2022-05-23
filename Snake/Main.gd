@@ -53,7 +53,7 @@ func draw_snake() -> void:
 			if head_direction == UP: $SnakeApple.set_cell(body.x, body.y, SNAKE, false, false, false, Vector2(2,1))
 			if head_direction == DOWN: $SnakeApple.set_cell(body.x, body.y, SNAKE, false, false, false, Vector2(3,0))
 		# Snake TAIL
-		if body_index == snake_body.size() - 1:
+		elif body_index == snake_body.size() - 1:
 			var tail_direction: Vector2 = snake_body[snake_body.size() - 2].direction_to(snake_body[snake_body.size() - 1])
 			if tail_direction == RIGHT: $SnakeApple.set_cell(body.x, body.y, SNAKE, false, false, false, Vector2(1,0))
 			if tail_direction == LEFT: $SnakeApple.set_cell(body.x, body.y, SNAKE, false, false, false, Vector2(0,0))
