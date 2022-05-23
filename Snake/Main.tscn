@@ -57,7 +57,7 @@ cell_size = Vector2( 40, 40 )
 format = 1
 
 [node name="MoveSnakeTick" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.15
 autostart = true
 
 [connection signal="timeout" from="MoveSnakeTick" to="." method="_on_MoveSnakeTick_timeout"]
