@@ -43,6 +43,7 @@ func shoot() -> void:
 	bullet.connect("alien_hit", owner, "on_Alien_hit")
 	bullet.transform = $CannonPivot/Cannon/MuzzlePosition.global_transform
 	recoil()
+	$ShootSound.play()
 	
 func recoil() -> void:
 	"""
