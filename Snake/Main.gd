@@ -10,8 +10,7 @@ const RIGHT := Vector2(1,0)
 var apple_position: Vector2
 var snake_body := [Vector2(5,10), Vector2(4,10), Vector2(3,10)]
 var snake_direction := Vector2(1,0)
-
-
+var score := 0
 
 func _ready() -> void:
 	spawn_apple()
@@ -36,12 +35,12 @@ func spawn_apple() -> void:
 	var y = randi() % 20
 	apple_position = Vector2(x,y)
 	$SnakeApple.set_cell(x,y,APPLE)
+	
+	if apple_position in snake_body:
+		spawn_apple()
 
 func draw_snake() -> void:
 	clear_tiles(SNAKE)
-#	for body in snake_body:
-#		$SnakeApple.set_cell(body.x, body.y, SNAKE, false, false, false, Vector2(8,0))
-
 	for body_index in snake_body.size():
 		var body = snake_body[body_index]
 		
@@ -59,9 +58,26 @@ func draw_snake() -> void:
 			if tail_direction == LEFT: $SnakeApple.set_cell(body.x, body.y, SNAKE, false, false, false, Vector2(0,0))
 			if tail_direction == UP: $SnakeApple.set_cell(body.x, body.y, SNAKE, false, false, false, Vector2(0,1))
 			if tail_direction == DOWN: $SnakeApple.set_cell(body.x, body.y, SNAKE, false, false, false, Vector2(1,1))
-
+		# Snake Body
 		else:
-			$SnakeApple.set_cell(body.x, body.y, SNAKE, false, false, false, Vector2(8,0))
+			var previous_body: Vector2 = snake_body[body_index + 1].direction_to(body)
+			var next_body: Vector2 = snake_body[body_index - 1].direction_to(body)
+			
+			# Snake Middle
+			if (previous_body.x == next_body.x):
+				$SnakeApple.set_cell(body.x, body.y, SNAKE, false, false, false, Vector2(4,1))
+			elif (previous_body.y == next_body.y):
+				$SnakeApple.set_cell(body.x, body.y, SNAKE, false, false, false, Vector2(4,0))
+			
+			# Snake Corners
+			elif (previous_body == UP and next_body == LEFT) or (previous_body == LEFT and next_body == UP):
+				$SnakeApple.set_cell(body.x, body.y, SNAKE, false, false, false, Vector2(5,0))	
+			elif (previous_body == RIGHT and next_body == DOWN) or (previous_body == DOWN and next_body == RIGHT):
+				$SnakeApple.set_cell(body.x, body.y, SNAKE, false, false, false, Vector2(6,1))		
+			elif (previous_body == UP and next_body == RIGHT) or (previous_body == RIGHT and next_body == UP) or (previous_body == UP and next_body == RIGHT):
+				$SnakeApple.set_cell(body.x, body.y, SNAKE, false, false, false, Vector2(6,0))
+			elif (previous_body == DOWN and next_body == LEFT) or (previous_body == LEFT and next_body == DOWN):
+				$SnakeApple.set_cell(body.x, body.y, SNAKE, false, false, false, Vector2(5,1))		
 
 func move_snake() -> void:
 	var body_copy := snake_body.slice(0, snake_body.size() - 2)
@@ -75,6 +91,7 @@ func clear_tiles(id: int) -> void:
 		$SnakeApple.set_cell(cell.x, cell.y, -1)
 
 func grow_snake() -> void:
+	score += 1
 	var snake_tail_copy: Vector2 = snake_body[snake_body.size() - 1]
 	snake_body.append(snake_tail_copy)
 
@@ -83,6 +100,7 @@ func is_apple_eaten() -> void:
 	if apple_position == snake_body[0]:
 		spawn_apple()
 		grow_snake()
+		$EatAppleSound.play()
 
 func is_game_over() -> void:
 	var head: Vector2 = snake_body[0]
@@ -96,10 +114,12 @@ func is_game_over() -> void:
 			restart_game()
 
 func restart_game():
+	score = 0
 	snake_body = [Vector2(5,10), Vector2(4,10), Vector2(3,10)]
 	snake_direction = Vector2(1,0)
 
 func _on_MoveSnakeTick_timeout() -> void:
+	$ScoreLabel.text = str(score)
 	move_snake()
 	draw_snake()
 	is_apple_eaten()
