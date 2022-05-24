@@ -15,7 +15,7 @@ position = Vector2( -18, 0 )
 shape = SubResource( 1 )
 
 [node name="Door" type="RigidBody2D" parent="." groups=["bodies"]]
-mass = 10.2041
+mass = 5.10204
 gravity_scale = 0.0
 sleeping = true
 

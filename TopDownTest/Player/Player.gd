@@ -1,9 +1,10 @@
 extends KinematicBody2D
 
 export var speed := 200
-export var friction := 0.15
-export var acceleration = 0.1
-export (int, 0, 100) var push_force = 100
+export var friction := 0.2
+export var acceleration := 0.1
+export (int, 0, 100) var push_force := 100
+export (float, 0, 1)var turning_weight := 0.1
 
 var velocity := Vector2.ZERO
 
@@ -21,7 +22,12 @@ func get_input() -> Vector2:
 	
 func _physics_process(delta: float) -> void:
 	var direction := get_input()
-	look_at(get_global_mouse_position())
+
+	# Player Rotation to mouse position
+	rotation = lerp_angle(rotation,
+	 (get_global_mouse_position() - global_position).normalized().angle(),
+	 turning_weight)
+
 	if direction.length() > 0:
 		velocity = lerp(velocity, direction.normalized() * speed, acceleration)
 	else:
