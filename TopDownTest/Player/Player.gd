@@ -1,10 +1,11 @@
 extends KinematicBody2D
 
-export var speed := 200
+export var speed := 100
 export var friction := 0.2
 export var acceleration := 0.1
 export (int, 0, 100) var push_force := 100
-export (float, 0, 1)var turning_weight := 0.1
+export (float, 0, 1) var turning_weight := 0.1
+export (float, 0, 1)onready var camera_weigth := 1
 
 var velocity := Vector2.ZERO
 
@@ -20,9 +21,19 @@ func get_input() -> Vector2:
 		input.y -= 1
 	return input
 	
+func move_camera(target: Vector2, interpolation_weight := camera_weigth) -> void:
+	var mid_x = (self.global_position.x + target.x) / 2
+	var mid_y = (self.global_position.y + target.y) / 2
+	
+	$Camera2D.global_position = $Camera2D.global_position.linear_interpolate(Vector2(mid_x, mid_y), interpolation_weight)
+	
+	
 func _physics_process(delta: float) -> void:
 	var direction := get_input()
-
+	
+	# Camera
+	move_camera(get_global_mouse_position())
+	
 	# Player Rotation to mouse position
 	rotation = lerp_angle(rotation,
 	 (get_global_mouse_position() - global_position).normalized().angle(),

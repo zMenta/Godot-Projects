@@ -6,12 +6,14 @@
 radius = 5.0
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 26.5, 3.5 )
+extents = Vector2( 31.25, 3.5 )
 
 [node name="StaticBody2D" type="StaticBody2D"]
+scale = Vector2( 0.5, 0.5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -18, 0 )
+position = Vector2( -4, 0 )
+scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 1 )
 
 [node name="Door" type="RigidBody2D" parent="." groups=["bodies"]]
@@ -20,17 +22,19 @@ gravity_scale = 0.0
 sleeping = true
 
 [node name="Sprite" type="Sprite" parent="Door"]
-position = Vector2( 12.75, 0 )
-scale = Vector2( 1.56667, 1 )
+position = Vector2( 11.375, 0 )
+scale = Vector2( 0.738889, 0.5 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 284, 82, 45, 15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
-position = Vector2( 17.5, 0.5 )
+position = Vector2( 10.375, 0 )
+scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 2 )
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
-position = Vector2( -19, 0 )
+position = Vector2( -6, 0 )
+scale = Vector2( 0.5, 0.5 )
 node_a = NodePath("..")
 node_b = NodePath("../Door")
