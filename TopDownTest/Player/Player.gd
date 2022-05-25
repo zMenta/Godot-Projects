@@ -30,7 +30,7 @@ func move_camera(target: Vector2, interpolation_weight := camera_weigth) -> void
 	
 func _physics_process(delta: float) -> void:
 	var direction := get_input()
-	
+
 	# Camera
 	move_camera(get_global_mouse_position())
 	
@@ -49,9 +49,11 @@ func _physics_process(delta: float) -> void:
 		var collision := get_slide_collision(index)
 		if collision.collider is RigidBody2D:
 			
-			print("Position: ",collision.get_position())
-			print("Normal: ",collision.get_normal())
-			var local_collision_position: Vector2 = collision.position.direction_to(collision.collider.position) * -1
+			print("Collision Position: ", collision.position)
+			print("Collider Position: ", collision.collider.position)
+			print("Collision Normal: ", collision.normal)
+			
+			var local_collision_position: Vector2 = collision.position.direction_to(collision.collider.position)
 			
 			collision.collider.apply_central_impulse(-collision.normal * push_force)
 #			collision.collider.apply_impulse( local_collision_position, -collision.normal * push_force)
