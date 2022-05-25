@@ -9,41 +9,53 @@
 [node name="Main" type="Node"]
 
 [node name="World" type="Node2D" parent="."]
+position = Vector2( 49, 52 )
 
 [node name="Player" parent="World" instance=ExtResource( 1 )]
-position = Vector2( 109, 104 )
+position = Vector2( -31, 24 )
 
 [node name="TileMap" parent="World" instance=ExtResource( 3 )]
 cell_size = Vector2( 3, 3 )
 centered_textures = true
 tile_data = PoolIntArray( -1507214, 1, 0, -1441783, 0, 0, -1441771, 0, 0, -1441761, 0, 0, -1441760, 0, 0, -1441753, 0, 0, -1441742, 0, 0, -1441733, 0, 0, -1441725, 0, 0, -1441714, 1, 0, -1441703, 1, 0, -1376155, 1, 0, -1376138, 1, 0, -1245185, 0, 0, -1310587, 1, 0, -983041, 0, 0, -917505, 0, 0, -851969, 0, 0, -917371, 0, 0, -786433, 0, 0, -720897, 0, 0, -655361, 0, 0, -589825, 0, 0, -524289, 0, 0, -458753, 0, 0, -393217, 0, 0, -393087, 0, 0, 126, 0, 0, 196606, 0, 0, 393215, 0, 0, 458877, 0, 0, 524413, 0, 0, 852089, 0, 0, 852090, 0, 0, 917625, 0, 0, 1048575, 0, 0, 983161, 0, 0, 1572963, 0, 0, 1572964, 0, 0, 1572965, 0, 0, 1572966, 0, 0, 1572967, 0, 0, 1572968, 0, 0, 1572969, 0, 0, 1572970, 0, 0, 1572971, 0, 0, 1572972, 0, 0, 1638508, 0, 0, 1638509, 0, 0, 1638510, 0, 0, 1638511, 0, 0, 1638512, 0, 0, 1638513, 0, 0, 1769471, 0, 0, 1704049, 0, 0, 1704051, 0, 0, 1769568, 0, 0, 1835101, 0, 0, 1835102, 0, 0, 1835103, 0, 0, 1835104, 0, 0, 1835124, 0, 0, 1900636, 0, 0, 1900637, 0, 0, 1900661, 0, 0, 2097153, 1, 0, 2097154, 1, 0, 2097155, 1, 0, 2097156, 1, 0, 2097157, 1, 0, 2097158, 1, 0, 2097159, 1, 0, 2097160, 1, 0, 2097161, 1, 0, 2097162, 1, 0, 2097163, 1, 0, 2097164, 1, 0, 2097165, 1, 0, 2097166, 1, 0, 2097167, 1, 0, 2097168, 1, 0, 2097169, 1, 0, 2097170, 1, 0, 2097171, 1, 0, 2097172, 1, 0, 2097173, 1, 0, 2097174, 1, 0, 2097175, 1, 0, 2097176, 1, 0, 2097177, 1, 0, 2097178, 1, 0, 2097191, 1, 0, 2097192, 1, 0, 2097193, 1, 0, 2097194, 1, 0, 2097195, 1, 0, 2097196, 1, 0, 2097197, 1, 0, 2097198, 1, 0, 2097199, 1, 0, 2097200, 1, 0, 2097201, 1, 0, 2097202, 1, 0, 2097203, 1, 0, 2097204, 1, 0, 2097205, 1, 0, 2097206, 1, 0, 2097207, 1, 0, 2097208, 1, 0, 2097247, 1, 0, 2097269, 0, 0, 2162805, 0, 0, 2228341, 0, 0, 2293877, 0, 0, 2359413, 0, 0, 2424949, 0, 0, 2490485, 0, 0, 2556021, 0, 0, 2621557, 0, 0, 2687093, 0, 0, 2752629, 0, 0, 2818165, 0, 0, 2883700, 0, 0, 2949236, 0, 0, 3014772, 0, 0, 3080308, 0, 0, 3145844, 0, 0 )
 
-[node name="Barrel" parent="World/TileMap" instance=ExtResource( 4 )]
-position = Vector2( 120, 186 )
-
-[node name="Barrel2" parent="World/TileMap" instance=ExtResource( 4 )]
-position = Vector2( 126, 250 )
-
-[node name="Wardrobe" parent="World/TileMap" instance=ExtResource( 5 )]
-position = Vector2( 122, 44 )
-rotation = -0.896685
-
-[node name="Wardrobe3" parent="World/TileMap" instance=ExtResource( 5 )]
-position = Vector2( 326, 228 )
-rotation = -1.5597
-
-[node name="Wardrobe4" parent="World/TileMap" instance=ExtResource( 5 )]
-position = Vector2( 226, 322 )
-rotation = -0.0295368
-
-[node name="Barrel3" parent="World/TileMap" instance=ExtResource( 4 )]
-position = Vector2( 204, -14 )
-
-[node name="Barrel4" parent="World/TileMap" instance=ExtResource( 4 )]
-position = Vector2( 302, 26 )
-
-[node name="Wardrobe2" parent="World/TileMap" instance=ExtResource( 5 )]
-position = Vector2( 166, 118 )
-
 [node name="StaticBody2D" parent="World" instance=ExtResource( 2 )]
 position = Vector2( 104, 49 )
+
+[node name="Wardrobe5" parent="." instance=ExtResource( 5 )]
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Barrel" parent="." instance=ExtResource( 4 )]
+position = Vector2( 109, 145 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Barrel2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 112, 177 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Wardrobe" parent="." instance=ExtResource( 5 )]
+position = Vector2( 110, 74 )
+rotation = -0.896685
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Wardrobe3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 212, 166 )
+rotation = -1.5597
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Wardrobe4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 162, 213 )
+rotation = -0.0295368
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Barrel3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 151, 45 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Barrel4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 200, 65 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Wardrobe2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 132, 111 )
+scale = Vector2( 0.5, 0.5 )

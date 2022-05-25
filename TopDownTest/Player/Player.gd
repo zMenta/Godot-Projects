@@ -45,15 +45,9 @@ func _physics_process(delta: float) -> void:
 		velocity = lerp(velocity, Vector2.ZERO, friction)
 	
 	velocity = move_and_slide(velocity, Vector2.ZERO, false, 4, 0.78, false)
+	# Collision with RigidBodies2D
 	for index in get_slide_count():
 		var collision := get_slide_collision(index)
 		if collision.collider is RigidBody2D:
-			
-			print("Collision Position: ", collision.position)
-			print("Collider Position: ", collision.collider.position)
-			print("Collision Normal: ", collision.normal)
-			
-			var local_collision_position: Vector2 = collision.position.direction_to(collision.collider.position)
-			
-			collision.collider.apply_central_impulse(-collision.normal * push_force)
-#			collision.collider.apply_impulse( local_collision_position, -collision.normal * push_force)
+			var local_collision_position: Vector2 = collision.position.direction_to(collision.collider.position) * -1
+			collision.collider.apply_impulse( local_collision_position * (push_force/12) , -collision.normal * push_force)
