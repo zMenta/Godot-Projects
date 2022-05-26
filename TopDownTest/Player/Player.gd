@@ -7,9 +7,34 @@ export (int, 0, 100) var push_force := 100
 export (float, 0, 1) var turning_weight := 0.1
 export (float, 0, 1)onready var camera_weigth := 1
 
+var reload_time := 1.2
 var velocity := Vector2.ZERO
+onready var animations: Array = $AnimatedSprite.frames.get_animation_names()
 
-func get_input() -> Vector2:
+enum anim_state {
+	aiming,
+	idle,
+	reloading
+}
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("reload") and $AnimatedSprite.animation != animations[anim_state.reloading]:
+		$AnimatedSprite.animation = animations[anim_state.reloading]
+		speed = 30
+		yield(get_tree().create_timer(reload_time), "timeout")
+		$AnimatedSprite.animation = animations[anim_state.idle]
+		speed = 100
+	
+	if Input.is_action_pressed("aim") and $AnimatedSprite.animation != animations[anim_state.reloading]:
+		speed = 30
+		$AnimatedSprite.animation = animations[anim_state.aiming]
+	elif $AnimatedSprite.animation == animations[anim_state.aiming]:
+		$AnimatedSprite.animation = animations[anim_state.idle]
+		speed = 100
+		
+		
+		
+func get_movement_input() -> Vector2:
 	var input := Vector2.ZERO
 	if Input.is_action_pressed('ui_right'):
 		input.x += 1
@@ -21,6 +46,7 @@ func get_input() -> Vector2:
 		input.y -= 1
 	return input
 	
+	
 func move_camera(target: Vector2, interpolation_weight := camera_weigth) -> void:
 	var mid_x = (self.global_position.x + target.x) / 2
 	var mid_y = (self.global_position.y + target.y) / 2
@@ -29,7 +55,7 @@ func move_camera(target: Vector2, interpolation_weight := camera_weigth) -> void
 	
 	
 func _physics_process(delta: float) -> void:
-	var direction := get_input()
+	var direction := get_movement_input()
 
 	# Camera
 	move_camera(get_global_mouse_position())

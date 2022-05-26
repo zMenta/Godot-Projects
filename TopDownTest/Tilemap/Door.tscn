@@ -17,8 +17,10 @@ scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 1 )
 
 [node name="Door" type="RigidBody2D" parent="." groups=["bodies"]]
+mass = 20.4082
 gravity_scale = 0.0
 linear_damp = 1.0
+angular_damp = 1.0
 
 [node name="Sprite" type="Sprite" parent="Door"]
 position = Vector2( 11.375, 0 )
