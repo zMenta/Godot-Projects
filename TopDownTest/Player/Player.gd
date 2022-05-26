@@ -7,15 +7,18 @@ export (int, 0, 100) var push_force := 100
 export (float, 0, 1) var turning_weight := 0.1
 export (float, 0, 1)onready var camera_weigth := 1
 
+
 var reload_time := 1.2
 var velocity := Vector2.ZERO
 onready var animations: Array = $AnimatedSprite.frames.get_animation_names()
+onready var particles := $Muzzle/FiringParticles
 
 enum anim_state {
 	aiming,
 	idle,
 	reloading
 }
+
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("reload") and $AnimatedSprite.animation != animations[anim_state.reloading]:
@@ -32,8 +35,7 @@ func _input(event: InputEvent) -> void:
 		$AnimatedSprite.animation = animations[anim_state.idle]
 		speed = 100
 		
-		
-		
+			
 func get_movement_input() -> Vector2:
 	var input := Vector2.ZERO
 	if Input.is_action_pressed('ui_right'):
