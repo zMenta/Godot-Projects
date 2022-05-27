@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=2]
+
+[sub_resource type="GDScript" id=14]
+script/source = "extends Node2D
+
+func play() -> void:
+	$Smoke.emitting = true
+	$Bullet.emitting = true
+"
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0, 0.167702, 0.428571 )
+colors = PoolColorArray( 0.975586, 0.0989564, 0.0266762, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+flag_disable_z = true
+spread = 20.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 30.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color = Color( 1, 0.85098, 0, 1 )
+color_ramp = SubResource( 8 )
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=11]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 0.344318 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.614773 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=12]
+curve = SubResource( 5 )
+
+[sub_resource type="Curve" id=10]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=13]
+curve = SubResource( 10 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+lifetime_randomness = 0.2
+trail_size_modifier = SubResource( 13 )
+emission_shape = 1
+emission_sphere_radius = 0.2
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 90.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 0.2
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 141.2
+angle_random = 0.2
+scale_curve = SubResource( 12 )
+color = Color( 0.572549, 0.568627, 0.521569, 0.427451 )
+color_ramp = SubResource( 11 )
+
+[node name="FiringParticles" type="Node2D"]
+script = SubResource( 14 )
+
+[node name="Bullet" type="Particles2D" parent="."]
+emitting = false
+amount = 1
+one_shot = true
+process_material = SubResource( 9 )
+
+[node name="Smoke" type="Particles2D" parent="."]
+emitting = false
+amount = 5
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+local_coords = false
+process_material = SubResource( 4 )
