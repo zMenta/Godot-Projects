@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Ball.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Paddle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Main.gd" type="Script" id=3]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://PlayerPaddle.gd" type="Script" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 496, 292 )
+
+[node name="Main" type="Node"]
+script = ExtResource( 3 )
+
+[node name="ScreenArea" type="Area2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenArea"]
+position = Vector2( 512, 300 )
+shape = SubResource( 1 )
+
+[node name="Ball" parent="." instance=ExtResource( 1 )]
+position = Vector2( 344, 248 )
+
+[node name="Paddle" parent="." instance=ExtResource( 2 )]
+position = Vector2( 456, -48 )
+rotation = 1.57079
+scale = Vector2( 5, 1 )
+
+[node name="Paddle2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 24, -64 )
+rotation = 1.57079
+scale = Vector2( 5, 1 )
+
+[node name="PlayerPaddle" parent="." instance=ExtResource( 4 )]
+position = Vector2( 136, 240 )
+script = ExtResource( 5 )
+
+[connection signal="area_exited" from="ScreenArea" to="." method="_on_ScreenArea_area_exited"]

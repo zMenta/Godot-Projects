@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Paddle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://PlayerPaddle.gd" type="Script" id=2]
+
+[node name="PlayerPaddle" instance=ExtResource( 1 )]
+position = Vector2( 16, 0 )
+rotation = 1.57079
+script = ExtResource( 2 )
