@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Drawing.gd" type="Script" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Line animation"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("End:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.001, 0.002, 0.003, 1, 1.001 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -16, -23 ), Vector2( -16, -23 ), Vector2( -16, -22 ), Vector2( -16, -22 ), Vector2( -16, 22 ), Vector2( -16, 21 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("End2:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.001, 0.002, 0.003, 0.004, 1, 1.001 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 20, 22 ), Vector2( 20, 21 ), Vector2( 20, 22 ), Vector2( 20, 22 ), Vector2( 20, 22 ), Vector2( 20, -23 ), Vector2( 20, -24 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "stop"
+tracks/0/type = "value"
+tracks/0/path = NodePath("End2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -16, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("End:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 11, 1 ) ]
+}
+
+[node name="Drawing" type="Node2D"]
+position = Vector2( 215, 135 )
+script = ExtResource( 1 )
+color = Color( 0.117647, 0.356863, 0.564706, 1 )
+
+[node name="Start" type="Position2D" parent="."]
+position = Vector2( 11, 1 )
+
+[node name="End" type="Position2D" parent="."]
+position = Vector2( 11, -21.97 )
+
+[node name="Start2" type="Position2D" parent="."]
+position = Vector2( -16, 1 )
+
+[node name="End2" type="Position2D" parent="."]
+position = Vector2( -16, 21.97 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Line animation" = SubResource( 1 )
+anims/stop = SubResource( 2 )

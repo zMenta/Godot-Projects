@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Player/Arms.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Weapons/Shovel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ArmsShovel.gd" type="Script" id=3]
+
+[node name="Arms" instance=ExtResource( 1 )]
+position = Vector2( 0, 18 )
+rotation = -0.00164134
+script = ExtResource( 3 )
+
+[node name="Shovel" parent="." index="0" instance=ExtResource( 2 )]
+position = Vector2( 25.0312, -18.9589 )
+rotation = 1.59532
+scale = Vector2( 1, 1 )
+
+[node name="bone" parent="RightArm/Polygon2D/Skeleton2D" index="0"]
+rotation = 0.31972
+
+[node name="bone2" parent="RightArm/Polygon2D/Skeleton2D/bone" index="0"]
+rotation = -1.42648
+
+[node name="bone3" parent="RightArm/Polygon2D/Skeleton2D/bone/bone2" index="0"]
+rotation = -0.133698
+
+[node name="hand" parent="RightArm/Polygon2D/Skeleton2D/bone/bone2/bone3" index="0"]
+rotation = 1.24526
+
+[node name="bone" parent="LeftArm/Polygon2D/Skeleton2D" index="0"]
+rotation = 0.587578
+
+[node name="bone2" parent="LeftArm/Polygon2D/Skeleton2D/bone" index="0"]
+rotation = -1.72892
+
+[node name="bone3" parent="LeftArm/Polygon2D/Skeleton2D/bone/bone2" index="0"]
+rotation = -12.6319
+
+[node name="hand" parent="LeftArm/Polygon2D/Skeleton2D/bone/bone2/bone3" index="0"]
+rotation = -1.23995

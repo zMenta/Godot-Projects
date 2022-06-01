@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var speed := 100
+export var speed := 80
 export var friction := 0.2
 export var acceleration := 0.1
 export (int, 0, 100) var push_force := 100
@@ -12,6 +12,8 @@ var reload_time := 1.2
 var velocity := Vector2.ZERO
 onready var animations: Array = $AnimatedSprite.frames.get_animation_names()
 onready var particles := $Muzzle/FiringParticles
+onready var arm := $Arm
+onready var weapon := $Arms
 
 enum anim_state {
 	aiming,
@@ -35,6 +37,9 @@ func _input(event: InputEvent) -> void:
 		$AnimatedSprite.animation = animations[anim_state.idle]
 		speed = 100
 		
+	if Input.is_action_pressed("attack"):
+		weapon.play_shovel()
+		
 			
 func get_movement_input() -> Vector2:
 	var input := Vector2.ZERO
@@ -46,7 +51,7 @@ func get_movement_input() -> Vector2:
 		input.y += 1
 	if Input.is_action_pressed('ui_up'):
 		input.y -= 1
-	return input
+	return input.normalized()
 	
 	
 func move_camera(target: Vector2, interpolation_weight := camera_weigth) -> void:
@@ -59,6 +64,7 @@ func move_camera(target: Vector2, interpolation_weight := camera_weigth) -> void
 func _physics_process(delta: float) -> void:
 	var direction := get_movement_input()
 
+
 	# Camera
 	move_camera(get_global_mouse_position())
 	
@@ -69,8 +75,12 @@ func _physics_process(delta: float) -> void:
 
 	if direction.length() > 0:
 		velocity = lerp(velocity, direction.normalized() * speed, acceleration)
+		$Drawing.play_animation()	
+		$DrawingArms.play_animation()	
 	else:
 		velocity = lerp(velocity, Vector2.ZERO, friction)
+		$Drawing.stop_animation()
+		$DrawingArms.stop_animation()
 	
 	velocity = move_and_slide(velocity, Vector2.ZERO, false, 4, 0.78, false)
 	# Collision with RigidBodies2D

@@ -1,0 +1,101 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Player/topDownPlayerArm-30.png" type="Texture" id=1]
+
+[node name="Arms" type="Node2D"]
+
+[node name="RightArm" type="Node2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="RightArm"]
+position = Vector2( -6, -14 )
+texture = ExtResource( 1 )
+skeleton = NodePath("Skeleton2D")
+polygon = PoolVector2Array( 0.875, 0.4375, 19, 2.3125, 20.4375, 2.375, 36.1875, 3.8125, 37.25, 3.8125, 47.4375, 7.4375, 47.625, 14.75, 38.625, 15.1875, 37.5625, 15.1875, 19.625, 15.4375, 17.625, 15.5, 1.375, 17.125 )
+uv = PoolVector2Array( 0.875, 0.4375, 19, 2.3125, 20.4375, 2.375, 36.1875, 3.8125, 37.25, 3.8125, 47.4375, 7.4375, 47.625, 14.75, 38.625, 15.1875, 37.5625, 15.1875, 19.625, 15.4375, 17.625, 15.5, 1.375, 17.125 )
+polygons = [ PoolIntArray( 0, 1, 10, 11 ), PoolIntArray( 1, 2, 9, 10 ), PoolIntArray( 2, 3, 8, 9 ), PoolIntArray( 3, 4, 7, 8 ), PoolIntArray( 4, 5, 6, 7 ) ]
+bones = [ "bone", PoolRealArray( 1, 1, 0.29, 0, 0, 0, 0, 0, 0, 0.29, 1, 1 ), "bone/bone2", PoolRealArray( 0, 0.29, 1, 1, 0.29, 0, 0, 0.29, 1, 1, 0.29, 0 ), "bone/bone2/bone3", PoolRealArray( 0, 0, 0, 0.42, 1, 1, 1, 1, 0.42, 0, 0, 0 ) ]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="RightArm/Polygon2D"]
+
+[node name="bone" type="Bone2D" parent="RightArm/Polygon2D/Skeleton2D"]
+position = Vector2( 6, 14 )
+rotation = -0.00411894
+rest = Transform2D( 1, 0, 0, 1, 2, 10 )
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="bone2" type="Bone2D" parent="RightArm/Polygon2D/Skeleton2D/bone"]
+position = Vector2( 17, 0 )
+rotation = -0.0163416
+rest = Transform2D( 1, 0, 0, 1, 17, 0 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="bone3" type="Bone2D" parent="RightArm/Polygon2D/Skeleton2D/bone/bone2"]
+position = Vector2( 18, 1 )
+rotation = -6.25199
+rest = Transform2D( 1, 0, 0, 1, 18, 1 )
+default_length = 8.0
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="hand" type="Position2D" parent="RightArm/Polygon2D/Skeleton2D/bone/bone2/bone3"]
+position = Vector2( 7, 1.19209e-07 )
+rotation = -0.0244353
+scale = Vector2( 1, 1 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="LeftArm" type="Node2D" parent="."]
+position = Vector2( 0, -34 )
+scale = Vector2( 1, -1 )
+
+[node name="Polygon2D" type="Polygon2D" parent="LeftArm"]
+position = Vector2( -6, -14 )
+texture = ExtResource( 1 )
+skeleton = NodePath("Skeleton2D")
+polygon = PoolVector2Array( 0.875, 0.4375, 19, 2.3125, 20.4375, 2.375, 36.1875, 3.8125, 37.25, 3.8125, 47.4375, 7.4375, 47.625, 14.75, 38.625, 15.1875, 37.5625, 15.1875, 19.625, 15.4375, 17.625, 15.5, 1.375, 17.125 )
+uv = PoolVector2Array( 0.875, 0.4375, 19, 2.3125, 20.4375, 2.375, 36.1875, 3.8125, 37.25, 3.8125, 47.4375, 7.4375, 47.625, 14.75, 38.625, 15.1875, 37.5625, 15.1875, 19.625, 15.4375, 17.625, 15.5, 1.375, 17.125 )
+polygons = [ PoolIntArray( 0, 1, 10, 11 ), PoolIntArray( 1, 2, 9, 10 ), PoolIntArray( 2, 3, 8, 9 ), PoolIntArray( 3, 4, 7, 8 ), PoolIntArray( 4, 5, 6, 7 ) ]
+bones = [ "bone", PoolRealArray( 1, 1, 0.29, 0, 0, 0, 0, 0, 0, 0.29, 1, 1 ), "bone/bone2", PoolRealArray( 0, 0.29, 1, 1, 0.29, 0, 0, 0.29, 1, 1, 0.29, 0 ), "bone/bone2/bone3", PoolRealArray( 0, 0, 0, 0.42, 1, 1, 1, 1, 0.42, 0, 0, 0 ) ]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="LeftArm/Polygon2D"]
+
+[node name="bone" type="Bone2D" parent="LeftArm/Polygon2D/Skeleton2D"]
+position = Vector2( 6, 14 )
+rotation = 0.0312509
+rest = Transform2D( 1, 0, 0, 1, 2, 10 )
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="bone2" type="Bone2D" parent="LeftArm/Polygon2D/Skeleton2D/bone"]
+position = Vector2( 17, 0 )
+rotation = -0.0553453
+rest = Transform2D( 1, 0, 0, 1, 17, 0 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="bone3" type="Bone2D" parent="LeftArm/Polygon2D/Skeleton2D/bone/bone2"]
+position = Vector2( 18, 1 )
+rotation = -12.5115
+rest = Transform2D( 1, 0, 0, 1, 18, 1 )
+default_length = 8.0
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="hand" type="Position2D" parent="LeftArm/Polygon2D/Skeleton2D/bone/bone2/bone3"]
+position = Vector2( 7, 1.19209e-07 )
+rotation = -0.00275393
+scale = Vector2( 1, 1 )
+__meta__ = {
+"_edit_bone_": true
+}
