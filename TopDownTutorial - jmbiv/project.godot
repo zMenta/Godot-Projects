@@ -30,6 +30,10 @@ config/name="TopDownTutorial"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/stretch/mode="2d"
+
 [importer_defaults]
 
 texture={
