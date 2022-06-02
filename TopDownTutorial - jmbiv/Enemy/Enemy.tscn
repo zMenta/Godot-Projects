@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Enemy/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Assets/People/Spritesheet/spritesheet_characters.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Tanks/Spritesheet/onlyObjects_default.png" type="Texture" id=3]
+[ext_resource path="res://Actors/Health.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20, 24 )
@@ -70,3 +71,5 @@ region_rect = Rect2( 324, 334, 20, 25 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/muzzle_flash = SubResource( 2 )
+
+[node name="Health" parent="." instance=ExtResource( 4 )]

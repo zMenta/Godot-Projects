@@ -7,11 +7,16 @@ export (PackedScene) var Bullet
 export var speed := 150
 
 
+onready var health = $Health
 onready var gun = $Gun
 onready var gun_muzzle = $GunMuzzle
 onready var attack_cooldown = $AttackCooldown
 onready var muzzle_flash = $MuzzleFlash
 onready var animation_player = $AnimationPlayer
+
+
+func _ready() -> void:
+	health.connect("health_depleted", self, "death")
 
 
 func _physics_process(delta: float) -> void:
@@ -37,7 +42,12 @@ func shoot() -> void:
 		emit_signal("player_fired_gun", bullet_instance, to_global(gun_muzzle.position), direction)
 		attack_cooldown.start()
 		animation_player.play("muzzle_flash")
-		
+
+
 func handle_hit() -> void:
-	pass
+	health.health_value -= 20
+	
+
+func death() -> void:
+	queue_free()
 	
