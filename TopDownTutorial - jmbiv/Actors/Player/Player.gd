@@ -3,20 +3,15 @@ class_name Player
 
 signal player_fired_gun(bullet, position, direction)
 
-export (PackedScene) var Bullet
 export var speed := 150
 
-
 onready var health = $Health
-onready var gun = $Gun
-onready var gun_muzzle = $GunMuzzle
-onready var attack_cooldown = $AttackCooldown
-onready var muzzle_flash = $MuzzleFlash
-onready var animation_player = $AnimationPlayer
+onready var weapon = $Weapon
 
 
 func _ready() -> void:
 	health.connect("health_depleted", self, "death")
+	weapon.connect("weapon_fired", self, "shoot")
 
 
 func _physics_process(delta: float) -> void:
@@ -32,16 +27,11 @@ func _physics_process(delta: float) -> void:
 	
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("shoot"): shoot()
+	if event.is_action_pressed("shoot"): weapon.fire()
 	
 
-func shoot() -> void:
-	if attack_cooldown.is_stopped():
-		var bullet_instance = Bullet.instance()
-		var direction = gun.global_position.direction_to(gun_muzzle.global_position).normalized()
-		emit_signal("player_fired_gun", bullet_instance, to_global(gun_muzzle.position), direction)
-		attack_cooldown.start()
-		animation_player.play("muzzle_flash")
+func shoot(bullet: Bullet, position: Vector2, direction: Vector2) -> void:
+	emit_signal("player_fired_gun", bullet, position, direction)
 
 
 func handle_hit() -> void:

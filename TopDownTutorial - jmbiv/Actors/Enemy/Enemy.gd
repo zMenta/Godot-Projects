@@ -9,7 +9,6 @@ func _ready() -> void:
 
 func handle_hit() -> void:
 	health.health_value -= 20
-	print(health.health_value)
 	
 
 func death() -> void:

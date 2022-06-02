@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Actors/Enemy/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://Assets/People/Spritesheet/spritesheet_characters.png" type="Texture" id=2]
+[ext_resource path="res://Weapons/Weapon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Actors/Health.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 20, 24 )
+
+[node name="Enemy" type="KinematicBody2D"]
+position = Vector2( 104, 64 )
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 352.643, 175.512, 36.9409, 43.7592 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -4, 0 )
+shape = SubResource( 1 )
+
+[node name="Health" parent="." instance=ExtResource( 4 )]
+
+[node name="Weapon" parent="." instance=ExtResource( 3 )]
+position = Vector2( 20, 13 )
