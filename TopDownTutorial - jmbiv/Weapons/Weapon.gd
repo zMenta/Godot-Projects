@@ -11,7 +11,7 @@ onready var attack_cooldown = $AttackCooldown
 onready var muzzle_flash = $MuzzleFlash
 onready var animation_player = $AnimationPlayer
 
-	
+
 func fire() -> void:
 	if attack_cooldown.is_stopped():
 		var bullet_instance = Bullet.instance()

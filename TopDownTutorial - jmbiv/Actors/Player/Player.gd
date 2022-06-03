@@ -41,3 +41,6 @@ func handle_hit() -> void:
 func death() -> void:
 	queue_free()
 	
+
+
+
