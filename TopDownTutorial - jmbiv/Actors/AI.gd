@@ -13,7 +13,7 @@ enum States {
 onready var detection_zone = $DetectionZone0
 onready var patrol_timer = $PatrolTimer
 
-var current_state: int = States.PATROL setget set_state
+var current_state: int = -1 setget set_state
 var target = null
 var weapon: Weapon = null
 var actor: KinematicBody2D = null
@@ -27,11 +27,16 @@ var actor_velocity := Vector2.ZERO
 var reached_patrol_destination := false
 
 
+
+func _ready() -> void:
+	set_state(States.PATROL)
+
+
 func _physics_process(delta: float) -> void:
 	match current_state:
 		States.PATROL:
 			if not reached_patrol_destination:
-				actor.rotation = lerp(actor.rotation, actor.global_position.direction_to(patrol_location).angle() , 0.1)
+				actor.rotate_towards(patrol_location)
 				actor.move_and_slide(actor_velocity)
 				if actor.global_position.distance_to(patrol_location) < 3:
 					reached_patrol_destination = true
@@ -39,8 +44,8 @@ func _physics_process(delta: float) -> void:
 				
 		States.ENGAGE:
 			if target != null and weapon != null:
+				actor.rotate_towards(target.global_position)
 				var angle_to_target = actor.global_position.direction_to(target.global_position).angle()
-				actor.rotation = lerp(actor.rotation, angle_to_target , 0.1)
 				if abs(actor.rotation - angle_to_target) <= 0.1:
 					weapon.fire()
 		_:
@@ -52,8 +57,8 @@ func set_state(new_state: int) -> void:
 		return
 		
 	
-	if current_state == States.PATROL:
-		patrol_origin = actor.global_position
+	if new_state == States.PATROL:
+		patrol_origin = global_position
 		patrol_timer.start()
 	
 		
