@@ -22,7 +22,6 @@ var actor: KinematicBody2D = null
 var patrol_origin := Vector2.ZERO
 var patrol_location := Vector2.ZERO
 export var patrol_range := 100
-var actor_speed := 100
 var actor_velocity := Vector2.ZERO
 var reached_patrol_destination := false
 
@@ -44,10 +43,13 @@ func _physics_process(delta: float) -> void:
 				
 		States.ENGAGE:
 			if target != null and weapon != null:
+				actor_velocity = Vector2.ZERO
 				actor.rotate_towards(target.global_position)
 				var angle_to_target = actor.global_position.direction_to(target.global_position).angle()
 				if abs(actor.rotation - angle_to_target) <= 0.1:
 					weapon.fire()
+					
+		# unkown state
 		_:
 			print("Error: ",self," undefined ai state")
 
@@ -88,4 +90,4 @@ func _on_PatrolTimer_timeout() -> void:
 	var random_y = rand_range(-patrol_range, patrol_range)
 	patrol_location = Vector2(random_x, random_y) + patrol_origin
 	reached_patrol_destination = false
-	actor_velocity = actor.global_position.direction_to(patrol_location) * actor_speed
+	actor_velocity = actor.velocity_toward(patrol_location)
