@@ -12,3 +12,8 @@ position = Vector2( 7, -1 )
 
 [node name="Handle" type="Position2D" parent="."]
 position = Vector2( 0, -1 )
+
+[node name="FireCooldownTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="FireCooldownTimer" to="." method="_on_FireCooldownTimer_timeout"]
