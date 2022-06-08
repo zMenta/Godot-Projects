@@ -10,7 +10,6 @@ onready var animation_player := $AnimationPlayer
 
 export(PackedScene) var Bullet
 export var bullet_damage := 10
-export var bullet_direction := Vector2.ZERO
 export var max_recoil_angle := 5.0 # Both Axis. 5 + 5 degrees = 10 degress total
 export var min_recoil_angle := 2.0
 export (float, 1) var recoil_climb_weight := 0.1
@@ -18,13 +17,13 @@ export (float, 1) var recoil_recovery_weight := 0.05
 
 
 var current_recoil := min_recoil_angle
+var bullet_direction := Vector2.ZERO
 
 
 func _physics_process(delta: float) -> void:
 	if not Input.is_action_pressed("shoot"):
 		var recoil_decrement := max_recoil_angle * recoil_recovery_weight
 		current_recoil = clamp(current_recoil - recoil_decrement, min_recoil_angle, max_recoil_angle)
-	print(current_recoil)
 
 
 func fire() -> void:
