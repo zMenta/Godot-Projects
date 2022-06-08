@@ -23,7 +23,7 @@ func _ready() -> void:
 func fire() -> void:
 	cooldown_timer.start()
 	can_shoot = false
-	GlobalSignals.emit_signal("bullet_fired", Bullet.instance() ,bullet_direction, bullet_damage)
+	GlobalSignals.emit_signal("bullet_fired", Bullet.instance() ,bullet_direction, muzzle.global_position)
 
 
 func _on_FireCooldownTimer_timeout() -> void:
