@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Weapons/WeaponBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Weapons/MachinePistol/machine_gun.png" type="Texture" id=2]
+
+[node name="MachinePistol" instance=ExtResource( 1 )]
+max_recoil_angle = 15.0
+min_recoil_angle = 3.0
+
+[node name="FireCooldownTimer" parent="." index="0"]
+wait_time = 0.1
+
+[node name="Muzzle" parent="." index="1"]
+position = Vector2( 6, -3 )
+
+[node name="Handle" parent="." index="2"]
+position = Vector2( 0, -3 )
+
+[node name="WeaponSprite" parent="." index="3"]
+texture = ExtResource( 2 )

@@ -4,7 +4,7 @@ extends KinematicBody2D
 onready var animation_player := $AnimationPlayer
 onready var player_center := $PlayerCenter
 onready var weapon_position := $PlayerCenter/WeaponPosition
-onready var weapon := $PlayerCenter/WeaponPosition/Pistol
+onready var weapon := $PlayerCenter/WeaponPosition/MachinePistol
 
 
 export var speed := 120
