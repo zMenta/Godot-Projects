@@ -7,8 +7,8 @@
 max_recoil_angle = 15.0
 min_recoil_angle = 3.0
 
-[node name="FireCooldownTimer" parent="." index="0"]
-wait_time = 0.1
+[node name="WeaponSprite" parent="." index="0"]
+texture = ExtResource( 2 )
 
 [node name="Muzzle" parent="." index="1"]
 position = Vector2( 6, -3 )
@@ -16,5 +16,5 @@ position = Vector2( 6, -3 )
 [node name="Handle" parent="." index="2"]
 position = Vector2( 0, -3 )
 
-[node name="WeaponSprite" parent="." index="3"]
-texture = ExtResource( 2 )
+[node name="FireCooldownTimer" parent="." index="3"]
+wait_time = 0.1
