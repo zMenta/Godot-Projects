@@ -20,6 +20,13 @@ export (float, 1) var recoil_recovery_weight := 0.05
 var current_recoil := min_recoil_angle
 
 
+func _physics_process(delta: float) -> void:
+	if not Input.is_action_pressed("shoot"):
+		var recoil_decrement := max_recoil_angle * recoil_recovery_weight
+		current_recoil = clamp(current_recoil - recoil_decrement, min_recoil_angle, max_recoil_angle)
+	print(current_recoil)
+
+
 func fire() -> void:
 	if cooldown_timer.is_stopped():
 		var recoil_radians = deg2rad(rand_range(-current_recoil, current_recoil))
