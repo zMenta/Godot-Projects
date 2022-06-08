@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/muzzle_flash.png-5f3a82040fa3b8bda758fca306d8c37f.stex"
+path="res://.import/muzzle_flash.png-ff428445db28d4047a531c589b738974.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/muzzle_flash.png"
-dest_files=[ "res://.import/muzzle_flash.png-5f3a82040fa3b8bda758fca306d8c37f.stex" ]
+source_file="res://Weapons/muzzle_flash.png"
+dest_files=[ "res://.import/muzzle_flash.png-ff428445db28d4047a531c589b738974.stex" ]
 
 [params]
 
