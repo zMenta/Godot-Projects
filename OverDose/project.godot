@@ -14,6 +14,10 @@ config/name="OverDose | Z.O - ZombOver"
 run/main_scene="res://Main.tscn"
 config/icon="res://Images/machine_gun.png"
 
+[autoload]
+
+GlobalSignals="*res://Globals/GlobalSignals.gd"
+
 [display]
 
 window/size/width=640

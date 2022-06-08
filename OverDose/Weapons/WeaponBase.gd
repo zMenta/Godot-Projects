@@ -1,13 +1,12 @@
 extends Node2D
 
-signal weapon_fired(bullet_direction, bullet_damage)
 
 onready var muzzle := $Muzzle
 onready var handle := $Handle
 onready var cooldown_timer := $FireCooldownTimer
 
 
-export(PackedScene) var bullet
+export(PackedScene) var Bullet
 export var bullet_damage := 10
 export var bullet_direction := Vector2.ZERO
 export var fire_cooldown := 0.3
@@ -24,7 +23,7 @@ func _ready() -> void:
 func fire() -> void:
 	cooldown_timer.start()
 	can_shoot = false
-	emit_signal("weapon_fired", bullet_direction, bullet_damage)
+	GlobalSignals.emit_signal("bullet_fired", Bullet.instance() ,bullet_direction, bullet_damage)
 
 
 func _on_FireCooldownTimer_timeout() -> void:
