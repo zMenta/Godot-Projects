@@ -11,7 +11,6 @@ onready var weapon_sprite := $WeaponSprite
 
 
 export(PackedScene) var Bullet
-export var bullet_damage := 10
 export var max_recoil_angle := 5.0 # Both Axis. 5 + 5 degrees = 10 degress total
 export var min_recoil_angle := 2.0
 export (float, 1) var recoil_climb_weight := 0.1
