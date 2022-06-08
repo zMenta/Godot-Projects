@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Area2D",
+"class": "Bullet",
+"language": "GDScript",
+"path": "res://Weapons/Bullet.gd"
+}, {
+"base": "Node2D",
+"class": "Weapon",
+"language": "GDScript",
+"path": "res://Weapons/WeaponBase.gd"
+} ]
+_global_script_class_icons={
+"Bullet": "",
+"Weapon": ""
+}
+
 [application]
 
 config/name="OverDose | Z.O - ZombOver"

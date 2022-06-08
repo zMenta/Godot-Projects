@@ -1,4 +1,5 @@
 extends Node2D
+class_name Weapon
 
 
 onready var muzzle := $Muzzle
@@ -12,19 +13,14 @@ export var bullet_direction := Vector2.ZERO
 export var fire_cooldown := 0.3
 
 
-var can_shoot := true
-
-
 func _ready() -> void:
 	bullet_direction = handle.global_position.direction_to(muzzle.global_position)
 	cooldown_timer.set_wait_time(fire_cooldown)
 
 
 func fire() -> void:
-	cooldown_timer.start()
-	can_shoot = false
-	GlobalSignals.emit_signal("bullet_fired", Bullet.instance() ,bullet_direction, muzzle.global_position)
+	if cooldown_timer.is_stopped():
+		cooldown_timer.start()
+		var bullet_instance = Bullet.instance()
+		GlobalSignals.emit_signal("bullet_fired", bullet_instance ,bullet_direction, muzzle.global_position)
 
-
-func _on_FireCooldownTimer_timeout() -> void:
-	can_shoot = true
