@@ -17,8 +17,10 @@ func _physics_process(delta: float) -> void:
 	
 	if direction.length() > 0:
 		velocity = lerp(velocity, direction * speed, acceleration)
+		$AnimationPlayer.play("Moving")
 	else:
 		velocity = lerp(velocity, Vector2.ZERO, friction)
+		$AnimationPlayer.play("Idle")
 
 	velocity = move_and_slide(velocity)
 	
