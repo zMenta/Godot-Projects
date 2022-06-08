@@ -8,5 +8,8 @@
 [node name="Muzzle" parent="." index="0"]
 position = Vector2( 5, -1 )
 
+[node name="FireCooldownTimer" parent="." index="2"]
+wait_time = 0.3
+
 [node name="Sprite" parent="." index="3"]
 texture = ExtResource( 2 )

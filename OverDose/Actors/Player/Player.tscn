@@ -117,4 +117,3 @@ anims/Moving = SubResource( 3 )
 position = Vector2( 10, 0 )
 
 [node name="Pistol" parent="PlayerCenter/WeaponPosition" instance=ExtResource( 3 )]
-Bullet = null
