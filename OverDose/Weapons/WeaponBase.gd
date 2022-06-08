@@ -6,6 +6,8 @@ onready var muzzle := $Muzzle
 onready var handle := $Handle
 onready var cooldown_timer := $FireCooldownTimer
 onready var animation_player := $AnimationPlayer
+onready var tween := $Tween
+onready var weapon_sprite := $WeaponSprite
 
 
 export(PackedScene) var Bullet
@@ -35,6 +37,15 @@ func fire() -> void:
 		var recoil_increment := max_recoil_angle * recoil_climb_weight
 		current_recoil = clamp(current_recoil + recoil_increment, min_recoil_angle, max_recoil_angle)
 		
+		
+		# Tween
+		var tween_up_time := 0.1
+		var tween_down_time := 0.15
+		var random_recoil_rotation = -rand_range(deg2rad(5), deg2rad(30))
+		tween.interpolate_property(weapon_sprite, "rotation", weapon_sprite.rotation, random_recoil_rotation, tween_up_time)
+		tween.interpolate_property(weapon_sprite, "rotation", weapon_sprite.rotation, 0, tween_down_time, tween.TRANS_CUBIC, tween.EASE_IN, tween_up_time)
+		
+		tween.start()
 		
 		cooldown_timer.start()
 		animation_player.play("MuzzleFlash")
