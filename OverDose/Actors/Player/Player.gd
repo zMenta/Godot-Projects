@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 
 onready var animation_player := $AnimationPlayer
+onready var player_center := $PlayerCenter
+onready var weapon_position := $PlayerCenter/WeaponPosition
 
 
 export var speed := 120
@@ -13,6 +15,7 @@ var velocity := Vector2.ZERO
 
 
 func _physics_process(delta: float) -> void:
+	move_weapon_to_mouse()
 	var direction: Vector2 = get_movement_input()	
 	
 	if direction.length() > 0:
@@ -23,6 +26,17 @@ func _physics_process(delta: float) -> void:
 		$AnimationPlayer.play("Idle")
 
 	velocity = move_and_slide(velocity)
+	
+
+func move_weapon_to_mouse():
+	player_center.look_at(get_global_mouse_position())
+	var direction_to_mouse: Vector2 = player_center.global_position.direction_to(get_global_mouse_position())
+	
+	if direction_to_mouse.x > 0:
+		weapon_position.scale = Vector2(1,1)
+	if direction_to_mouse.x < 0:
+		weapon_position.scale = Vector2(1,-1)
+	
 	
 
 func get_movement_input() -> Vector2:
