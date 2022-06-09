@@ -2,7 +2,7 @@ extends Node2D
 
 
 onready var animation_player := $AnimationPlayer
-onready var actor: KinematicBody2D = get_owner()
+onready var actor = get_owner()
 
 
 export var speed := 120
@@ -16,9 +16,7 @@ var direction := Vector2.ZERO
 
 
 func _physics_process(delta: float) -> void:
-	print(actor)
-	if actor == null or actor == KinematicBody2D:
-		print("returned")
+	if not actor is KinematicBody2D and actor != null:
 		return
 
 	if direction.length() > 0:
