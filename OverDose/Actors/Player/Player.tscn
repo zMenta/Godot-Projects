@@ -6,6 +6,7 @@
 [ext_resource path="res://Actors/Movement.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
+radius = 8.06226
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 275, 184 )
