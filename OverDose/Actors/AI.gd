@@ -27,5 +27,5 @@ func initialize(movement_node) -> void:
 
 func update_direction() -> void:
 	var path := navigation.get_simple_path(global_position, player.global_position)
-	if path.size() > 1:
+	if path.size() > 0:
 		direction = global_position.direction_to(path[1])
