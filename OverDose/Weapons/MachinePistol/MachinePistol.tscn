@@ -6,7 +6,7 @@
 [node name="MachinePistol" instance=ExtResource( 1 )]
 max_recoil_angle = 15.0
 min_recoil_angle = 3.0
-magazine_size = 18
+magazine_size = 17
 
 [node name="WeaponSprite" parent="." index="0"]
 texture = ExtResource( 2 )
