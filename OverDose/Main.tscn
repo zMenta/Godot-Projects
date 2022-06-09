@@ -129,7 +129,16 @@ script = ExtResource( 8 )
 [node name="ZombiesGroup" type="Node2D" parent="."]
 
 [node name="Zombie" parent="ZombiesGroup" instance=ExtResource( 2 )]
-position = Vector2( 70, 238 )
+position = Vector2( 70, 264 )
+
+[node name="Zombie7" parent="ZombiesGroup" instance=ExtResource( 2 )]
+position = Vector2( 63, 198 )
+
+[node name="Zombie8" parent="ZombiesGroup" instance=ExtResource( 2 )]
+position = Vector2( 97, 198 )
+
+[node name="Zombie9" parent="ZombiesGroup" instance=ExtResource( 2 )]
+position = Vector2( 121, 325 )
 
 [node name="Zombie2" parent="ZombiesGroup" instance=ExtResource( 2 )]
 position = Vector2( 436, 76 )
