@@ -124,7 +124,24 @@ tile_data = PoolIntArray( -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -6
 [node name="BulletManager" type="Node2D" parent="."]
 script = ExtResource( 8 )
 
-[node name="Zombie" parent="." instance=ExtResource( 2 )]
-position = Vector2( 141, 180 )
-
 [node name="Player" parent="." instance=ExtResource( 1 )]
+
+[node name="ZombiesGroup" type="Node2D" parent="."]
+
+[node name="Zombie" parent="ZombiesGroup" instance=ExtResource( 2 )]
+position = Vector2( 70, 238 )
+
+[node name="Zombie2" parent="ZombiesGroup" instance=ExtResource( 2 )]
+position = Vector2( 436, 76 )
+
+[node name="Zombie3" parent="ZombiesGroup" instance=ExtResource( 2 )]
+position = Vector2( 205, 293 )
+
+[node name="Zombie4" parent="ZombiesGroup" instance=ExtResource( 2 )]
+position = Vector2( 76, 134 )
+
+[node name="Zombie5" parent="ZombiesGroup" instance=ExtResource( 2 )]
+position = Vector2( 61, 326 )
+
+[node name="Zombie6" parent="ZombiesGroup" instance=ExtResource( 2 )]
+position = Vector2( 273, 39 )
