@@ -5,6 +5,7 @@ class_name Weapon
 onready var muzzle := $Muzzle
 onready var handle := $Handle
 onready var cooldown_timer := $FireCooldownTimer
+onready var reload_timer := $ReloadTimer
 onready var animation_player := $AnimationPlayer
 onready var tween := $Tween
 onready var weapon_sprite := $WeaponSprite
@@ -15,20 +16,29 @@ export var max_recoil_angle := 5.0 # Both Axis. 5 + 5 degrees = 10 degress total
 export var min_recoil_angle := 2.0
 export (float, 1) var recoil_climb_weight := 0.1
 export (float, 1) var recoil_recovery_weight := 0.05
+export var magazine_size := 10
 
 
+onready var current_magazine_bullet_count = magazine_size
 var current_recoil := min_recoil_angle
 var bullet_direction := Vector2.ZERO
 
 
 func _physics_process(delta: float) -> void:
+	print(current_magazine_bullet_count)
 	if not Input.is_action_pressed("shoot"):
 		var recoil_decrement := max_recoil_angle * recoil_recovery_weight
 		current_recoil = clamp(current_recoil - recoil_decrement, min_recoil_angle, max_recoil_angle)
 
 
+func reload() -> void:
+	if reload_timer.is_stopped():
+		reload_timer.start()
+
+
 func fire() -> void:
-	if cooldown_timer.is_stopped():
+	if cooldown_timer.is_stopped() and current_magazine_bullet_count > 0:
+		current_magazine_bullet_count -= 1
 		var recoil_radians = deg2rad(rand_range(-current_recoil, current_recoil))
 		bullet_direction = handle.global_position.direction_to(muzzle.global_position).rotated(recoil_radians)
 		
@@ -50,3 +60,6 @@ func fire() -> void:
 		animation_player.play("MuzzleFlash")
 		GlobalSignals.emit_signal("bullet_fired", Bullet.instance() ,bullet_direction, muzzle.global_position)
 
+
+func _on_ReloadTimer_timeout() -> void:
+	current_magazine_bullet_count = magazine_size

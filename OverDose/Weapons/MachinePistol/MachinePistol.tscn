@@ -6,6 +6,7 @@
 [node name="MachinePistol" instance=ExtResource( 1 )]
 max_recoil_angle = 15.0
 min_recoil_angle = 3.0
+magazine_size = 18
 
 [node name="WeaponSprite" parent="." index="0"]
 texture = ExtResource( 2 )
@@ -18,3 +19,6 @@ position = Vector2( 0, -3 )
 
 [node name="FireCooldownTimer" parent="." index="3"]
 wait_time = 0.1
+
+[node name="ReloadTimer" parent="." index="4"]
+wait_time = 1.2

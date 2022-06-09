@@ -13,7 +13,9 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("shoot"):
 		weapon.fire()
-
+	
+	if Input.is_action_just_pressed("reload"):
+		weapon.reload()
 
 func move_weapon_to_mouse():
 	player_center.look_at(get_global_mouse_position())
