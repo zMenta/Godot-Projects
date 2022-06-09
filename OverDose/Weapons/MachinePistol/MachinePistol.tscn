@@ -7,6 +7,7 @@
 max_recoil_angle = 15.0
 min_recoil_angle = 3.0
 magazine_size = 17
+max_ammo = 102
 
 [node name="WeaponSprite" parent="." index="0"]
 texture = ExtResource( 2 )
