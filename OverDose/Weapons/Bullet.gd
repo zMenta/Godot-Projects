@@ -28,3 +28,4 @@ func _on_QueueFreeTimer_timeout() -> void:
 func _on_Bullet_body_entered(body: Node) -> void:
 	if body.has_method("on_bullet_hit"):
 		emit_signal("bullet_hit", damage)
+	queue_free()
