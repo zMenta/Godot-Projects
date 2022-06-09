@@ -23,6 +23,10 @@ __meta__ = {
 [node name="AI" type="Node2D" parent="."]
 script = ExtResource( 4 )
 
+[node name="PathFindingLine" type="Line2D" parent="AI"]
+width = 2.0
+default_color = Color( 0.858824, 0.0980392, 0.203922, 1 )
+
 [node name="Movement" parent="." instance=ExtResource( 2 )]
 speed = 70
 
