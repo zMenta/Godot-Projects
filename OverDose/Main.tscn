@@ -111,7 +111,7 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 [node name="Main" type="Node2D"]
 script = ExtResource( 7 )
 
-[node name="MapNavigation" type="Navigation2D" parent="."]
+[node name="MapNavigation" type="Navigation2D" parent="." groups=["navigation"]]
 
 [node name="TileMap" type="TileMap" parent="MapNavigation"]
 tile_set = SubResource( 4 )
