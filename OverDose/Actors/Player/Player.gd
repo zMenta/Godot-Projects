@@ -1,41 +1,19 @@
 extends KinematicBody2D
 
 
-onready var animation_player := $AnimationPlayer
+onready var movement := $Movement
 onready var player_center := $PlayerCenter
 onready var weapon_position := $PlayerCenter/WeaponPosition
 onready var weapon := $PlayerCenter/WeaponPosition/MachinePistol
 
 
-export var speed := 120
-export var acceleration := 0.2
-export var friction := 0.2
-
-var velocity := Vector2.ZERO
-
-
-
 func _physics_process(delta: float) -> void:
 	move_weapon_to_mouse()
-	var direction: Vector2 = get_movement_input()	
-	
-	if direction.length() > 0:
-		velocity = lerp(velocity, direction * speed, acceleration)
-		$AnimationPlayer.play("Moving")
-	else:
-		velocity = lerp(velocity, Vector2.ZERO, friction)
-		$AnimationPlayer.play("Idle")
-
-	velocity = move_and_slide(velocity)
+	movement.direction = get_movement_input()
 	
 	if Input.is_action_pressed("shoot"):
 		weapon.fire()
 	
-#func _input(event: InputEvent) -> void:
-#	if event.is_action_pressed("shoot"):
-#		weapon.fire()
-
-
 
 func move_weapon_to_mouse():
 	player_center.look_at(get_global_mouse_position())
