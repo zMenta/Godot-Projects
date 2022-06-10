@@ -24,6 +24,7 @@ onready var current_magazine_bullet_count = magazine_size
 onready var current_max_ammo = max_ammo
 var current_recoil := min_recoil_angle
 var bullet_direction := Vector2.ZERO
+var can_shoot := true
 
 
 func _physics_process(delta: float) -> void:
@@ -34,12 +35,15 @@ func _physics_process(delta: float) -> void:
 
 
 func reload() -> void:
-	if reload_timer.is_stopped() and max_ammo > 0:
+	if reload_timer.is_stopped() and current_max_ammo > 0:
+		can_shoot = false
+		animation_player.play("Reload")
 		reload_timer.start()
 
 
 func fire() -> void:
-	if cooldown_timer.is_stopped() and current_magazine_bullet_count > 0:
+	if can_shoot == true and current_magazine_bullet_count > 0:
+		can_shoot = false
 		current_magazine_bullet_count -= 1
 		var recoil_radians = deg2rad(rand_range(-current_recoil, current_recoil))
 		bullet_direction = handle.global_position.direction_to(muzzle.global_position).rotated(recoil_radians)
@@ -64,13 +68,17 @@ func fire() -> void:
 
 
 func _on_ReloadTimer_timeout() -> void:
-	if current_max_ammo == 0:
-		return
+	animation_player.play("Rotation_0")
 	
 	var ammo_amount = magazine_size - current_magazine_bullet_count
 	if current_max_ammo < magazine_size:
 		ammo_amount -= current_max_ammo
 	current_magazine_bullet_count += ammo_amount
 	current_max_ammo -= ammo_amount
-		
+	
+	can_shoot = true
 	current_max_ammo = clamp(current_max_ammo, 0, max_ammo)
+
+
+func _on_FireCooldownTimer_timeout() -> void:
+	can_shoot = true
