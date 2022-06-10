@@ -1,6 +1,8 @@
 extends Node2D
 
 onready var line2d := $PathFindingLine
+onready var line_of_sight := $LineOfSightPivot/LineOfSight
+onready var pivot := $LineOfSightPivot
 
 var movement = null
 var direction := Vector2.ZERO
@@ -19,6 +21,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if navigation != null and player != null:
+		pivot.look_at(player.global_position)
+		
 		line2d.global_position = Vector2.ZERO
 		movement.direction = direction
 	
@@ -28,10 +32,22 @@ func initialize(movement_node) -> void:
 
 
 func update_direction() -> void:
-	var path := navigation.get_simple_path(global_position, player.global_position, false)
+	var path := []
+	if has_player_sight():
+		path = navigation.get_simple_path(global_position, player.global_position, true)
+	else:
+		path = navigation.get_simple_path(global_position, player.global_position, false)
+	
 	line2d.points = path
 	if path.size() > 0:
 		direction = global_position.direction_to(path[1])
+
+
+func has_player_sight() -> bool:
+	if line_of_sight.get_collider() is KinematicBody2D:
+		return true
+	else:
+		return false
 
 
 func _on_CalculateNewPathTimer_timeout() -> void:
