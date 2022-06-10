@@ -71,8 +71,9 @@ func _on_ReloadTimer_timeout() -> void:
 	animation_player.play("Rotation_0")
 	
 	var ammo_amount = magazine_size - current_magazine_bullet_count
-	if current_max_ammo < magazine_size:
-		ammo_amount -= current_max_ammo
+	if ammo_amount > current_max_ammo:
+		var ammo_difference = ammo_amount - current_max_ammo
+		ammo_amount -= ammo_difference
 	current_magazine_bullet_count += ammo_amount
 	current_max_ammo -= ammo_amount
 	
