@@ -28,7 +28,7 @@ var can_shoot := true
 
 
 func _physics_process(delta: float) -> void:
-#	print(current_magazine_bullet_count, " | ", current_max_ammo)
+	print(current_magazine_bullet_count, " | ", current_max_ammo)
 	if not Input.is_action_pressed("shoot"):
 		var recoil_decrement := max_recoil_angle * recoil_recovery_weight
 		current_recoil = clamp(current_recoil - recoil_decrement, min_recoil_angle, max_recoil_angle)
