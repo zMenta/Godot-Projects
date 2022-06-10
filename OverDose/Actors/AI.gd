@@ -18,9 +18,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	line2d.global_position = Vector2.ZERO
 	if navigation != null and player != null:
-		update_direction()
+		line2d.global_position = Vector2.ZERO
 		movement.direction = direction
 	
 
@@ -33,3 +32,7 @@ func update_direction() -> void:
 	line2d.points = path
 	if path.size() > 0:
 		direction = global_position.direction_to(path[1])
+
+
+func _on_CalculateNewPathTimer_timeout() -> void:
+	update_direction()

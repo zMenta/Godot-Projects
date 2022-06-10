@@ -6,6 +6,11 @@
 script = ExtResource( 1 )
 
 [node name="PathFindingLine" type="Line2D" parent="."]
-visible = false
 width = 2.0
 default_color = Color( 0.858824, 0.0980392, 0.203922, 1 )
+
+[node name="CalculateNewPathTimer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="CalculateNewPathTimer" to="." method="_on_CalculateNewPathTimer_timeout"]
