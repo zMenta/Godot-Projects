@@ -44,7 +44,7 @@ func update_direction() -> void:
 
 
 func has_player_sight() -> bool:
-	if line_of_sight.get_collider() is KinematicBody2D:
+	if line_of_sight.get_collider() is Player:
 		return true
 	else:
 		return false
