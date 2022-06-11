@@ -74,10 +74,10 @@ Bullet = ExtResource( 1 )
 texture = ExtResource( 4 )
 
 [node name="Muzzle" type="Position2D" parent="."]
-visible = false
 position = Vector2( 7, -1 )
 
 [node name="MuzzleFlash" type="Sprite" parent="Muzzle"]
+visible = false
 position = Vector2( 7, 0 )
 texture = ExtResource( 3 )
 
