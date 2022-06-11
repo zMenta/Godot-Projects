@@ -6,6 +6,8 @@ onready var player_center := $PlayerCenter
 onready var weapon_position := $PlayerCenter/WeaponPosition
 onready var weapon := $PlayerCenter/WeaponPosition/MachinePistol
 
+export var hit_points : int = 3
+
 
 func _physics_process(delta: float) -> void:
 	move_weapon_to_mouse()
@@ -16,6 +18,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("reload"):
 		weapon.reload()
+
 
 func move_weapon_to_mouse():
 	player_center.look_at(get_global_mouse_position())
@@ -38,4 +41,14 @@ func get_movement_input() -> Vector2:
 	if Input.is_action_pressed('ui_up'):
 		input.y -= 1
 	return input.normalized()
+
+
+func death():
+	print("player died")
 	
+
+func on_zombie_hit():
+	print("player got hit")
+	hit_points -= 1
+	if hit_points <= 0:
+		death()

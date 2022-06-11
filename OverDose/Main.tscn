@@ -158,28 +158,4 @@ position = Vector2( 382, 262 )
 position = Vector2( -4, 2 )
 
 [node name="Zombie" parent="ZombiesGroup" instance=ExtResource( 2 )]
-position = Vector2( 112, 54 )
-
-[node name="Zombie2" parent="ZombiesGroup" instance=ExtResource( 2 )]
-position = Vector2( 230, 176 )
-
-[node name="Zombie3" parent="ZombiesGroup" instance=ExtResource( 2 )]
-position = Vector2( 58, 231 )
-
-[node name="Zombie4" parent="ZombiesGroup" instance=ExtResource( 2 )]
-position = Vector2( 128, 131 )
-
-[node name="Zombie5" parent="ZombiesGroup" instance=ExtResource( 2 )]
-position = Vector2( 171, 168 )
-
-[node name="Zombie6" parent="ZombiesGroup" instance=ExtResource( 2 )]
-position = Vector2( 387, 70 )
-
-[node name="Zombie7" parent="ZombiesGroup" instance=ExtResource( 2 )]
-position = Vector2( 335, 52 )
-
-[node name="Zombie8" parent="ZombiesGroup" instance=ExtResource( 2 )]
-position = Vector2( 66, 101 )
-
-[node name="Zombie9" parent="ZombiesGroup" instance=ExtResource( 2 )]
-position = Vector2( 95, 159 )
+position = Vector2( 179, 186 )

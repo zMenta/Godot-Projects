@@ -28,4 +28,5 @@ func _on_BulletHitArea_area_entered(area: Area2D) -> void:
 
 
 func _on_HurtZone_body_entered(body: Node) -> void:
-	print("player entered")
+	if body.has_method("on_zombie_hit"):
+		body.on_zombie_hit()
