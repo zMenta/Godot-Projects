@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Actors/Zombie/zombie.png" type="Texture" id=1]
 [ext_resource path="res://Actors/Movement.tscn" type="PackedScene" id=2]
@@ -6,11 +6,13 @@
 [ext_resource path="res://Actors/AI.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 8.0
+radius = 9.0
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 8.0
 height = 24.0
+
+[sub_resource type="CircleShape2D" id=3]
 
 [node name="Zombie" type="KinematicBody2D"]
 collision_layer = 2
@@ -40,4 +42,13 @@ collision_mask = 4
 self_modulate = Color( 0.0313726, 0.0313726, 0.0117647, 1 )
 shape = SubResource( 2 )
 
+[node name="HurtZone" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtZone"]
+modulate = Color( 0.305882, 0.0627451, 0.694118, 1 )
+position = Vector2( 0, 9 )
+shape = SubResource( 3 )
+
 [connection signal="area_entered" from="BulletHitArea" to="." method="_on_BulletHitArea_area_entered"]
+[connection signal="body_entered" from="HurtZone" to="." method="_on_HurtZone_body_entered"]

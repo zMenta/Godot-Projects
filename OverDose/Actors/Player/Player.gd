@@ -1,5 +1,5 @@
 extends KinematicBody2D
-
+class_name Player
 
 onready var movement := $Movement
 onready var player_center := $PlayerCenter

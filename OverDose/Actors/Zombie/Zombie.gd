@@ -25,3 +25,7 @@ func death() -> void:
 func _on_BulletHitArea_area_entered(area: Area2D) -> void:
 	if area is Bullet:
 		take_damage(area.damage)
+
+
+func _on_HurtZone_body_entered(body: Node) -> void:
+	print("player entered")
