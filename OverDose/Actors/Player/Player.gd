@@ -16,6 +16,7 @@ var alive := true
 
 func _ready() -> void:
 	rotation_degrees = 0
+	scale = Vector2(1,1)
 
 func _physics_process(delta: float) -> void:
 	if alive == true:

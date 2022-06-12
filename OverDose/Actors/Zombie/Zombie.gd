@@ -6,12 +6,14 @@ onready var movement := $Movement
 onready var hurt_zone := $HurtZone
 onready var attack_timer := $AttackTimer
 onready var attack_cooldown_timer := $AttackCoolDownTimer
+onready var animation_player := $AnimationPlayer
 
 
 export var health := 100
 
 
 func _ready() -> void:
+	animation_player.play("initialize")
 	ai.initialize(movement)
 
 
@@ -22,11 +24,13 @@ func take_damage(damage: float) -> void:
 
 
 func death() -> void:
+	animation_player.play("death")
 	queue_free()
 
 
 func _on_BulletHitArea_area_entered(area: Area2D) -> void:
 	if area is Bullet:
+		animation_player.play("take_damage")
 		take_damage(area.damage)
 
 
