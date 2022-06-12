@@ -5,19 +5,25 @@ onready var movement := $Movement
 onready var player_center := $PlayerCenter
 onready var weapon_position := $PlayerCenter/WeaponPosition
 onready var weapon := $PlayerCenter/WeaponPosition/MachinePistol
+onready var animation_player := $AnimationPlayer
+
 
 export var hit_points : int = 3
 
 
+var alive := true
+
+
 func _physics_process(delta: float) -> void:
-	move_weapon_to_mouse()
-	movement.direction = get_movement_input()
-	
-	if Input.is_action_pressed("shoot"):
-		weapon.fire()
-	
-	if Input.is_action_just_pressed("reload"):
-		weapon.reload()
+	if alive == true:
+		move_weapon_to_mouse()
+		movement.direction = get_movement_input()
+		
+		if Input.is_action_pressed("shoot"):
+			weapon.fire()
+		
+		if Input.is_action_just_pressed("reload"):
+			weapon.reload()
 
 
 func move_weapon_to_mouse():
@@ -44,7 +50,8 @@ func get_movement_input() -> Vector2:
 
 
 func death():
-	print("player died")
+	alive = false
+	animation_player.play("death")
 	
 
 func on_zombie_hit():
