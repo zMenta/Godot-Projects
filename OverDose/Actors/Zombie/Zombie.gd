@@ -40,5 +40,6 @@ func _on_AttackTimer_timeout() -> void:
 	if bodies.size() > 0:
 		attack_timer.start()
 		if attack_cooldown_timer.is_stopped():
-			bodies[0].on_zombie_hit()
+			var player_index = bodies.find(Player)
+			bodies[player_index].on_zombie_hit()
 			attack_cooldown_timer.start()
