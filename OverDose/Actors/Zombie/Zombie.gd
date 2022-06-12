@@ -24,7 +24,6 @@ func take_damage(damage: float) -> void:
 
 
 func death() -> void:
-	animation_player.play("death")
 	queue_free()
 
 
