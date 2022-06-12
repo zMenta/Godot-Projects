@@ -14,6 +14,9 @@ export var hit_points : int = 3
 var alive := true
 
 
+func _ready() -> void:
+	rotation_degrees = 0
+
 func _physics_process(delta: float) -> void:
 	if alive == true:
 		move_weapon_to_mouse()
@@ -51,11 +54,13 @@ func get_movement_input() -> Vector2:
 
 func death():
 	alive = false
+	movement.direction = Vector2.ZERO
 	animation_player.play("death")
 	
 
 func on_zombie_hit():
-	print("player got hit")
-	hit_points -= 1
-	if hit_points <= 0:
-		death()
+	if alive:
+		animation_player.play("take_damage")
+		hit_points -= 1
+		if hit_points <= 0:
+			death()
