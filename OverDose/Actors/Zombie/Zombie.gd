@@ -15,6 +15,10 @@ export var health := 100
 func _ready() -> void:
 	animation_player.play("initialize")
 	ai.initialize(movement)
+	
+	
+func _physics_process(delta: float) -> void:
+	movement.move(delta)
 
 
 func take_damage(damage: float) -> void:

@@ -18,10 +18,12 @@ func _ready() -> void:
 	rotation_degrees = 0
 	scale = Vector2(1,1)
 
+
 func _physics_process(delta: float) -> void:
 	if alive == true:
 		move_weapon_to_mouse()
 		movement.direction = get_movement_input()
+		movement.move(delta)
 		
 		if Input.is_action_pressed("shoot"):
 			weapon.fire()

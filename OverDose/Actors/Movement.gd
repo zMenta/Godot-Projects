@@ -14,7 +14,7 @@ var velocity := Vector2.ZERO
 var direction := Vector2.ZERO 
 
 
-func _physics_process(delta: float) -> void:
+func move(delta) -> void:
 	if not actor is KinematicBody2D and actor != null:
 		return
 
