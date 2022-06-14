@@ -1,6 +1,13 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Actors/Zombie/zombie.png" type="Texture" id=1]
+[ext_resource path="res://Images/smoke.png" type="Texture" id=2]
+
+[sub_resource type="CanvasItemMaterial" id=18]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [sub_resource type="Gradient" id=13]
 offsets = PoolRealArray( 0, 0.696154, 1 )
@@ -9,11 +16,17 @@ colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 [sub_resource type="GradientTexture" id=14]
 gradient = SubResource( 13 )
 
+[sub_resource type="Curve" id=19]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.688636 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=20]
+curve = SubResource( 19 )
+
 [sub_resource type="ParticlesMaterial" id=15]
 flag_disable_z = true
 direction = Vector3( 0, -1, 0 )
 spread = 60.0
-gravity = Vector3( 0, 70, 0 )
+gravity = Vector3( 0, 50, 0 )
 initial_velocity = 70.0
 initial_velocity_random = 1.0
 angular_velocity = 200.0
@@ -24,8 +37,11 @@ angle = 180.0
 angle_random = 1.0
 scale = 2.0
 scale_random = 1.0
-color = Color( 0.423529, 0.109804, 0.109804, 1 )
+scale_curve = SubResource( 20 )
+color = Color( 0.423529, 0.109804, 0.109804, 0.392157 )
 color_ramp = SubResource( 14 )
+anim_offset = 1.0
+anim_offset_random = 1.0
 
 [sub_resource type="CanvasItemMaterial" id=7]
 particles_animation = true
@@ -34,8 +50,8 @@ particles_anim_v_frames = 2
 particles_anim_loop = false
 
 [sub_resource type="Gradient" id=9]
-offsets = PoolRealArray( 0, 0.369231, 0.892308, 1 )
-colors = PoolColorArray( 0.991699, 0.275042, 0.275042, 1, 1, 0.9375, 0.9375, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+offsets = PoolRealArray( 0, 0.526923, 0.892308, 1 )
+colors = PoolColorArray( 0.899902, 0.235521, 0.235521, 1, 1, 0.9375, 0.9375, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
 [sub_resource type="GradientTexture" id=10]
 gradient = SubResource( 9 )
@@ -137,10 +153,12 @@ tracks/2/keys = {
 [node name="ZombieDeathParticle" type="Node2D"]
 
 [node name="BloodParticle" type="Particles2D" parent="."]
-amount = 40
-explosiveness = 0.9
+material = SubResource( 18 )
+amount = 10
+explosiveness = 1.0
 randomness = 1.0
 process_material = SubResource( 15 )
+texture = ExtResource( 2 )
 
 [node name="BodyParticle" type="Particles2D" parent="."]
 material = SubResource( 7 )
