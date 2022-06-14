@@ -11,7 +11,8 @@ onready var tween := $Tween
 onready var weapon_sprite := $WeaponSprite
 
 
-export(PackedScene) var Bullet
+export(PackedScene) var Bullet : PackedScene
+export(PackedScene) var bullet_casing_particle : PackedScene
 export var max_recoil_angle := 5.0 # Both Axis. 5 + 5 degrees = 10 degress total
 export var min_recoil_angle := 2.0
 export (float, 1) var recoil_climb_weight := 0.1
@@ -42,6 +43,7 @@ func reload() -> void:
 
 func fire() -> void:
 	if can_shoot == true and current_magazine_bullet_count > 0:
+		spawn_bullet_casing(handle.position)
 		can_shoot = false
 		current_magazine_bullet_count -= 1
 		var recoil_radians = deg2rad(rand_range(-current_recoil, current_recoil))
@@ -64,6 +66,12 @@ func fire() -> void:
 		cooldown_timer.start()
 		animation_player.play("MuzzleFlash")
 		GlobalSignals.emit_signal("bullet_fired", Bullet.instance() ,bullet_direction, muzzle.global_position)
+
+
+func spawn_bullet_casing(casing_position: Vector2) -> void:
+	var bullet_casing = bullet_casing_particle.instance()
+	bullet_casing.global_position = casing_position
+	get_parent().add_child(bullet_casing)
 
 
 func _on_ReloadTimer_timeout() -> void:

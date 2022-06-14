@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Weapons/Bullet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Weapons/WeaponBase.gd" type="Script" id=2]
 [ext_resource path="res://Weapons/muzzle_flash.png" type="Texture" id=3]
 [ext_resource path="res://Images/revolver.png" type="Texture" id=4]
 [ext_resource path="res://Images/big_light.png" type="Texture" id=5]
+[ext_resource path="res://Weapons/BulletCasingParticle.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CanvasItemMaterial" id=4]
 particles_animation = true
@@ -76,6 +77,7 @@ tracks/0/keys = {
 [node name="WeaponBase" type="Node2D"]
 script = ExtResource( 2 )
 Bullet = ExtResource( 1 )
+bullet_casing_particle = ExtResource( 6 )
 
 [node name="WeaponSprite" type="Sprite" parent="."]
 texture = ExtResource( 4 )
@@ -91,8 +93,7 @@ texture = ExtResource( 3 )
 [node name="Light2D" type="Light2D" parent="Muzzle/MuzzleFlash"]
 material = SubResource( 4 )
 texture = ExtResource( 3 )
-offset = Vector2( 7, 0 )
-texture_scale = 2.0
+texture_scale = 1.2
 color = Color( 1, 0.866667, 0, 1 )
 energy = 0.7
 
