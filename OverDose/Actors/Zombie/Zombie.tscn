@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Actors/Zombie/zombie.png" type="Texture" id=1]
 [ext_resource path="res://Actors/Movement.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Actors/Zombie/Zombie.gd" type="Script" id=3]
 [ext_resource path="res://Actors/AI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Actors/Zombie/ZombieDeathParticle.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 9.0
@@ -131,6 +132,7 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
+death_partciles = ExtResource( 5 )
 
 [node name="AI" parent="." instance=ExtResource( 4 )]
 

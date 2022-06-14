@@ -8,7 +8,7 @@ onready var attack_timer := $AttackTimer
 onready var attack_cooldown_timer := $AttackCoolDownTimer
 onready var animation_player := $AnimationPlayer
 
-
+export (PackedScene) var death_partciles : PackedScene
 export var health := 100
 
 
@@ -28,6 +28,9 @@ func take_damage(damage: float) -> void:
 
 
 func death() -> void:
+	var particles = death_partciles.instance()
+	particles.global_position = self.global_position
+	get_parent().add_child(particles)
 	queue_free()
 
 
