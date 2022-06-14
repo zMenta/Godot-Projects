@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "Bullet",
 "language": "GDScript",
-"path": "res://Weapons/Bullet.gd"
+"path": "res://Weapons/Bullet/Bullet.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Weapon",
 "language": "GDScript",
-"path": "res://Weapons/WeaponBase.gd"
+"path": "res://Weapons/WeaponBase/WeaponBase.gd"
 } ]
 _global_script_class_icons={
 "Bullet": "",
