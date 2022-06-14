@@ -22,6 +22,7 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 curve = SubResource( 4 )
 
 [sub_resource type="ParticlesMaterial" id=6]
+resource_local_to_scene = true
 flag_disable_z = true
 spread = 20.0
 gravity = Vector3( 0, 0, 0 )
@@ -34,7 +35,7 @@ orbit_velocity_random = 0.0
 scale = 0.5
 scale_random = 0.5
 scale_curve = SubResource( 5 )
-color = Color( 0.866667, 0.858824, 0.364706, 0.901961 )
+color = Color( 1, 0.988235, 0.443137, 0.607843 )
 color_ramp = SubResource( 3 )
 anim_offset = 1.0
 anim_offset_random = 1.0
