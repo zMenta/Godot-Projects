@@ -5,18 +5,17 @@ onready var movement := $Movement
 onready var player_center := $PlayerCenter
 onready var weapon_position := $PlayerCenter/WeaponPosition
 onready var animation_player := $AnimationPlayer
+onready var inventory := $Inventory
 
-export (PackedScene) onready var default_weapon : PackedScene
+
 export var hit_points : int = 3
 
-
-var current_weapon = default_weapon
+var player_current_weapon = null
 var alive := true
 
 
 func _ready() -> void:
-	rotation_degrees = 0
-	scale = Vector2(1,1)
+	player_current_weapon = inventory.initialize(weapon_position)
 
 
 func _physics_process(delta: float) -> void:
@@ -27,12 +26,12 @@ func _physics_process(delta: float) -> void:
 	movement.direction = get_movement_input()
 	movement.move(delta)
 
-	if current_weapon is Weapon:
+	if player_current_weapon is Weapon:
 		if Input.is_action_pressed("shoot"):
-			current_weapon.fire()
+			player_current_weapon.fire()
 		
 		if Input.is_action_just_pressed("reload"):
-			current_weapon.reload()
+			player_current_weapon.reload()
 
 
 func move_weapon_to_mouse():

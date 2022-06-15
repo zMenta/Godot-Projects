@@ -5,31 +5,32 @@ signal weapon_changed(weapon)
 signal weapon_switched()
 
 
-enum {
-	SLOT1,
-	SLOT2
-}
+var current_weapon : PackedScene
+var stored_weapon : PackedScene
+var weapon_position : Position2D
 
 
-onready var weapon_slots := {
-	SLOT1: null,
-	SLOT2: null
-}
-
-
-var current_weapon: Weapon = null
-
-
-func initialize(weapon: Weapon, slot := 1) -> void:
-	set_weapon(weapon, slot)
-	current_weapon = weapon
-
-
-func set_weapon(weapon: Weapon, slot: int) -> void:
-	weapon_slots[slot] = weapon
-	emit_signal("weapon_changed", weapon_slots[slot])
+func initialize(initialize_weapon_position: Position2D):
+	set_weapon(AllWeapons.weapons["Pistol"])
+	weapon_position = initialize_weapon_position
+	var weapon_instance = current_weapon.instance()
+	weapon_position.add_child(weapon_instance)
+	return weapon_instance
 	
 
+func set_weapon(new_weapon) -> void:
+	if current_weapon == null:
+		current_weapon = new_weapon
+	
+	if stored_weapon == null:
+		stored_weapon = new_weapon
+	else:
+		current_weapon = new_weapon
+
+
 func swap_weapons() -> void:
-	pass
+	var auxiliary = current_weapon
+	
+	current_weapon = stored_weapon
+	stored_weapon = current_weapon
 
