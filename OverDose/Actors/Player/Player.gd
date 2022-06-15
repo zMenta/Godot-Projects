@@ -16,13 +16,14 @@ var alive := true
 
 func _ready() -> void:
 	player_current_weapon = inventory.initialize(weapon_position)
-#	inventory.set_weapon(AllWeapons.weapons["Pistol"])
-#	pass
+	yield(get_tree().create_timer(3),"timeout")
+	inventory.set_weapon(AllWeapons.weapons["Pistol"])
+	inventory.set_weapon(AllWeapons.weapons["Pistol"])
 
 
 func _unhandled_key_input(event: InputEventKey) -> void:
 	if Input.is_action_just_pressed("swap_weapons"):
-		inventory.delete_secondary()
+		pass
 #		player_current_weapon.queue_free()
 #		player_current_weapon = inventory.swap_weapons()
 
