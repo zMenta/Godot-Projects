@@ -10,12 +10,20 @@ onready var inventory := $Inventory
 
 export var hit_points : int = 3
 
-var player_current_weapon = null
+var player_current_weapon : Node2D = null
 var alive := true
 
 
 func _ready() -> void:
 	player_current_weapon = inventory.initialize(weapon_position)
+	inventory.set_weapon(AllWeapons.weapons["MachinePistol"])
+
+
+func _unhandled_key_input(event: InputEventKey) -> void:
+	if Input.is_action_just_pressed("swap_weapons"):
+		print("weapon deleted")
+		player_current_weapon.queue_free()
+		player_current_weapon = inventory.swap_weapons()
 
 
 func _physics_process(delta: float) -> void:
@@ -30,7 +38,7 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_pressed("shoot"):
 			player_current_weapon.fire()
 		
-		if Input.is_action_just_pressed("reload"):
+		elif Input.is_action_just_pressed("reload"):
 			player_current_weapon.reload()
 
 
