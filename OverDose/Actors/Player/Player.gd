@@ -5,23 +5,18 @@ onready var movement := $Movement
 onready var player_center := $PlayerCenter
 onready var weapon_position := $PlayerCenter/WeaponPosition
 onready var animation_player := $AnimationPlayer
-onready var inventory := $Inventory
 
 export (PackedScene) onready var default_weapon : PackedScene
 export var hit_points : int = 3
 
 
-var current_weapon = null
+var current_weapon = default_weapon
 var alive := true
 
 
 func _ready() -> void:
 	rotation_degrees = 0
 	scale = Vector2(1,1)
-	if default_weapon != null:
-		inventory.initialize(default_weapon)
-	else:
-		print(default_weapon)
 
 
 func _physics_process(delta: float) -> void:
@@ -76,9 +71,3 @@ func on_zombie_hit():
 		if hit_points <= 0:
 			death()
 
-
-func _on_Inventory_weapon_changed(weapon: Weapon) -> void:
-	if weapon != null:
-		var weapon_instance = weapon.instance()
-		weapon_position.add_child(weapon_instance)
-	print(weapon)

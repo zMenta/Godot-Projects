@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/machine_gun.png-7e4ea9f7824987c6bc2daaae1bb01ac7.stex"
+path="res://.import/machine_gun.png-936d5814f6969249a7cda6f24fd1e648.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Weapons/MachinePistol/machine_gun.png"
-dest_files=[ "res://.import/machine_gun.png-7e4ea9f7824987c6bc2daaae1bb01ac7.stex" ]
+source_file="res://Weapons/MachinePistol_w/machine_gun.png"
+dest_files=[ "res://.import/machine_gun.png-936d5814f6969249a7cda6f24fd1e648.stex" ]
 
 [params]
 

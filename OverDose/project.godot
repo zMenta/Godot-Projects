@@ -34,11 +34,12 @@ _global_script_class_icons={
 
 config/name="OverDose | Z.O - ZombOver"
 run/main_scene="res://Main.tscn"
-config/icon="res://Weapons/MachinePistol/machine_gun.png"
+config/icon="res://Weapons/MachinePistol_w/machine_gun.png"
 
 [autoload]
 
 GlobalSignals="*res://Globals/GlobalSignals.gd"
+AllWeapons="*res://Globals/AllWeapons.gd"
 
 [display]
 
