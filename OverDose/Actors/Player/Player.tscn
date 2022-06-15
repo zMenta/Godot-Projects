@@ -75,6 +75,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
+default_weapon = ExtResource( 3 )
 
 [node name="Movement" parent="." instance=ExtResource( 4 )]
 
@@ -96,11 +97,11 @@ current = true
 [node name="WeaponPosition" type="Position2D" parent="PlayerCenter"]
 position = Vector2( 10, 0 )
 
-[node name="MachinePistol" parent="PlayerCenter/WeaponPosition" instance=ExtResource( 3 )]
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/death = SubResource( 2 )
 anims/take_damage = SubResource( 3 )
 
 [node name="Inventory" type="Node2D" parent="."]
 script = ExtResource( 5 )
+
+[connection signal="weapon_changed" from="Inventory" to="." method="_on_Inventory_weapon_changed"]

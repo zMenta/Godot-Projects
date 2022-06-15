@@ -1,6 +1,8 @@
 extends Node2D
 
-export (PackedScene) var default_weapon 
+
+signal weapon_changed(weapon)
+signal weapon_switched()
 
 
 enum {
@@ -9,18 +11,25 @@ enum {
 }
 
 
-var weapon_slots := {
+onready var weapon_slots := {
 	SLOT1: null,
 	SLOT2: null
 }
 
 
-func _ready() -> void:
-	set_weapon(default_weapon, SLOT1)
+var current_weapon: Weapon = null
+
+
+func initialize(weapon: Weapon, slot := 1) -> void:
+	set_weapon(weapon, slot)
+	current_weapon = weapon
 
 
 func set_weapon(weapon: Weapon, slot: int) -> void:
 	weapon_slots[slot] = weapon
+	emit_signal("weapon_changed", weapon_slots[slot])
 	
 
+func swap_weapons() -> void:
+	pass
 
