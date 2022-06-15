@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 
 
 func reload() -> void:
-	if reload_timer.is_stopped() and current_max_ammo > 0 and not Input.is_action_pressed("shoot"):
+	if cooldown_timer.is_stopped() and reload_timer.is_stopped() and current_max_ammo > 0 and not Input.is_action_pressed("shoot"):
 		can_shoot = false
 		animation_player.play("Reload")
 		reload_timer.start()

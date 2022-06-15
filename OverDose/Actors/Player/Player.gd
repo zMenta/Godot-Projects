@@ -4,32 +4,41 @@ class_name Player
 onready var movement := $Movement
 onready var player_center := $PlayerCenter
 onready var weapon_position := $PlayerCenter/WeaponPosition
-onready var weapon := $PlayerCenter/WeaponPosition/MachinePistol
 onready var animation_player := $AnimationPlayer
+onready var inventory := $Inventory
 
 
 export var hit_points : int = 3
 
-
+var player_current_weapon : Node2D = null
 var alive := true
 
 
 func _ready() -> void:
-	rotation_degrees = 0
-	scale = Vector2(1,1)
+	player_current_weapon = inventory.initialize(weapon_position)
+	inventory.set_weapon(AllWeapons.weapons["Pistol"])
+
+
+func _unhandled_key_input(event: InputEventKey) -> void:
+	if Input.is_action_just_pressed("swap_weapons"):
+		player_current_weapon.queue_free()
+		player_current_weapon = inventory.swap_weapons()
 
 
 func _physics_process(delta: float) -> void:
-	if alive == true:
-		move_weapon_to_mouse()
-		movement.direction = get_movement_input()
-		movement.move(delta)
-		
+	if alive == false:
+		return
+	
+	move_weapon_to_mouse()
+	movement.direction = get_movement_input()
+	movement.move(delta)
+
+	if player_current_weapon is Weapon:
 		if Input.is_action_pressed("shoot"):
-			weapon.fire()
+			player_current_weapon.fire()
 		
-		if Input.is_action_just_pressed("reload"):
-			weapon.reload()
+		elif Input.is_action_just_pressed("reload"):
+			player_current_weapon.reload()
 
 
 func move_weapon_to_mouse():
@@ -67,3 +76,4 @@ func on_zombie_hit():
 		hit_points -= 1
 		if hit_points <= 0:
 			death()
+

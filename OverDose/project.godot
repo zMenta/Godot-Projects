@@ -34,11 +34,12 @@ _global_script_class_icons={
 
 config/name="OverDose | Z.O - ZombOver"
 run/main_scene="res://Main.tscn"
-config/icon="res://Weapons/MachinePistol/machine_gun.png"
+config/icon="res://Weapons/MachinePistol_w/machine_gun.png"
 
 [autoload]
 
 GlobalSignals="*res://Globals/GlobalSignals.gd"
+AllWeapons="*res://Globals/AllWeapons.gd"
 
 [display]
 
@@ -115,6 +116,11 @@ shoot={
 reload={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":82,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+swap_weapons={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":81,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 
