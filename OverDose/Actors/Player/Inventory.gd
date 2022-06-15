@@ -13,7 +13,6 @@ func initialize(param_weapon_position: Position2D):
 	# Initializing weapons 
 	set_weapon(AllWeapons.weapons["MachinePistol"])
 	set_weapon(AllWeapons.weapons["Pistol"])
-	_spawn_weapons()
 
 
 func _instance_weapon(weapon_scene: PackedScene) -> Node2D:
@@ -47,12 +46,10 @@ func set_weapon(new_weapon: PackedScene) -> void:
 	elif stored_weapon == null:
 		stored_weapon = instanciated_weapon
 	else:
+		current_weapon.queue_free()
 		current_weapon = instanciated_weapon
 		
-
-
-func delete_secondary():
-	stored_weapon.queue_free()
+	_spawn_weapons()
 
 
 func swap_weapons():
@@ -62,7 +59,6 @@ func swap_weapons():
 	current_weapon = stored_weapon
 	stored_weapon = auxiliary
 	
-	return _spawn_weapons()
 	
 	
 	
