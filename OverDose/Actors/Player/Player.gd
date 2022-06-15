@@ -16,7 +16,7 @@ var alive := true
 
 func _ready() -> void:
 	player_current_weapon = inventory.initialize(weapon_position)
-	inventory.set_weapon(AllWeapons.weapons["MachinePistol"])
+	inventory.set_weapon(AllWeapons.weapons["Pistol"])
 
 
 func _unhandled_key_input(event: InputEventKey) -> void:

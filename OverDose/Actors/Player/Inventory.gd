@@ -33,7 +33,7 @@ func swap_weapons():
 	var auxiliary = current_weapon
 	
 	current_weapon = stored_weapon
-	stored_weapon = current_weapon
+	stored_weapon = auxiliary
 	
 	return _spawn_weapon(current_weapon)
 	
