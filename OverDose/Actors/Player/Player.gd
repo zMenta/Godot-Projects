@@ -16,29 +16,31 @@ var alive := true
 
 func _ready() -> void:
 	player_current_weapon = inventory.initialize(weapon_position)
-	inventory.set_weapon(AllWeapons.weapons["Pistol"])
+#	inventory.set_weapon(AllWeapons.weapons["Pistol"])
+#	pass
 
 
 func _unhandled_key_input(event: InputEventKey) -> void:
 	if Input.is_action_just_pressed("swap_weapons"):
-		player_current_weapon.queue_free()
-		player_current_weapon = inventory.swap_weapons()
+		inventory.delete_secondary()
+#		player_current_weapon.queue_free()
+#		player_current_weapon = inventory.swap_weapons()
 
 
 func _physics_process(delta: float) -> void:
-	if alive == false:
+	if alive == false or inventory == null:
 		return
 	
 	move_weapon_to_mouse()
 	movement.direction = get_movement_input()
 	movement.move(delta)
 
-	if player_current_weapon is Weapon:
+	if inventory.current_weapon is Weapon:
 		if Input.is_action_pressed("shoot"):
-			player_current_weapon.fire()
+			inventory.current_weapon.fire()
 		
 		elif Input.is_action_just_pressed("reload"):
-			player_current_weapon.reload()
+			inventory.current_weapon.reload()
 
 
 func move_weapon_to_mouse():
