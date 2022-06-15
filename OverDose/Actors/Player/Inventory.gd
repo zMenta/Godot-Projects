@@ -16,26 +16,27 @@ func initialize(param_weapon_position: Position2D):
 	_spawn_weapons()
 
 
+func _instance_weapon(weapon_scene: PackedScene) -> Node2D:
+	var weapon_instance = weapon_scene.instance()
+	return weapon_instance
+
+
 func _spawn_weapons():
 	# Spawn weapons if there are 0 weapons spawned.
 	if weapon_position.get_child_count() == 0 and current_weapon != null:
 		weapon_position.add_child(current_weapon)
 		if stored_weapon != null and not weapon_position.has_node(stored_weapon.get_path()):
 			weapon_position.add_child(stored_weapon)
+			stored_weapon.visible = false
 	else:
 	
 	# Spawn Weapons if they are not in the scene
-		if not weapon_position.has_node(stored_weapon.get_path()):
-			weapon_position.add_child(stored_weapon)
-			
-		if not weapon_position.has_node(current_weapon.get_path()):
+		if current_weapon != null and not weapon_position.has_node(current_weapon.get_path()):
 			weapon_position.add_child(current_weapon)
-
-
-
-func _instance_weapon(weapon_scene: PackedScene) -> Node2D:
-	var weapon_instance = weapon_scene.instance()
-	return weapon_instance
+			
+		if stored_weapon != null and not weapon_position.has_node(stored_weapon.get_path()):
+			weapon_position.add_child(stored_weapon)
+			stored_weapon.visible = false
 
 
 func set_weapon(new_weapon: PackedScene) -> void:
@@ -47,6 +48,7 @@ func set_weapon(new_weapon: PackedScene) -> void:
 		stored_weapon = instanciated_weapon
 	else:
 		current_weapon = instanciated_weapon
+		
 
 
 func delete_secondary():
