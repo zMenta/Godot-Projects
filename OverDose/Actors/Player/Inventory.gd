@@ -9,9 +9,6 @@ var weapon_position : Position2D
 func initialize(param_weapon_position: Position2D):
 	# Player dependency injection
 	weapon_position = param_weapon_position
-	
-	# Initializing weapons 
-	set_weapon(AllWeapons.weapons["MachinePistol"])
 
 
 func _instance_weapon(weapon_scene: PackedScene) -> Node2D:
