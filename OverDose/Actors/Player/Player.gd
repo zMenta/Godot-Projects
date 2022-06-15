@@ -21,7 +21,6 @@ func _ready() -> void:
 
 func _unhandled_key_input(event: InputEventKey) -> void:
 	if Input.is_action_just_pressed("swap_weapons"):
-		print("weapon deleted")
 		player_current_weapon.queue_free()
 		player_current_weapon = inventory.swap_weapons()
 
