@@ -6,9 +6,7 @@ onready var player_center := $PlayerCenter
 onready var weapon_position := $PlayerCenter/WeaponPosition
 onready var animation_player := $AnimationPlayer
 onready var inventory := $Inventory
-
-
-export var hit_points : int = 3
+onready var health_bar := $PlayerSprite/PlayerHealthBar
 
 
 var alive := true
@@ -74,7 +72,7 @@ func death():
 func on_zombie_hit():
 	if alive:
 		animation_player.play("take_damage")
-		hit_points -= 1
-		if hit_points <= 0:
+		health_bar.value -= 1
+		if health_bar.value <= 0:
 			death()
 
