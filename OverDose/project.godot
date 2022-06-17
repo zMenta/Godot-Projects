@@ -54,6 +54,10 @@ window/stretch/aspect="keep"
 
 colli=false
 
+[gui]
+
+theme/custom_font="res://Font/Font.tres"
+
 [importer_defaults]
 
 texture={
