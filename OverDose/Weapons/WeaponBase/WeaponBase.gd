@@ -2,6 +2,10 @@ extends Node2D
 class_name Weapon
 
 
+signal current_magazine_ammo_changed(current_magazine_bullet_count)
+signal max_ammo_changed(current_max_ammo)
+
+
 onready var muzzle := $Muzzle
 onready var handle := $Handle
 onready var cooldown_timer := $FireCooldownTimer
@@ -68,6 +72,7 @@ func fire() -> void:
 		cooldown_timer.start()
 		animation_player.play("MuzzleFlash")
 		GlobalSignals.emit_signal("bullet_fired", Bullet.instance() ,bullet_direction, muzzle.global_position)
+		emit_signal("current_magazine_ammo_changed", current_magazine_bullet_count)
 
 
 func spawn_bullet_casing(casing_position: Vector2) -> void:
@@ -94,6 +99,8 @@ func _on_ReloadTimer_timeout() -> void:
 	
 	can_shoot = true
 	current_max_ammo = clamp(current_max_ammo, 0, max_ammo)
+	emit_signal("current_magazine_ammo_changed", current_magazine_bullet_count)
+	emit_signal("max_ammo_changed", current_max_ammo)
 
 
 func _on_FireCooldownTimer_timeout() -> void:
