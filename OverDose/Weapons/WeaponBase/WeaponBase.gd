@@ -31,6 +31,7 @@ onready var current_max_ammo = max_ammo
 var current_recoil := min_recoil_angle
 var bullet_direction := Vector2.ZERO
 var can_shoot := true
+var is_reloading := false
 
 
 func _physics_process(delta: float) -> void:
@@ -40,7 +41,11 @@ func _physics_process(delta: float) -> void:
 
 
 func reload() -> void:
+	if current_magazine_bullet_count == magazine_size:
+		return
+	
 	if cooldown_timer.is_stopped() and reload_timer.is_stopped() and current_max_ammo > 0 and not Input.is_action_pressed("shoot"):
+		is_reloading = true
 		can_shoot = false
 		animation_player.play("Reload")
 		reload_timer.start()
@@ -89,6 +94,7 @@ func spawn_smoke(smoke_position: Vector2) -> void:
 
 func _on_ReloadTimer_timeout() -> void:
 	animation_player.play("Rotation_0")
+	is_reloading = false
 	
 	var ammo_amount = magazine_size - current_magazine_bullet_count
 	if ammo_amount > current_max_ammo:
