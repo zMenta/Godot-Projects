@@ -21,8 +21,10 @@ func set_player_current_weapon(inventory = player_inventory) -> void:
 	set_clip_size_text(player_current_weapon.magazine_size)
 	set_current_ammo_text(player_current_weapon.current_magazine_bullet_count)
 	set_total_ammo_text(player_current_weapon.current_max_ammo)
-	player_current_weapon.connect("current_magazine_ammo_changed", self, "set_current_ammo_text")
-	player_current_weapon.connect("max_ammo_changed", self, "set_total_ammo_text")
+	if not player_current_weapon.is_connected("current_magazine_ammo_changed", self, "set_current_ammo_text"):
+		player_current_weapon.connect("current_magazine_ammo_changed", self, "set_current_ammo_text")
+	if not player_current_weapon.is_connected("max_ammo_changed", self, "set_total_ammo_text"):
+		player_current_weapon.connect("max_ammo_changed", self, "set_total_ammo_text")
 	
 
 
