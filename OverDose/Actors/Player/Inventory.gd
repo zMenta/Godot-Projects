@@ -1,6 +1,9 @@
 extends Node2D
 
 
+signal weapon_changed(current_weapon)
+
+
 var current_weapon : Node2D
 var stored_weapon : Node2D
 var weapon_position : Position2D
@@ -49,6 +52,9 @@ func set_weapon(new_weapon: PackedScene) -> void:
 
 
 func swap_weapons():
+	if current_weapon.is_reloading:
+		return
+	
 	# Switch weapon variables
 	var auxiliary = current_weapon
 	
@@ -57,6 +63,7 @@ func swap_weapons():
 	
 	current_weapon.visible = true
 	stored_weapon.visible = false
+	emit_signal("weapon_changed")
 	
 	
 	

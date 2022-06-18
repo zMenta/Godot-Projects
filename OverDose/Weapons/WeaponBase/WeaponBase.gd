@@ -2,6 +2,10 @@ extends Node2D
 class_name Weapon
 
 
+signal current_magazine_ammo_changed(current_magazine_bullet_count)
+signal max_ammo_changed(current_max_ammo)
+
+
 onready var muzzle := $Muzzle
 onready var handle := $Handle
 onready var cooldown_timer := $FireCooldownTimer
@@ -27,6 +31,7 @@ onready var current_max_ammo = max_ammo
 var current_recoil := min_recoil_angle
 var bullet_direction := Vector2.ZERO
 var can_shoot := true
+var is_reloading := false
 
 
 func _physics_process(delta: float) -> void:
@@ -36,7 +41,11 @@ func _physics_process(delta: float) -> void:
 
 
 func reload() -> void:
+	if current_magazine_bullet_count == magazine_size:
+		return
+	
 	if cooldown_timer.is_stopped() and reload_timer.is_stopped() and current_max_ammo > 0 and not Input.is_action_pressed("shoot"):
+		is_reloading = true
 		can_shoot = false
 		animation_player.play("Reload")
 		reload_timer.start()
@@ -68,6 +77,7 @@ func fire() -> void:
 		cooldown_timer.start()
 		animation_player.play("MuzzleFlash")
 		GlobalSignals.emit_signal("bullet_fired", Bullet.instance() ,bullet_direction, muzzle.global_position)
+		emit_signal("current_magazine_ammo_changed", current_magazine_bullet_count)
 
 
 func spawn_bullet_casing(casing_position: Vector2) -> void:
@@ -84,6 +94,7 @@ func spawn_smoke(smoke_position: Vector2) -> void:
 
 func _on_ReloadTimer_timeout() -> void:
 	animation_player.play("Rotation_0")
+	is_reloading = false
 	
 	var ammo_amount = magazine_size - current_magazine_bullet_count
 	if ammo_amount > current_max_ammo:
@@ -94,6 +105,8 @@ func _on_ReloadTimer_timeout() -> void:
 	
 	can_shoot = true
 	current_max_ammo = clamp(current_max_ammo, 0, max_ammo)
+	emit_signal("current_magazine_ammo_changed", current_magazine_bullet_count)
+	emit_signal("max_ammo_changed", current_max_ammo)
 
 
 func _on_FireCooldownTimer_timeout() -> void:
