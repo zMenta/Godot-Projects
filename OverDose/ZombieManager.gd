@@ -13,8 +13,9 @@ var zombie_spawns_locations : Array = []
 
 func spawn_zombie(location: Vector2) -> void:
 	var zombie_instance = Zombie.instance()
-	# Is multiplied by 32, because it's the tile size (32x32)
-	zombie_instance.position = location * 32
+	# Is multiplied by 32, because it's the tile size (32x32).
+	# Plus half of the tile size (16) to spawn on the center
+	zombie_instance.position = (location * 32) + Vector2(16,16)
 	
 	add_child(zombie_instance)
 
