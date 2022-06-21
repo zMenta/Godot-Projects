@@ -11,4 +11,7 @@ Zombie = ExtResource( 2 )
 wait_time = 2.0
 autostart = true
 
+[node name="RoundTransitionTimer" type="Timer" parent="."]
+wait_time = 3.0
+
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
