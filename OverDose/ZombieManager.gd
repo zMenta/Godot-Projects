@@ -10,7 +10,9 @@ onready var round_transition_timer := $RoundTransitionTimer
 export var max_current_zombies := 12
 
 
-var round_zombie_quantity := 4
+var current_round := 1
+var zombie_quantity : int = 4
+onready var round_zombie_quantity := zombie_quantity
 var current_zombie_quantity := 0
 var tilemap : TileMap = null setget set_tilemap
 var zombie_spawns_locations : Array = []
@@ -36,6 +38,13 @@ func zombie_died() -> void:
 	current_zombie_quantity -= 1
 	if current_zombie_quantity < 0:
 		current_zombie_quantity = 0
+
+
+func next_round() -> void:
+	round_transition_timer.start()
+	current_round += 1
+	zombie_quantity *= 0.1
+	round_zombie_quantity = zombie_quantity
 
 
 func _on_SpawnTimer_timeout() -> void:
