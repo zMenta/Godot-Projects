@@ -26,4 +26,6 @@ func set_tilemap(new_tilemap: TileMap) -> void:
 
 
 func _on_SpawnTimer_timeout() -> void:
-	spawn_zombie(zombie_spawns_locations[0])
+	var locations_size = zombie_spawns_locations.size()
+	if locations_size > 0:
+		spawn_zombie(zombie_spawns_locations[randi() % locations_size])
