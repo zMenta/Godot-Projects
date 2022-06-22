@@ -8,11 +8,11 @@ script = ExtResource( 1 )
 Zombie = ExtResource( 2 )
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 0.8
 autostart = true
 
 [node name="RoundTransitionTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 3.0
 one_shot = true
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
