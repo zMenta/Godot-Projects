@@ -8,7 +8,7 @@ script = ExtResource( 1 )
 Zombie = ExtResource( 2 )
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 0.8
+wait_time = 0.5
 autostart = true
 
 [node name="RoundTransitionTimer" type="Timer" parent="."]
