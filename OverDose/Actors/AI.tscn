@@ -19,7 +19,7 @@ autostart = true
 [node name="LineOfSight" type="RayCast2D" parent="LineOfSightPivot"]
 rotation = -1.5708
 enabled = true
-cast_to = Vector2( 0, 350 )
+cast_to = Vector2( 0, 260 )
 collision_mask = 9
 
 [connection signal="timeout" from="CalculateNewPathTimer" to="." method="_on_CalculateNewPathTimer_timeout"]

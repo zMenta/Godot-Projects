@@ -4,15 +4,17 @@ extends CanvasLayer
 onready var current_ammo_label := $MarginContainer/Rows/Row3/Ammo/VBoxContainer/HBoxContainer/CurrentAmmo
 onready var clip_size_label := $MarginContainer/Rows/Row3/Ammo/VBoxContainer/HBoxContainer/ClipSize
 onready var total_ammo_label := $MarginContainer/Rows/Row3/Ammo/VBoxContainer/MarginContainer/HBoxContainer2/CenterContainer/TotalAmmo
+onready var current_round := $MarginContainer/Rows/Row1/CurrentRound 
 
 
 var player_inventory = null
 var player_current_weapon : Weapon = null
 
 
-func initialize(player: Player) -> void:
+func initialize(player: Player, zombie_manager) -> void:
 	player_inventory = player.inventory
 	player_inventory.connect("weapon_changed", self, "set_player_current_weapon")
+	zombie_manager.connect("round_changed", self, "set_round_value")
 	set_player_current_weapon()
 
 
@@ -38,3 +40,7 @@ func set_clip_size_text(new_clip_size: int) -> void:
 
 func set_total_ammo_text(new_total_ammo: int) -> void:
 	total_ammo_label.text = str(new_total_ammo)
+	
+	
+func set_round_value(new_round_value: int) -> void:
+	current_round.text = str(new_round_value)

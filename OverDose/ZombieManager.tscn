@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ZombieManager.gd" type="Script" id=1]
+[ext_resource path="res://Actors/Zombie/Zombie.tscn" type="PackedScene" id=2]
+
+[node name="ZombieManager" type="Node2D"]
+script = ExtResource( 1 )
+Zombie = ExtResource( 2 )
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="RoundTransitionTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]

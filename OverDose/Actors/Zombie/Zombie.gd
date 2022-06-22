@@ -1,6 +1,9 @@
 extends KinematicBody2D
 
 
+signal zombie_died()
+
+
 onready var ai := $AI
 onready var movement := $Movement
 onready var hurt_zone := $HurtZone
@@ -31,6 +34,7 @@ func death() -> void:
 	var particles = death_partciles.instance()
 	particles.global_position = self.global_position
 	get_parent().add_child(particles)
+	emit_signal("zombie_died")
 	queue_free()
 
 
