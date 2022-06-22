@@ -15,7 +15,6 @@ var alive := true
 func _ready() -> void:
 	inventory.initialize(weapon_position)
 	inventory.set_weapon(AllWeapons.weapons["MachinePistol"])
-	inventory.set_weapon(AllWeapons.weapons["Pistol"])
 
 
 

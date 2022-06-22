@@ -52,8 +52,11 @@ func set_weapon(new_weapon: PackedScene) -> void:
 
 
 func swap_weapons():
-	if current_weapon.is_reloading:
+	if stored_weapon == null:
 		return
+	elif current_weapon.is_reloading:
+		return
+		
 	
 	# Switch weapon variables
 	var auxiliary = current_weapon
