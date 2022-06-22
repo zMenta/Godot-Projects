@@ -7,11 +7,11 @@ export (PackedScene) var Zombie
 onready var round_transition_timer := $RoundTransitionTimer
 
 
-export var max_current_zombies := 12
+export var round_zombie_cap := 24
 
 
 var current_round := 1
-var zombie_quantity : int = 4
+var zombie_quantity : int = 12
 onready var round_zombie_quantity := zombie_quantity
 var current_zombie_quantity := 0
 var tilemap : TileMap = null setget set_tilemap
@@ -43,14 +43,21 @@ func zombie_died() -> void:
 func next_round() -> void:
 	round_transition_timer.start()
 	current_round += 1
-	zombie_quantity *= 0.1
+	zombie_quantity += 1
 	round_zombie_quantity = zombie_quantity
 
 
 func _on_SpawnTimer_timeout() -> void:
+	print("round: ",current_round)
+	print("round_zombie_quantity: ", round_zombie_quantity)
+	print("current_zombie_quantity: ", current_zombie_quantity)
 	var locations_size = zombie_spawns_locations.size()
-	if locations_size > 0 and round_transition_timer.is_stopped() and current_zombie_quantity < max_current_zombies and round_zombie_quantity > 0:
-		spawn_zombie(zombie_spawns_locations[randi() % locations_size])
-		current_zombie_quantity += 1
-		round_zombie_quantity -= 1
+	
+	if round_transition_timer.is_stopped():
+		if locations_size > 0 and current_zombie_quantity < round_zombie_cap and round_zombie_quantity > 0:
+			spawn_zombie(zombie_spawns_locations[randi() % locations_size])
+			current_zombie_quantity += 1
+			round_zombie_quantity -= 1
+		elif round_zombie_quantity <= 0 and current_zombie_quantity <= 0 :
+				next_round()	
 
