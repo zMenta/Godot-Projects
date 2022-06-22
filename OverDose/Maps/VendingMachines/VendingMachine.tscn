@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Images/tile_sheet.png" type="Texture" id=1]
+[ext_resource path="res://Weapons/Pistol_w/pistol.png" type="Texture" id=2]
+[ext_resource path="res://Maps/VendingMachines/VendingMachine.gd" type="Script" id=3]
+[ext_resource path="res://Weapons/Pistol_w/Pistol.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 24 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 50, 50 )
+
+[node name="VendingMachine" type="StaticBody2D"]
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+weapon = ExtResource( 4 )
+
+[node name="VendingMachine" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 0, 32, 48 )
+
+[node name="GunSprite" type="Sprite" parent="."]
+position = Vector2( 0, -2 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="BuyRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BuyRange"]
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="BuyRange" to="." method="_on_BuyRange_body_entered"]
+[connection signal="body_exited" from="BuyRange" to="." method="_on_BuyRange_body_exited"]
