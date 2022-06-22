@@ -9,6 +9,6 @@ onready var tilemap := $MapNavigation/TileMap
 func _ready() -> void:
 	randomize()
 	GlobalSignals.connect("bullet_fired", bullet_manager, "on_bullet_fired")
-	GUI.initialize(player)
+	GUI.initialize(player, zombie_manager)
 	zombie_manager.set_tilemap(tilemap)
 

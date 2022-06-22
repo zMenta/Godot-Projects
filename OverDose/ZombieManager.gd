@@ -1,6 +1,9 @@
 extends Node2D
 
 
+signal round_changed(round_value)
+
+
 export (PackedScene) var Zombie 
 
 
@@ -11,7 +14,7 @@ export var round_zombie_cap := 24
 
 
 var current_round := 1
-var zombie_quantity : int = 12
+var zombie_quantity : int = 6
 onready var round_zombie_quantity := zombie_quantity
 var current_zombie_quantity := 0
 var tilemap : TileMap = null setget set_tilemap
@@ -45,12 +48,10 @@ func next_round() -> void:
 	current_round += 1
 	zombie_quantity += 1
 	round_zombie_quantity = zombie_quantity
+	emit_signal("round_changed", current_round)
 
 
 func _on_SpawnTimer_timeout() -> void:
-	print("round: ",current_round)
-	print("round_zombie_quantity: ", round_zombie_quantity)
-	print("current_zombie_quantity: ", current_zombie_quantity)
 	var locations_size = zombie_spawns_locations.size()
 	
 	if round_transition_timer.is_stopped():
