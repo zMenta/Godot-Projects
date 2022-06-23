@@ -13,9 +13,6 @@ extents = Vector2( 50, 50 )
 
 [node name="VendingMachine" type="StaticBody2D"]
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_group_": true
-}
 weapon = ExtResource( 4 )
 
 [node name="VendingMachine" type="Sprite" parent="."]
@@ -34,6 +31,28 @@ shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BuyRange"]
 shape = SubResource( 2 )
+
+[node name="PriceContainer" type="HBoxContainer" parent="."]
+visible = false
+margin_left = -28.0
+margin_top = -45.0
+margin_right = 29.0
+margin_bottom = -5.0
+
+[node name="MoneySign" type="Label" parent="PriceContainer"]
+margin_top = 9.0
+margin_right = 9.0
+margin_bottom = 30.0
+custom_colors/font_color = Color( 0.247059, 0.831373, 0.219608, 1 )
+text = "$"
+
+[node name="PriceValue" type="Label" parent="PriceContainer"]
+margin_left = 13.0
+margin_top = 9.0
+margin_right = 57.0
+margin_bottom = 30.0
+custom_colors/font_color = Color( 0.247059, 0.831373, 0.219608, 1 )
+text = "4000"
 
 [connection signal="body_entered" from="BuyRange" to="." method="_on_BuyRange_body_entered"]
 [connection signal="body_exited" from="BuyRange" to="." method="_on_BuyRange_body_exited"]

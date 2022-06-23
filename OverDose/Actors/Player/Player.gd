@@ -23,7 +23,7 @@ func _ready() -> void:
 
 
 func _unhandled_key_input(event: InputEventKey) -> void:
-	if Input.is_action_just_pressed("swap_weapons"):
+	if Input.is_action_just_pressed("swap_weapons") and alive == true:
 		inventory.swap_weapons()
 
 
