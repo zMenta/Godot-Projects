@@ -6,6 +6,7 @@
 
 [node name="VMPumpShotgun" instance=ExtResource( 3 )]
 weapon = ExtResource( 1 )
+weapon_price = 800
 
 [node name="GunSprite" parent="." index="1"]
 texture = ExtResource( 2 )
