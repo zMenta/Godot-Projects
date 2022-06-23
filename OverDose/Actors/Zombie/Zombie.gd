@@ -13,7 +13,7 @@ onready var animation_player := $AnimationPlayer
 
 export (PackedScene) var death_partciles : PackedScene
 export var health := 100
-export var money_made_on_death := 50
+export var money_made_on_death := 20
 
 
 func _ready() -> void:
