@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Weapons/WeaponBase/WeaponBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Weapons/Bullet/HeavyBullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Weapons/AutomaticRifle_w/automatic_rifle.png" type="Texture" id=3]
 
 [node name="AutomaticRifle" instance=ExtResource( 1 )]
 Bullet = ExtResource( 2 )
@@ -10,6 +11,18 @@ min_recoil_angle = 1.0
 recoil_climb_weight = 0.2
 magazine_size = 24
 max_ammo = 240
+
+[node name="WeaponSprite" parent="." index="0"]
+texture = ExtResource( 3 )
+
+[node name="Muzzle" parent="." index="1"]
+position = Vector2( 13, -2 )
+
+[node name="Handle" parent="." index="2"]
+position = Vector2( 0, -2 )
+
+[node name="FireCooldownTimer" parent="." index="3"]
+wait_time = 0.15
 
 [node name="ReloadTimer" parent="." index="4"]
 wait_time = 1.4
