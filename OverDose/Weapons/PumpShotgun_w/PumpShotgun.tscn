@@ -6,9 +6,6 @@
 
 [node name="PumpShotgun" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
-Bullet = null
-bullet_casing_particle = null
-smoke_particle = null
 
 [node name="WeaponSprite" parent="." index="0"]
 texture = ExtResource( 2 )
