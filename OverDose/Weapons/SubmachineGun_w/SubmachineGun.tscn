@@ -4,7 +4,7 @@
 [ext_resource path="res://Weapons/SubmachineGun_w/submachine_gun.png" type="Texture" id=2]
 
 [node name="SubmachineGun" instance=ExtResource( 1 )]
-max_recoil_angle = 16.0
+max_recoil_angle = 13.0
 min_recoil_angle = 4.0
 recoil_climb_weight = 0.15
 magazine_size = 30
@@ -20,7 +20,7 @@ position = Vector2( 12, -3 )
 position = Vector2( 4, -3 )
 
 [node name="FireCooldownTimer" parent="." index="3"]
-wait_time = 0.3
+wait_time = 0.12
 
 [node name="ReloadTimer" parent="." index="4"]
 wait_time = 1.5
