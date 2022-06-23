@@ -2,6 +2,9 @@ extends KinematicBody2D
 class_name Player
 
 
+export (PackedScene) var starting_weapon = null
+
+
 onready var movement := $Movement
 onready var player_center := $PlayerCenter
 onready var weapon_position := $PlayerCenter/WeaponPosition
@@ -15,7 +18,8 @@ var alive := true
 
 func _ready() -> void:
 	inventory.initialize(weapon_position)
-	inventory.set_weapon(AllWeapons.weapons["MachinePistol"])
+	if starting_weapon != null:
+		inventory.set_weapon(starting_weapon)
 
 
 func _unhandled_key_input(event: InputEventKey) -> void:

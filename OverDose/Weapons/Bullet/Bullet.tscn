@@ -7,8 +7,8 @@
 [ext_resource path="res://Weapons/Bullet/Bullet.gd" type="Script" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 1.65625
-height = 2.0
+radius = 2.03478
+height = 0.218654
 
 [node name="Bullet" type="Area2D"]
 collision_layer = 4
@@ -16,7 +16,7 @@ collision_mask = 10
 script = ExtResource( 5 )
 debri_particles = ExtResource( 4 )
 blood_particles = ExtResource( 3 )
-damage = 15.0
+damage = 18.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -0.46875 )

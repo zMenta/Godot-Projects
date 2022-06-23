@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Weapons/WeaponBase/WeaponBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Weapons/PumpShotgun_w/shotgun.png" type="Texture" id=2]
+[ext_resource path="res://Weapons/WeaponBase/WeaponShotgun.gd" type="Script" id=3]
+[ext_resource path="res://Weapons/WeaponBase/ShotgunCasingParticle.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Weapons/Bullet/BulletPellet.tscn" type="PackedScene" id=5]
+
+[node name="PumpShotgun" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+Bullet = ExtResource( 5 )
+bullet_casing_particle = ExtResource( 4 )
+max_recoil_angle = 25.0
+min_recoil_angle = 15.0
+recoil_climb_weight = 0.2
+recoil_recovery_weight = 0.03
+magazine_size = 6
+pellet_amount = 6
+
+[node name="WeaponSprite" parent="." index="0"]
+texture = ExtResource( 2 )
+
+[node name="Muzzle" parent="." index="1"]
+position = Vector2( 13, -2 )
+
+[node name="Handle" parent="." index="2"]
+position = Vector2( -2, -2 )
+
+[node name="FireCooldownTimer" parent="." index="3"]
+wait_time = 0.8
+
+[node name="ReloadTimer" parent="." index="4"]
+wait_time = 1.2
