@@ -17,7 +17,7 @@ texture = ExtResource( 2 )
 position = Vector2( 14, -1 )
 
 [node name="FireCooldownTimer" parent="." index="3"]
-wait_time = 0.5
+wait_time = 0.7
 
 [node name="ReloadTimer" parent="." index="4"]
-wait_time = 1.2
+wait_time = 1.5

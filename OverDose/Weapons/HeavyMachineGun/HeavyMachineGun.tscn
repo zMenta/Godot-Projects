@@ -6,7 +6,7 @@
 
 [node name="HeavyMachineGun" instance=ExtResource( 1 )]
 Bullet = ExtResource( 3 )
-max_recoil_angle = 45.0
+max_recoil_angle = 30.0
 min_recoil_angle = 8.0
 recoil_climb_weight = 0.14
 magazine_size = 60
@@ -19,7 +19,7 @@ texture = ExtResource( 2 )
 position = Vector2( 13, -1 )
 
 [node name="FireCooldownTimer" parent="." index="3"]
-wait_time = 0.15
+wait_time = 0.07
 
 [node name="ReloadTimer" parent="." index="4"]
 wait_time = 2.3
