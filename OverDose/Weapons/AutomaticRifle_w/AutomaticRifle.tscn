@@ -5,3 +5,11 @@
 
 [node name="AutomaticRifle" instance=ExtResource( 1 )]
 Bullet = ExtResource( 2 )
+max_recoil_angle = 20.0
+min_recoil_angle = 1.0
+recoil_climb_weight = 0.2
+magazine_size = 24
+max_ammo = 240
+
+[node name="ReloadTimer" parent="." index="4"]
+wait_time = 1.4
