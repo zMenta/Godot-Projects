@@ -1,8 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://GUI.gd" type="Script" id=1]
-[ext_resource path="res://Images/shotgun.png" type="Texture" id=2]
-[ext_resource path="res://Weapons/MachinePistol_w/machine_gun.png" type="Texture" id=3]
 
 [node name="GUI" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -93,7 +91,7 @@ mouse_filter = 2
 margin_right = 70.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 70, 50 )
-color = Color( 0.129412, 0.121569, 0.188235, 0.898039 )
+color = Color( 0.129412, 0.121569, 0.188235, 0.976471 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Rows/Row3/VBoxContainer/HBoxContainer/Ammo"]
 margin_left = 7.0
@@ -168,7 +166,6 @@ margin_right = 30.0
 margin_bottom = 23.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource( 2 )
 stretch_mode = 4
 
 [node name="Weapon2" type="TextureRect" parent="MarginContainer/Rows/Row3/VBoxContainer/HBoxContainer/WeaponContainer/ColorRect/VBoxContainer"]
@@ -177,5 +174,4 @@ margin_right = 30.0
 margin_bottom = 50.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource( 3 )
 stretch_mode = 4

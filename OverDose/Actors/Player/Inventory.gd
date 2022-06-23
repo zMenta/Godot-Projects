@@ -1,7 +1,7 @@
 extends Node2D
 
 
-signal weapon_changed(current_weapon)
+signal weapon_changed()
 signal money_changed(money)
 
 

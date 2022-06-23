@@ -92,6 +92,10 @@ func spawn_smoke(smoke_position: Vector2) -> void:
 	get_parent().add_child(smoke)
 
 
+func get_texture() -> Texture:
+	return weapon_sprite.texture
+
+
 func _on_ReloadTimer_timeout() -> void:
 	animation_player.play("Rotation_0")
 	is_reloading = false
