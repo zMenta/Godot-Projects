@@ -13,6 +13,10 @@ var stored_weapon : Node2D
 var weapon_position : Position2D
 
 
+func _ready() -> void:
+	GlobalSignals.connect("money_made", self, "money_increase")
+
+
 func initialize(param_weapon_position: Position2D):
 	# Player dependency injection
 	weapon_position = param_weapon_position
@@ -45,6 +49,10 @@ func set_money(new_value) -> void:
 	money = new_value
 	emit_signal("money_changed", money)
 	
+
+func money_increase(amount) -> void:
+	money += amount
+	emit_signal("money_changed", money)
 
 
 func set_weapon(new_weapon: PackedScene) -> void:

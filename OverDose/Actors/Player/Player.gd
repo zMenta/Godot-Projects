@@ -24,6 +24,7 @@ func _unhandled_key_input(event: InputEventKey) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	print(inventory.money)
 	if alive == false or inventory == null:
 		return
 	
