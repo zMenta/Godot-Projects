@@ -8,6 +8,7 @@ var in_range := false
 var player : Player = null
 
 
+
 func _input(event: InputEvent) -> void:
 	if not in_range:
 		return
