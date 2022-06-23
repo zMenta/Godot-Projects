@@ -10,8 +10,11 @@
 script = ExtResource( 3 )
 Bullet = ExtResource( 5 )
 bullet_casing_particle = ExtResource( 4 )
-max_recoil_angle = 30.0
-min_recoil_angle = 20.0
+max_recoil_angle = 25.0
+min_recoil_angle = 15.0
+recoil_climb_weight = 0.2
+recoil_recovery_weight = 0.03
+magazine_size = 6
 pellet_amount = 6
 
 [node name="WeaponSprite" parent="." index="0"]
@@ -22,6 +25,9 @@ position = Vector2( 13, -2 )
 
 [node name="Handle" parent="." index="2"]
 position = Vector2( -2, -2 )
+
+[node name="FireCooldownTimer" parent="." index="3"]
+wait_time = 0.8
 
 [node name="ReloadTimer" parent="." index="4"]
 wait_time = 1.2
