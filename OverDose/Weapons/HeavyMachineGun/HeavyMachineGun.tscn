@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Weapons/WeaponBase/WeaponBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Weapons/HeavyMachineGun/heavy_machine_gun.png" type="Texture" id=2]
+[ext_resource path="res://Weapons/Bullet/HeavyBullet.tscn" type="PackedScene" id=3]
+
+[node name="HeavyMachineGun" instance=ExtResource( 1 )]
+Bullet = ExtResource( 3 )
+max_recoil_angle = 30.0
+min_recoil_angle = 8.0
+recoil_climb_weight = 0.14
+magazine_size = 60
+max_ammo = 540
+
+[node name="WeaponSprite" parent="." index="0"]
+texture = ExtResource( 2 )
+
+[node name="Muzzle" parent="." index="1"]
+position = Vector2( 13, -1 )
+
+[node name="FireCooldownTimer" parent="." index="3"]
+wait_time = 0.07
+
+[node name="ReloadTimer" parent="." index="4"]
+wait_time = 2.3

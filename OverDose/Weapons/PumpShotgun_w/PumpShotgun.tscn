@@ -15,6 +15,7 @@ min_recoil_angle = 15.0
 recoil_climb_weight = 0.2
 recoil_recovery_weight = 0.03
 magazine_size = 6
+max_ammo = 60
 pellet_amount = 6
 
 [node name="WeaponSprite" parent="." index="0"]
