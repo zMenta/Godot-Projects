@@ -22,7 +22,7 @@ func _input(event: InputEvent) -> void:
 		return
 	
 	if Input.is_action_just_pressed("interact"):
-		if weapon != null and player.inventory.money >= weapon_price:
+		if weapon != null and player.inventory.money >= weapon_price and player.alive == true:
 			player.inventory.set_weapon(weapon)
 			player.inventory.money -= weapon_price
 			
