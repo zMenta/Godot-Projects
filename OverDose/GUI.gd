@@ -1,10 +1,10 @@
 extends CanvasLayer
 
 
-onready var current_ammo_label := $MarginContainer/Rows/Row3/Ammo/VBoxContainer/HBoxContainer/CurrentAmmo
-onready var clip_size_label := $MarginContainer/Rows/Row3/Ammo/VBoxContainer/HBoxContainer/ClipSize
-onready var total_ammo_label := $MarginContainer/Rows/Row3/Ammo/VBoxContainer/MarginContainer/HBoxContainer2/CenterContainer/TotalAmmo
-onready var current_round := $MarginContainer/Rows/Row1/CurrentRound 
+onready var current_ammo_label := $MarginContainer/Rows/Row3/VBoxContainer/Ammo/VBoxContainer/HBoxContainer/CurrentAmmo
+onready var clip_size_label := $MarginContainer/Rows/Row3/VBoxContainer/Ammo/VBoxContainer/HBoxContainer/ClipSize
+onready var total_ammo_label := $MarginContainer/Rows/Row3/VBoxContainer/Ammo/VBoxContainer/MarginContainer/HBoxContainer2/CenterContainer/TotalAmmo
+onready var current_round := $MarginContainer/Rows/Row1/CurrentRound
 
 
 var player_inventory = null
