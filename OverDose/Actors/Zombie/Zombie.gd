@@ -11,6 +11,7 @@ onready var attack_timer := $AttackTimer
 onready var attack_cooldown_timer := $AttackCoolDownTimer
 onready var animation_player := $AnimationPlayer
 
+
 export (PackedScene) var death_partciles : PackedScene
 export var health := 100
 export var money_made_on_death := 20
