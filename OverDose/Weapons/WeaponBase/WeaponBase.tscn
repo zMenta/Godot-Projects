@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Images/revolver.png" type="Texture" id=1]
+[ext_resource path="res://Weapons/Revolver_w/revolver.png" type="Texture" id=1]
 [ext_resource path="res://Images/big_light.png" type="Texture" id=2]
 [ext_resource path="res://Weapons/WeaponBase/muzzle_flash.png" type="Texture" id=3]
 [ext_resource path="res://Weapons/WeaponBase/BulletCasingParticle.tscn" type="PackedScene" id=4]
