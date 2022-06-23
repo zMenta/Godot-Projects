@@ -12,3 +12,6 @@ func _ready() -> void:
 	GUI.initialize(player, zombie_manager)
 	zombie_manager.set_tilemap(map.get_tilemap())
 
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("f11"):
+		OS.window_fullscreen = not OS.window_fullscreen
