@@ -1,6 +1,7 @@
 extends KinematicBody2D
 class_name Player
 
+
 onready var movement := $Movement
 onready var player_center := $PlayerCenter
 onready var weapon_position := $PlayerCenter/WeaponPosition
@@ -17,13 +18,13 @@ func _ready() -> void:
 	inventory.set_weapon(AllWeapons.weapons["MachinePistol"])
 
 
-
 func _unhandled_key_input(event: InputEventKey) -> void:
 	if Input.is_action_just_pressed("swap_weapons"):
 		inventory.swap_weapons()
 
 
 func _physics_process(delta: float) -> void:
+	print(inventory.money)
 	if alive == false or inventory == null:
 		return
 	

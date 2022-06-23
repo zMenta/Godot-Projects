@@ -11,8 +11,10 @@ onready var attack_timer := $AttackTimer
 onready var attack_cooldown_timer := $AttackCoolDownTimer
 onready var animation_player := $AnimationPlayer
 
+
 export (PackedScene) var death_partciles : PackedScene
 export var health := 100
+export var money_made_on_death := 20
 
 
 func _ready() -> void:
@@ -35,6 +37,7 @@ func death() -> void:
 	particles.global_position = self.global_position
 	get_parent().add_child(particles)
 	emit_signal("zombie_died")
+	GlobalSignals.emit_signal("money_made", money_made_on_death)
 	queue_free()
 
 

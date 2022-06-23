@@ -1,12 +1,20 @@
 extends Node2D
 
 
-signal weapon_changed(current_weapon)
+signal weapon_changed()
+signal money_changed(money)
+
+
+export var money: int = 350 setget set_money
 
 
 var current_weapon : Node2D
 var stored_weapon : Node2D
 var weapon_position : Position2D
+
+
+func _ready() -> void:
+	GlobalSignals.connect("money_made", self, "money_increase")
 
 
 func initialize(param_weapon_position: Position2D):
@@ -35,6 +43,16 @@ func _spawn_weapons():
 		if stored_weapon != null and not weapon_position.has_node(stored_weapon.get_path()):
 			weapon_position.add_child(stored_weapon)
 			stored_weapon.visible = false
+
+
+func set_money(new_value) -> void:
+	money = new_value
+	emit_signal("money_changed", money)
+	
+
+func money_increase(amount) -> void:
+	money += amount
+	emit_signal("money_changed", money)
 
 
 func set_weapon(new_weapon: PackedScene) -> void:
