@@ -39,18 +39,23 @@ func _spawn_weapons():
 
 func set_weapon(new_weapon: PackedScene) -> void:
 	var instanciated_weapon = _instance_weapon(new_weapon)
+	var stored_weapon_was_null := false
 	
 	if current_weapon == null:
 		current_weapon = instanciated_weapon
 	elif stored_weapon == null:
 		stored_weapon = instanciated_weapon
+		stored_weapon_was_null = true
 	else:
 		current_weapon.queue_free()
 		current_weapon = instanciated_weapon
 	
 	_spawn_weapons()
-
-
+	emit_signal("weapon_changed")
+	
+	if stored_weapon_was_null:
+		swap_weapons()
+	
 func swap_weapons():
 	if stored_weapon == null:
 		return
