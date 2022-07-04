@@ -15,6 +15,7 @@ onready var tween := $Tween
 onready var weapon_sprite := $WeaponSprite
 
 
+export var gun_sound = "res://Weapons/WeaponBase/GunSound1.wav"
 export(PackedScene) var Bullet : PackedScene
 export(PackedScene) var bullet_casing_particle : PackedScene
 export(PackedScene) var smoke_particle : PackedScene
@@ -53,6 +54,7 @@ func reload() -> void:
 
 func fire() -> void:
 	if can_shoot == true and current_magazine_bullet_count > 0:
+		AudioManager.play(gun_sound)
 		can_shoot = false
 		spawn_smoke(muzzle.position)
 		spawn_bullet_casing(handle.position)

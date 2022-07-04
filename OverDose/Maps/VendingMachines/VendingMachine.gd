@@ -1,6 +1,5 @@
 extends StaticBody2D
 
-
 onready var price_container := $PriceContainer
 onready var price_label := $PriceContainer/PriceValue
 

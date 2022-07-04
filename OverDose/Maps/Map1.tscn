@@ -75,4 +75,3 @@ position = Vector2( -48, -408 )
 
 [node name="VMAutomaticRifle" parent="VendingMachines" instance=ExtResource( 13 )]
 position = Vector2( 208, -728 )
-weapon_price = 1100
