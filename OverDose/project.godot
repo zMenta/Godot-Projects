@@ -39,7 +39,7 @@ config/icon="res://Weapons/MachinePistol_w/machine_gun.png"
 [autoload]
 
 GlobalSignals="*res://Globals/GlobalSignals.gd"
-AllWeapons="*res://Globals/AllWeapons.gd"
+AudioManager="*res://Globals/AudioManager.gd"
 
 [display]
 

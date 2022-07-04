@@ -61,9 +61,11 @@ position = Vector2( -176, -24 )
 
 [node name="VMDoubleBarrel" parent="VendingMachines" instance=ExtResource( 10 )]
 position = Vector2( -208, -728 )
+weapon_price = 750
 
 [node name="VMRevolver" parent="VendingMachines" instance=ExtResource( 12 )]
 position = Vector2( 272, 40 )
+weapon_price = 280
 
 [node name="VMRifle" parent="VendingMachines" instance=ExtResource( 11 )]
 position = Vector2( 880, -152 )
@@ -73,3 +75,4 @@ position = Vector2( -48, -408 )
 
 [node name="VMAutomaticRifle" parent="VendingMachines" instance=ExtResource( 13 )]
 position = Vector2( 208, -728 )
+weapon_price = 1100
