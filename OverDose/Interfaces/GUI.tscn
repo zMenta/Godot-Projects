@@ -1,7 +1,118 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Interfaces/GUI.gd" type="Script" id=1]
 [ext_resource path="res://Interfaces/PauseMenu.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Animation" id=3]
+resource_name = "AmmoChangedAnimation"
+length = 0.1
+step = 0.005
+tracks/0/type = "value"
+tracks/0/path = NodePath("MarginContainer/Rows/Row3/VBoxContainer/HBoxContainer/Ammo/VBoxContainer/HBoxContainer/CurrentAmmo:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.02, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.3, 1.3 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MarginContainer/Rows/Row3/VBoxContainer/HBoxContainer/Ammo/VBoxContainer/HBoxContainer/CurrentAmmo:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.02, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.964706, 0.815686, 0.0235294, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MarginContainer/Rows/Row3/VBoxContainer/HBoxContainer/Ammo/VBoxContainer/HBoxContainer/CurrentAmmo:rect_rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.02, 0.06, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -8.0, 8.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "OnMoneyChange"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("MarginContainer/Rows/Row3/VBoxContainer/MoneyContainer/HBoxContainer:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.482353, 0.847059, 0.0862745, 1 ), Color( 0.482353, 0.847059, 0.0862745, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MarginContainer/Rows/Row3/VBoxContainer/MoneyContainer/HBoxContainer:rect_scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MarginContainer/Rows/Row3/VBoxContainer/MoneyContainer/HBoxContainer:rect_rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.05, 0.15, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -4.0, 4.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "OnRoundChange"
+length = 1.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("MarginContainer/Rows/Row1/CurrentRound:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2.5, 2.5 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MarginContainer/Rows/Row1/CurrentRound:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.972549, 0.803922, 0.0392157, 1 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="GUI" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -95,13 +206,13 @@ rect_min_size = Vector2( 70, 50 )
 color = Color( 0.129412, 0.121569, 0.188235, 0.976471 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Rows/Row3/VBoxContainer/HBoxContainer/Ammo"]
-margin_left = 7.0
-margin_top = 2.0
-margin_right = 63.0
-margin_bottom = 48.0
+margin_left = 4.0
+margin_top = 14.0
+margin_right = 66.0
+margin_bottom = 35.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Rows/Row3/VBoxContainer/HBoxContainer/Ammo/VBoxContainer"]
-margin_right = 56.0
+margin_right = 62.0
 margin_bottom = 21.0
 
 [node name="CurrentAmmo" type="Label" parent="MarginContainer/Rows/Row3/VBoxContainer/HBoxContainer/Ammo/VBoxContainer/HBoxContainer"]
@@ -117,30 +228,9 @@ margin_bottom = 21.0
 custom_colors/font_color = Color( 0.807843, 0.807843, 0.807843, 1 )
 text = "/"
 
-[node name="ClipSize" type="Label" parent="MarginContainer/Rows/Row3/VBoxContainer/HBoxContainer/Ammo/VBoxContainer/HBoxContainer"]
+[node name="TotalAmmo" type="Label" parent="MarginContainer/Rows/Row3/VBoxContainer/HBoxContainer/Ammo/VBoxContainer/HBoxContainer"]
 margin_left = 36.0
-margin_right = 56.0
-margin_bottom = 21.0
-custom_colors/font_color = Color( 0.807843, 0.807843, 0.807843, 1 )
-text = "30"
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Rows/Row3/VBoxContainer/HBoxContainer/Ammo/VBoxContainer"]
-margin_top = 25.0
-margin_right = 56.0
-margin_bottom = 46.0
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Rows/Row3/VBoxContainer/HBoxContainer/Ammo/VBoxContainer/MarginContainer"]
-margin_right = 56.0
-margin_bottom = 21.0
-
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/Rows/Row3/VBoxContainer/HBoxContainer/Ammo/VBoxContainer/MarginContainer/HBoxContainer2"]
-margin_right = 56.0
-margin_bottom = 21.0
-size_flags_horizontal = 3
-
-[node name="TotalAmmo" type="Label" parent="MarginContainer/Rows/Row3/VBoxContainer/HBoxContainer/Ammo/VBoxContainer/MarginContainer/HBoxContainer2/CenterContainer"]
-margin_left = 15.0
-margin_right = 41.0
+margin_right = 62.0
 margin_bottom = 21.0
 custom_colors/font_color = Color( 0.807843, 0.807843, 0.807843, 1 )
 text = "125"
@@ -178,3 +268,11 @@ size_flags_vertical = 3
 stretch_mode = 4
 
 [node name="PauseMenu" parent="." instance=ExtResource( 2 )]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/AmmoChangedAnimation = SubResource( 3 )
+anims/OnMoneyChange = SubResource( 1 )
+anims/OnRoundChange = SubResource( 2 )
+
+[node name="AmmoChangedPlayer" type="AnimationPlayer" parent="."]
+anims/InterfacesAmmoChangedAnimation = SubResource( 3 )

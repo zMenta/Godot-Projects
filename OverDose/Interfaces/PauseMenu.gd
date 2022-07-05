@@ -24,3 +24,8 @@ func _on_Quit_Game_pressed() -> void:
 func _on_Restart_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to(MenuGlobal.level)
+
+
+func _on_Main_Menu_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to(MenuGlobal.main_menu)
