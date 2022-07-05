@@ -6,6 +6,7 @@ export var pellet_amount: int = 4
 
 func fire() -> void:
 	if can_shoot == true and current_magazine_bullet_count > 0:
+		GlobalSignals.emit_signal("gun_fired", 0.15)
 		AudioManager.play(gun_sound)
 		can_shoot = false
 		spawn_smoke(muzzle.position)
