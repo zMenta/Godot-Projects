@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="OverDose | Z.O - ZombOver"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://Interfaces/MainMenu.tscn"
 config/icon="res://Weapons/MachinePistol_w/machine_gun.png"
 
 [autoload]
