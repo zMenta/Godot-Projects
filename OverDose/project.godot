@@ -34,7 +34,8 @@ _global_script_class_icons={
 
 config/name="OverDose | Z.O - ZombOver"
 run/main_scene="res://Interfaces/MainMenu.tscn"
-config/icon="res://Weapons/MachinePistol_w/machine_gun.png"
+config/icon="res://Images/gun_icon.png"
+config/windows_native_icon="res://Images/Gun_Icon2.ico"
 
 [autoload]
 
