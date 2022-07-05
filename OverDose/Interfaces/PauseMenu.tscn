@@ -2,7 +2,8 @@
 
 [ext_resource path="res://Interfaces/PauseMenu.gd" type="Script" id=1]
 
-[node name="Control" type="Control"]
+[node name="PauseMenu" type="Control"]
+pause_mode = 2
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -11,7 +12,7 @@ script = ExtResource( 1 )
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.0901961, 0.0901961, 0.0901961, 0.192157 )
+color = Color( 0.0901961, 0.0901961, 0.0901961, 0.690196 )
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
@@ -40,3 +41,7 @@ margin_top = 84.0
 margin_right = 104.0
 margin_bottom = 111.0
 text = "Quit game"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Quit Game" to="." method="_on_Quit_Game_pressed"]
