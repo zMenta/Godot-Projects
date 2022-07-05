@@ -37,7 +37,6 @@ func take_damage(damage: float) -> void:
 
 
 func death() -> void:
-	print(self, " died")
 	var particles = death_partciles.instance()
 	particles.global_position = self.global_position
 	get_parent().add_child(particles)
