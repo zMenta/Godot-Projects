@@ -26,11 +26,18 @@ margin_left = -40.0
 margin_right = 40.0
 alignment = 1
 
+[node name="FullScreenCheckBox" type="CheckBox" parent="VBoxContainer"]
+margin_top = 150.0
+margin_right = 121.0
+margin_bottom = 179.0
+text = "FullScreen"
+
 [node name="Back" type="Button" parent="VBoxContainer"]
-margin_top = 166.0
-margin_right = 80.0
-margin_bottom = 193.0
+margin_top = 183.0
+margin_right = 121.0
+margin_bottom = 210.0
 rect_min_size = Vector2( 80, 25 )
 text = "Back"
 
+[connection signal="pressed" from="VBoxContainer/FullScreenCheckBox" to="." method="_on_FullScreenCheckBox_pressed"]
 [connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_Back_pressed"]
