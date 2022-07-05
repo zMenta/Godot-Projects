@@ -57,6 +57,7 @@ func set_total_ammo_text(new_total_ammo: int) -> void:
 	
 func set_round_value(new_round_value: int) -> void:
 	current_round_label.text = str(new_round_value)
+	AudioManager.play("res://Sounds/Bling.wav")
 
 
 func set_weapon1_texture(new_texture: Texture) -> void:
