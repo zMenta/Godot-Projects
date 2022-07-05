@@ -2,8 +2,7 @@ extends CanvasLayer
 
 
 onready var current_ammo_label := $MarginContainer/Rows/Row3/VBoxContainer/HBoxContainer/Ammo/VBoxContainer/HBoxContainer/CurrentAmmo
-onready var clip_size_label := $MarginContainer/Rows/Row3/VBoxContainer/HBoxContainer/Ammo/VBoxContainer/HBoxContainer/ClipSize
-onready var total_ammo_label := $MarginContainer/Rows/Row3/VBoxContainer/HBoxContainer/Ammo/VBoxContainer/MarginContainer/HBoxContainer2/CenterContainer/TotalAmmo
+onready var total_ammo_label := $MarginContainer/Rows/Row3/VBoxContainer/HBoxContainer/Ammo/VBoxContainer/HBoxContainer/TotalAmmo
 onready var current_round_label := $MarginContainer/Rows/Row1/CurrentRound
 onready var money_label := $MarginContainer/Rows/Row3/VBoxContainer/MoneyContainer/HBoxContainer/Money
 onready var weapon1 := $MarginContainer/Rows/Row3/VBoxContainer/HBoxContainer/WeaponContainer/ColorRect/VBoxContainer/Weapon1
@@ -25,7 +24,6 @@ func initialize(player: Player, zombie_manager) -> void:
 func set_player_current_weapon(inventory = player_inventory) -> void:
 	player_current_weapon = inventory.current_weapon
 	set_weapons_gui()
-	set_clip_size_text(player_current_weapon.magazine_size)
 	set_current_ammo_text(player_current_weapon.current_magazine_bullet_count)
 	set_total_ammo_text(player_current_weapon.current_max_ammo)
 	if not player_current_weapon.is_connected("current_magazine_ammo_changed", self, "set_current_ammo_text"):
@@ -51,10 +49,6 @@ func set_money(new_value: int) -> void:
 
 func set_current_ammo_text(new_current_ammo: int) -> void:
 	current_ammo_label.text = str(new_current_ammo)
-	
-
-func set_clip_size_text(new_clip_size: int) -> void:
-	clip_size_label.text = str(new_clip_size)
 	
 
 func set_total_ammo_text(new_total_ammo: int) -> void:
