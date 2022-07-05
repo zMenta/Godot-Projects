@@ -6,6 +6,7 @@ export var pellet_amount: int = 4
 
 func fire() -> void:
 	if can_shoot == true and current_magazine_bullet_count > 0:
+		AudioManager.play(gun_sound)
 		can_shoot = false
 		spawn_smoke(muzzle.position)
 		spawn_bullet_casing(handle.position)

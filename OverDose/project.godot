@@ -39,7 +39,8 @@ config/icon="res://Weapons/MachinePistol_w/machine_gun.png"
 [autoload]
 
 GlobalSignals="*res://Globals/GlobalSignals.gd"
-AllWeapons="*res://Globals/AllWeapons.gd"
+AudioManager="*res://Globals/AudioManager.gd"
+MenuGlobal="*res://Globals/MenuGlobal.gd"
 
 [display]
 
@@ -135,6 +136,11 @@ interact={
 f11={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777254,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+esc={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 
