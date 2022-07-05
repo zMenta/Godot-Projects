@@ -28,7 +28,7 @@ func add_trauma(amount):
 
 
 func shake():
-	var amount = pow(trauma, trauma_power)
+	var amount = min(pow(trauma, trauma_power), 0.070)
 	rotation = max_roll * amount * rand_range(-1, 1)
 	offset.x = max_offset.x * amount * rand_range(-1, 1)
 	offset.y = max_offset.y * amount * rand_range(-1, 1)
