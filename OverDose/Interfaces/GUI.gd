@@ -50,6 +50,7 @@ func set_money(new_value: int) -> void:
 
 func set_current_ammo_text(new_current_ammo: int) -> void:
 	current_ammo_label.text = str(new_current_ammo)
+	$AmmoChangedPlayer.play("InterfacesAmmoChangedAnimation")
 	
 
 func set_total_ammo_text(new_total_ammo: int) -> void:
