@@ -1,16 +1,23 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Interfaces/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://Main.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Interfaces/Settings.tscn" type="PackedScene" id=3]
 
 [node name="MainMenu" type="Control"]
-anchor_left = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource( 1 )
+main_level = ExtResource( 2 )
+settings = ExtResource( 3 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-margin_top = 123.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_top = 40.0
 grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Label" type="Label" parent="MarginContainer"]
 margin_right = 111.0
@@ -45,3 +52,7 @@ margin_right = 82.0
 margin_bottom = 224.0
 rect_min_size = Vector2( 80, 25 )
 text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
