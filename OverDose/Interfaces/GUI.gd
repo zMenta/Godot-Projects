@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-
+onready var animation_player := $AnimationPlayer
 onready var current_ammo_label := $MarginContainer/Rows/Row3/VBoxContainer/HBoxContainer/Ammo/VBoxContainer/HBoxContainer/CurrentAmmo
 onready var total_ammo_label := $MarginContainer/Rows/Row3/VBoxContainer/HBoxContainer/Ammo/VBoxContainer/HBoxContainer/TotalAmmo
 onready var current_round_label := $MarginContainer/Rows/Row1/CurrentRound
@@ -45,6 +45,7 @@ func set_weapons_gui(inventory = player_inventory) -> void:
 
 func set_money(new_value: int) -> void:
 	money_label.text = str(new_value)
+	animation_player.play("OnMoneyChange")
 
 
 func set_current_ammo_text(new_current_ammo: int) -> void:
