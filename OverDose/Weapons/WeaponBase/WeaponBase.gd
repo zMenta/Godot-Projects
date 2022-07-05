@@ -25,6 +25,7 @@ export (float, 1) var recoil_climb_weight := 0.1
 export (float, 1) var recoil_recovery_weight := 0.05
 export var magazine_size := 10
 export var max_ammo := 100
+export var trauma_amount := 0.1
 
 
 onready var current_magazine_bullet_count = magazine_size
@@ -59,6 +60,7 @@ func reload() -> void:
 
 func fire() -> void:
 	if can_shoot == true and current_magazine_bullet_count > 0:
+		GlobalSignals.emit_signal("gun_fired", trauma_amount)
 		AudioManager.play(gun_sound)
 		can_shoot = false
 		spawn_smoke(muzzle.position)

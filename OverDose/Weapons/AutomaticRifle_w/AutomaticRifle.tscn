@@ -11,6 +11,7 @@ min_recoil_angle = 1.0
 recoil_climb_weight = 0.2
 magazine_size = 24
 max_ammo = 240
+trauma_amount = 0.12
 
 [node name="WeaponSprite" parent="." index="0"]
 texture = ExtResource( 3 )

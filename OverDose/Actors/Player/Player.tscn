@@ -178,9 +178,6 @@ anims/Moving = SubResource( 3 )
 position = Vector2( 0, 8 )
 shape = SubResource( 1 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-
 [node name="PlayerCenter" type="Position2D" parent="."]
 
 [node name="WeaponPosition" type="Position2D" parent="PlayerCenter"]

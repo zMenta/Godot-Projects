@@ -5,3 +5,4 @@ func on_bullet_fired(bullet_instance, bullet_direction: Vector2, bullet_position
 	bullet_instance.position = bullet_position
 	bullet_instance.set_direction(bullet_direction)
 	add_child(bullet_instance)
+

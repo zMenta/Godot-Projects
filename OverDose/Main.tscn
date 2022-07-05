@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Actors/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Maps/Map1.tscn" type="PackedScene" id=2]
@@ -7,9 +7,15 @@
 [ext_resource path="res://ZombieManager.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Main.gd" type="Script" id=7]
 [ext_resource path="res://BulletManager.gd" type="Script" id=8]
+[ext_resource path="res://Actors/Player/PlayerCamera.gd" type="Script" id=9]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 7 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+script = ExtResource( 9 )
+target = NodePath("../Player")
 
 [node name="Map1" parent="." instance=ExtResource( 2 )]
 

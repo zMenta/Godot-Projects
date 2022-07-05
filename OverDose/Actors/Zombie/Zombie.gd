@@ -16,6 +16,8 @@ export (PackedScene) var death_partciles : PackedScene
 export var health := 100
 export var money_made_on_death := 20
 
+var dead = false
+
 
 func _ready() -> void:
 	animation_player.play("initialize")
@@ -28,11 +30,14 @@ func _physics_process(delta: float) -> void:
 
 func take_damage(damage: float) -> void:
 	health -= damage
-	if health <= 0:
+	if health <= 0 and dead == false:
+		dead = true
 		death()
+		
 
 
 func death() -> void:
+	print(self, " died")
 	var particles = death_partciles.instance()
 	particles.global_position = self.global_position
 	get_parent().add_child(particles)
