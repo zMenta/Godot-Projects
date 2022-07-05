@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Interfaces/GUI.gd" type="Script" id=1]
 [ext_resource path="res://Interfaces/PauseMenu.tscn" type="PackedScene" id=2]
@@ -17,7 +17,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.25 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.196078, 0.32549, 0.054902, 1 ), Color( 0.196078, 0.32549, 0.054902, 1 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.482353, 0.847059, 0.0862745, 1 ), Color( 0.482353, 0.847059, 0.0862745, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("MarginContainer/Rows/Row3/VBoxContainer/MoneyContainer/HBoxContainer:rect_scale")
@@ -42,6 +42,35 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ 0.0, -4.0, 4.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "OnRoundChange"
+length = 1.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("MarginContainer/Rows/Row1/CurrentRound:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2.5, 2.5 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MarginContainer/Rows/Row1/CurrentRound:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.972549, 0.803922, 0.0392157, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [node name="GUI" type="CanvasLayer"]
@@ -201,3 +230,4 @@ stretch_mode = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/OnMoneyChange = SubResource( 1 )
+anims/OnRoundChange = SubResource( 2 )
