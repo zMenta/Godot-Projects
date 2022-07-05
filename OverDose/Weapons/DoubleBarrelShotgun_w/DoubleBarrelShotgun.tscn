@@ -14,7 +14,7 @@ max_recoil_angle = 30.0
 min_recoil_angle = 10.0
 magazine_size = 2
 max_ammo = 40
-trauma_amount = 0.3
+trauma_amount = 0.2
 pellet_amount = 16
 
 [node name="WeaponSprite" parent="." index="0"]

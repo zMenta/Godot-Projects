@@ -9,6 +9,7 @@ Bullet = ExtResource( 3 )
 max_recoil_angle = 3.0
 magazine_size = 4
 max_ammo = 40
+trauma_amount = 0.2
 
 [node name="WeaponSprite" parent="." index="0"]
 texture = ExtResource( 2 )
