@@ -1,9 +1,37 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/models/blocks.meshlib" type="MeshLibrary" id=1]
 [ext_resource path="res://assets/Player/Ball.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/Levels/DeathZone.gd" type="Script" id=3]
 [ext_resource path="res://assets/Levels/WinZone.gd" type="Script" id=4]
+
+[sub_resource type="Shader" id=4]
+code = "shader_type canvas_item;
+
+uniform int pixelSize = 5;
+
+void fragment()
+{
+	
+	ivec2 size = textureSize(TEXTURE, 0);
+	
+	int xRes = size.x;
+	int yRes = size.y;
+	
+	float xFactor = float(xRes) / float(pixelSize);
+	float yFactor = float(yRes) / float(pixelSize);
+	
+	float grid_uv_x = round(UV.x * xFactor) / xFactor;
+	float grid_uv_y = round(UV.y * yFactor) / yFactor;
+	
+	vec4 text = texture(TEXTURE, vec2(grid_uv_x, grid_uv_y));
+	
+	COLOR = text;
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 4 )
+shader_param/pixelSize = 5
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
@@ -23,9 +51,19 @@ extents = Vector3( 100, 2, 100 )
 
 [sub_resource type="BoxShape" id=3]
 
-[node name="Level01" type="Spatial"]
+[node name="ViewportContainer" type="ViewportContainer"]
+material = SubResource( 5 )
+anchor_right = 1.0
+anchor_bottom = 1.0
 
-[node name="GridMap" type="GridMap" parent="."]
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 1024, 600 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Level01" type="Spatial" parent="Viewport"]
+
+[node name="GridMap" type="GridMap" parent="Viewport/Level01"]
 mesh_library = ExtResource( 1 )
 cell_size = Vector3( 4, 4, 4 )
 cell_center_x = false
@@ -40,32 +78,32 @@ __meta__ = {
 "_editor_floor_": Vector3( 0, 2, 0 )
 }
 
-[node name="Ball" parent="." instance=ExtResource( 2 )]
+[node name="Ball" parent="Viewport/Level01" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1 )
 
-[node name="DirectionalLight" type="DirectionalLight" parent="."]
+[node name="DirectionalLight" type="DirectionalLight" parent="Viewport/Level01"]
 transform = Transform( 0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, 0.114902, 4.86542, 0.0382261 )
 light_color = Color( 0.713726, 0.705882, 0.278431, 1 )
 light_energy = 3.0
 shadow_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Viewport/Level01"]
 environment = SubResource( 1 )
 
-[node name="DeathZone" type="Area" parent="."]
+[node name="DeathZone" type="Area" parent="Viewport/Level01"]
 script = ExtResource( 3 )
 
-[node name="CollisionShape" type="CollisionShape" parent="DeathZone"]
+[node name="CollisionShape" type="CollisionShape" parent="Viewport/Level01/DeathZone"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, -30 )
 shape = SubResource( 2 )
 
-[node name="WinZone" type="Area" parent="."]
+[node name="WinZone" type="Area" parent="Viewport/Level01"]
 script = ExtResource( 4 )
 NEXT_LEVEL = "res://assets/Levels/Level02.tscn"
 
-[node name="CollisionShape" type="CollisionShape" parent="WinZone"]
+[node name="CollisionShape" type="CollisionShape" parent="Viewport/Level01/WinZone"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.546344, 7.78585, -48.3466 )
 shape = SubResource( 3 )
 
-[connection signal="body_entered" from="DeathZone" to="DeathZone" method="_on_DeathZone_body_entered"]
-[connection signal="body_entered" from="WinZone" to="WinZone" method="_on_WinZone_body_entered"]
+[connection signal="body_entered" from="Viewport/Level01/DeathZone" to="Viewport/Level01/DeathZone" method="_on_DeathZone_body_entered"]
+[connection signal="body_entered" from="Viewport/Level01/WinZone" to="Viewport/Level01/WinZone" method="_on_WinZone_body_entered"]
