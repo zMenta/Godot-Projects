@@ -12,7 +12,7 @@ ambient_light_color = Color( 0.45098, 0.85098, 0.894118, 1 )
 fog_enabled = true
 fog_color = Color( 0.286275, 0.780392, 0.858824, 1 )
 fog_depth_begin = 1.0
-tonemap_mode = 3
+tonemap_mode = 2
 adjustment_enabled = true
 adjustment_brightness = 0.75
 adjustment_contrast = 1.5
@@ -61,6 +61,7 @@ shape = SubResource( 2 )
 
 [node name="WinZone" type="Area" parent="."]
 script = ExtResource( 4 )
+NEXT_LEVEL = "res://assets/Levels/Level02.tscn"
 
 [node name="CollisionShape" type="CollisionShape" parent="WinZone"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.546344, 7.78585, -48.3466 )
