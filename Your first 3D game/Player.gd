@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
 		velocity = move_and_slide(speed * direction, Vector3.UP)
-		$Pivot.look_at(translation + direction, Vector3.UP)
+		$Pivot.look_at(global_transform.origin + direction, Vector3.UP)
 		
 	if is_on_floor() and Input.is_action_pressed("jump"):
 		velocity.y += jump_force
