@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/models/pixar-ball.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/textures/pixar-ball.png" type="Texture" id=2]
+[ext_resource path="res://assets/Player/Ball.gd" type="Script" id=3]
+
+[sub_resource type="SphereShape" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 2 )
+roughness = 0.4
+
+[node name="Ball" type="RigidBody"]
+script = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
+
+[node name="pixar-ball" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="CameraPivot" type="Position3D" parent="."]
+
+[node name="Camera" type="Camera" parent="CameraPivot"]
+transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 3, 3 )
+current = true

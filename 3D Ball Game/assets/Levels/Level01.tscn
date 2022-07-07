@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/models/blocks.meshlib" type="MeshLibrary" id=1]
+[ext_resource path="res://assets/Player/Ball.tscn" type="PackedScene" id=2]
+
+[node name="Level01" type="Spatial"]
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource( 1 )
+cell_size = Vector3( 4, 4, 4 )
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PoolIntArray( 0, 0, 1441793, 1, 0, 1441794, 65535, 0, 655362, 131072, 65526, 0, 131073, 65526, 0, 196607, 65526, 0, 131072, 65527, 5, 131073, 65527, 0, 196607, 65527, 0, 131072, 65528, 0, 131073, 65528, 0, 196607, 65528, 0, 131072, 65529, 0, 65536, 65530, 4, 0, 65531, 4, 0, 65532, 1441792, 0, 65533, 1441792, 0, 65534, 1441792, 0, 65535, 1441792, 1, 65535, 2, 65535, 65535, 1048578 )
+}
+__meta__ = {
+"_edit_lock_": true,
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 0, 0 )
+}
+
+[node name="Ball" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1 )
