@@ -1,6 +1,7 @@
 extends KinematicBody
 class_name Mob
 
+signal squashed
 
 export var min_speed := 10.0
 export var max_speed := 18.0
@@ -9,6 +10,11 @@ var velocity := Vector3.ZERO
 
 func _physics_process(_delta: float) -> void:
 	move_and_slide(velocity)
+
+
+func squash() -> void:
+	emit_signal("squashed")
+	queue_free()
 
 
 func initialize(player_position: Vector3, start_position: Vector3 ) -> void:
