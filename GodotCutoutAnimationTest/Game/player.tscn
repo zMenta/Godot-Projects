@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://images/head.png" type="Texture" id=1]
 [ext_resource path="res://images/torso.png" type="Texture" id=2]
@@ -11,7 +11,7 @@
 [sub_resource type="Animation" id=1]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("torso/arm_r:position")
+tracks/0/path = NodePath("Body/torso/arm_r:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -23,7 +23,7 @@ tracks/0/keys = {
 "values": [ Vector2( 5, 61 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("torso/arm_r:rotation_degrees")
+tracks/1/path = NodePath("Body/torso/arm_r:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -35,7 +35,7 @@ tracks/1/keys = {
 "values": [ -351.982 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("torso/arm_r:scale")
+tracks/2/path = NodePath("Body/torso/arm_r:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -47,7 +47,7 @@ tracks/2/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("torso/arm_r/forearm_r:position")
+tracks/3/path = NodePath("Body/torso/arm_r/forearm_r:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -59,7 +59,7 @@ tracks/3/keys = {
 "values": [ Vector2( 50.2192, 8.72891 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("torso/arm_r/forearm_r:rotation_degrees")
+tracks/4/path = NodePath("Body/torso/arm_r/forearm_r:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -71,7 +71,7 @@ tracks/4/keys = {
 "values": [ -59.2231 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("torso/arm_r/forearm_r:scale")
+tracks/5/path = NodePath("Body/torso/arm_r/forearm_r:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -83,7 +83,7 @@ tracks/5/keys = {
 "values": [ Vector2( 1.00821, 1 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("torso/head:position")
+tracks/6/path = NodePath("Body/torso/head:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -95,7 +95,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 1 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("torso/head:rotation_degrees")
+tracks/7/path = NodePath("Body/torso/head:rotation_degrees")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -107,7 +107,7 @@ tracks/7/keys = {
 "values": [ 0.0 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("torso/head:scale")
+tracks/8/path = NodePath("Body/torso/head:scale")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -119,7 +119,7 @@ tracks/8/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("torso:position")
+tracks/9/path = NodePath("Body/torso:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -131,7 +131,7 @@ tracks/9/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("torso:rotation_degrees")
+tracks/10/path = NodePath("Body/torso:rotation_degrees")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -143,7 +143,7 @@ tracks/10/keys = {
 "values": [ 0.0 ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("torso:scale")
+tracks/11/path = NodePath("Body/torso:scale")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -155,7 +155,7 @@ tracks/11/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("torso/arm_r/forearm_r/hand_r:position")
+tracks/12/path = NodePath("Body/torso/arm_r/forearm_r/hand_r:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -167,7 +167,7 @@ tracks/12/keys = {
 "values": [ Vector2( 45.0936, -4.85509 ) ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("torso/arm_r/forearm_r/hand_r:rotation_degrees")
+tracks/13/path = NodePath("Body/torso/arm_r/forearm_r/hand_r:rotation_degrees")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -179,7 +179,7 @@ tracks/13/keys = {
 "values": [ -722.014 ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("torso/arm_r/forearm_r/hand_r:scale")
+tracks/14/path = NodePath("Body/torso/arm_r/forearm_r/hand_r:scale")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -191,7 +191,7 @@ tracks/14/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("torso/arm_l/forearm_l/hand_l:position")
+tracks/15/path = NodePath("Body/torso/arm_l/forearm_l/hand_l:position")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -203,7 +203,7 @@ tracks/15/keys = {
 "values": [ Vector2( 44.5118, 4.65445 ) ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("torso/arm_l/forearm_l/hand_l:rotation_degrees")
+tracks/16/path = NodePath("Body/torso/arm_l/forearm_l/hand_l:rotation_degrees")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -215,7 +215,7 @@ tracks/16/keys = {
 "values": [ 11.3269 ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("torso/arm_l/forearm_l/hand_l:scale")
+tracks/17/path = NodePath("Body/torso/arm_l/forearm_l/hand_l:scale")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
@@ -227,7 +227,7 @@ tracks/17/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/18/type = "value"
-tracks/18/path = NodePath("torso/arm_l/forearm_l:position")
+tracks/18/path = NodePath("Body/torso/arm_l/forearm_l:position")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
@@ -239,7 +239,7 @@ tracks/18/keys = {
 "values": [ Vector2( 47.2124, -12.1982 ) ]
 }
 tracks/19/type = "value"
-tracks/19/path = NodePath("torso/arm_l/forearm_l:rotation_degrees")
+tracks/19/path = NodePath("Body/torso/arm_l/forearm_l:rotation_degrees")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/imported = false
@@ -251,7 +251,7 @@ tracks/19/keys = {
 "values": [ -695.494 ]
 }
 tracks/20/type = "value"
-tracks/20/path = NodePath("torso/arm_l/forearm_l:scale")
+tracks/20/path = NodePath("Body/torso/arm_l/forearm_l:scale")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/imported = false
@@ -263,7 +263,7 @@ tracks/20/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/21/type = "value"
-tracks/21/path = NodePath("torso/arm_l:position")
+tracks/21/path = NodePath("Body/torso/arm_l:position")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/imported = false
@@ -275,7 +275,7 @@ tracks/21/keys = {
 "values": [ Vector2( 2.07697, -59.229 ) ]
 }
 tracks/22/type = "value"
-tracks/22/path = NodePath("torso/arm_l:rotation_degrees")
+tracks/22/path = NodePath("Body/torso/arm_l:rotation_degrees")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/imported = false
@@ -287,7 +287,7 @@ tracks/22/keys = {
 "values": [ 5.10327 ]
 }
 tracks/23/type = "value"
-tracks/23/path = NodePath("torso/arm_l:scale")
+tracks/23/path = NodePath("Body/torso/arm_l:scale")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/imported = false
@@ -299,7 +299,7 @@ tracks/23/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/24/type = "value"
-tracks/24/path = NodePath("torso/arm_r/forearm_r/hand_r/hand_r_position:position")
+tracks/24/path = NodePath("Body/torso/arm_r/forearm_r/hand_r/hand_r_position:position")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/imported = false
@@ -311,7 +311,7 @@ tracks/24/keys = {
 "values": [ Vector2( 29.2784, -3.97173 ) ]
 }
 tracks/25/type = "value"
-tracks/25/path = NodePath("torso/arm_r/forearm_r/hand_r/hand_r_position:rotation_degrees")
+tracks/25/path = NodePath("Body/torso/arm_r/forearm_r/hand_r/hand_r_position:rotation_degrees")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/imported = false
@@ -323,7 +323,7 @@ tracks/25/keys = {
 "values": [ -15.9626 ]
 }
 tracks/26/type = "value"
-tracks/26/path = NodePath("torso/arm_r/forearm_r/hand_r/hand_r_position:scale")
+tracks/26/path = NodePath("Body/torso/arm_r/forearm_r/hand_r/hand_r_position:scale")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/imported = false
@@ -371,7 +371,7 @@ tracks/29/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/30/type = "value"
-tracks/30/path = NodePath("torso/arm_l/forearm_l/hand_l/hand_l_position:position")
+tracks/30/path = NodePath("Body/torso/arm_l/forearm_l/hand_l/hand_l_position:position")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/imported = false
@@ -383,7 +383,7 @@ tracks/30/keys = {
 "values": [ Vector2( 31.0152, 4.94097 ) ]
 }
 tracks/31/type = "value"
-tracks/31/path = NodePath("torso/arm_l/forearm_l/hand_l/hand_l_position:rotation_degrees")
+tracks/31/path = NodePath("Body/torso/arm_l/forearm_l/hand_l/hand_l_position:rotation_degrees")
 tracks/31/interp = 1
 tracks/31/loop_wrap = true
 tracks/31/imported = false
@@ -395,7 +395,7 @@ tracks/31/keys = {
 "values": [ 0.0 ]
 }
 tracks/32/type = "value"
-tracks/32/path = NodePath("torso/arm_l/forearm_l/hand_l/hand_l_position:scale")
+tracks/32/path = NodePath("Body/torso/arm_l/forearm_l/hand_l/hand_l_position:scale")
 tracks/32/interp = 1
 tracks/32/loop_wrap = true
 tracks/32/imported = false
@@ -406,13 +406,85 @@ tracks/32/keys = {
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
 }
+tracks/33/type = "value"
+tracks/33/path = NodePath("Body/leg_r:position")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 32 ) ]
+}
+tracks/34/type = "value"
+tracks/34/path = NodePath("Body/leg_r:rotation_degrees")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/35/type = "value"
+tracks/35/path = NodePath("Body/leg_l:position")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -16 ) ]
+}
+tracks/36/type = "value"
+tracks/36/path = NodePath("Body/leg_l:rotation_degrees")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/37/type = "value"
+tracks/37/path = NodePath("Body/leg_r/foot_r:position")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 24, 0 ) ]
+}
+tracks/38/type = "value"
+tracks/38/path = NodePath("Body/leg_l/foot_l:position")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 24, 0 ) ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "idle"
 length = 1.5
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("torso:position")
+tracks/0/path = NodePath("Body/torso:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -424,7 +496,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( -2, 0 ), Vector2( 2, 0 ), Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("torso/head:position")
+tracks/1/path = NodePath("Body/torso/head:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -436,7 +508,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 1 ), Vector2( -0.5, 1 ), Vector2( 0.5, 1 ), Vector2( 0, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("torso/arm_r/forearm_r/hand_r:position")
+tracks/2/path = NodePath("Body/torso/arm_r/forearm_r/hand_r:position")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -448,7 +520,7 @@ tracks/2/keys = {
 "values": [ Vector2( 45.0936, -4.85509 ), Vector2( 45.0936, -4.85509 ), Vector2( 45.0936, -4.85509 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("torso/arm_r/forearm_r/hand_r:rotation_degrees")
+tracks/3/path = NodePath("Body/torso/arm_r/forearm_r/hand_r:rotation_degrees")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -460,7 +532,7 @@ tracks/3/keys = {
 "values": [ -736.503, -724.34, -731.572 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("torso/arm_r/forearm_r:position")
+tracks/4/path = NodePath("Body/torso/arm_r/forearm_r:position")
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -472,7 +544,7 @@ tracks/4/keys = {
 "values": [ Vector2( 50.2192, 8.72891 ), Vector2( 50.2192, 8.72891 ), Vector2( 50.2192, 8.72891 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("torso/arm_r/forearm_r:rotation_degrees")
+tracks/5/path = NodePath("Body/torso/arm_r/forearm_r:rotation_degrees")
 tracks/5/interp = 2
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -484,7 +556,7 @@ tracks/5/keys = {
 "values": [ -50.0312, -71.522, -73.9067 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("torso/arm_r:position")
+tracks/6/path = NodePath("Body/torso/arm_r:position")
 tracks/6/interp = 2
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -496,7 +568,7 @@ tracks/6/keys = {
 "values": [ Vector2( 5, 61 ), Vector2( 5, 61 ), Vector2( 5, 61 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("torso/arm_r:rotation_degrees")
+tracks/7/path = NodePath("Body/torso/arm_r:rotation_degrees")
 tracks/7/interp = 2
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -508,7 +580,7 @@ tracks/7/keys = {
 "values": [ -349.397, -341.195, -331.016 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("torso/arm_l/forearm_l/hand_l:position")
+tracks/8/path = NodePath("Body/torso/arm_l/forearm_l/hand_l:position")
 tracks/8/interp = 2
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -520,7 +592,7 @@ tracks/8/keys = {
 "values": [ Vector2( 44.5118, 4.65445 ), Vector2( 44.5118, 4.65445 ), Vector2( 44.5118, 4.65445 ), Vector2( 44.5118, 4.65445 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("torso/arm_l/forearm_l/hand_l:rotation_degrees")
+tracks/9/path = NodePath("Body/torso/arm_l/forearm_l/hand_l:rotation_degrees")
 tracks/9/interp = 2
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -532,7 +604,7 @@ tracks/9/keys = {
 "values": [ 10.0763, 10.0763, -11.7937, 10.0763 ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("torso/arm_l/forearm_l:position")
+tracks/10/path = NodePath("Body/torso/arm_l/forearm_l:position")
 tracks/10/interp = 2
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -544,7 +616,7 @@ tracks/10/keys = {
 "values": [ Vector2( 47.2124, -12.1982 ), Vector2( 47.2124, -12.1982 ), Vector2( 47.2124, -12.1982 ), Vector2( 47.2124, -12.1982 ) ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("torso/arm_l/forearm_l:rotation_degrees")
+tracks/11/path = NodePath("Body/torso/arm_l/forearm_l:rotation_degrees")
 tracks/11/interp = 2
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -556,7 +628,7 @@ tracks/11/keys = {
 "values": [ -697.7, -697.7, -661.508, -697.7 ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("torso/arm_l:position")
+tracks/12/path = NodePath("Body/torso/arm_l:position")
 tracks/12/interp = 2
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -568,7 +640,7 @@ tracks/12/keys = {
 "values": [ Vector2( 2.07697, -59.229 ), Vector2( 2.07697, -59.229 ), Vector2( 2.07697, -59.229 ), Vector2( 2.07697, -59.229 ) ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("torso/arm_l:rotation_degrees")
+tracks/13/path = NodePath("Body/torso/arm_l:rotation_degrees")
 tracks/13/interp = 2
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -583,7 +655,7 @@ tracks/13/keys = {
 [sub_resource type="Animation" id=2]
 resource_name = "rest"
 tracks/0/type = "value"
-tracks/0/path = NodePath("torso/arm_r:position")
+tracks/0/path = NodePath("Body/torso/arm_r:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -595,7 +667,7 @@ tracks/0/keys = {
 "values": [ Vector2( 5, 61 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("torso/arm_r:rotation_degrees")
+tracks/1/path = NodePath("Body/torso/arm_r:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -607,7 +679,7 @@ tracks/1/keys = {
 "values": [ -351.982 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("torso/arm_r:scale")
+tracks/2/path = NodePath("Body/torso/arm_r:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -619,7 +691,7 @@ tracks/2/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("torso/arm_r/forearm_r:position")
+tracks/3/path = NodePath("Body/torso/arm_r/forearm_r:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -631,7 +703,7 @@ tracks/3/keys = {
 "values": [ Vector2( 50.2192, 8.72891 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("torso/arm_r/forearm_r:rotation_degrees")
+tracks/4/path = NodePath("Body/torso/arm_r/forearm_r:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -643,7 +715,7 @@ tracks/4/keys = {
 "values": [ -59.2231 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("torso/arm_r/forearm_r:scale")
+tracks/5/path = NodePath("Body/torso/arm_r/forearm_r:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -655,7 +727,7 @@ tracks/5/keys = {
 "values": [ Vector2( 1.00821, 1 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("torso/head:position")
+tracks/6/path = NodePath("Body/torso/head:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -667,7 +739,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 1 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("torso/head:rotation_degrees")
+tracks/7/path = NodePath("Body/torso/head:rotation_degrees")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -679,7 +751,7 @@ tracks/7/keys = {
 "values": [ 0.0 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("torso/head:scale")
+tracks/8/path = NodePath("Body/torso/head:scale")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -691,7 +763,7 @@ tracks/8/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("torso:position")
+tracks/9/path = NodePath("Body/torso:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -703,7 +775,7 @@ tracks/9/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("torso:rotation_degrees")
+tracks/10/path = NodePath("Body/torso:rotation_degrees")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -715,7 +787,7 @@ tracks/10/keys = {
 "values": [ 0.0 ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("torso:scale")
+tracks/11/path = NodePath("Body/torso:scale")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -727,7 +799,7 @@ tracks/11/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("torso/arm_r/forearm_r/hand_r:position")
+tracks/12/path = NodePath("Body/torso/arm_r/forearm_r/hand_r:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -739,7 +811,7 @@ tracks/12/keys = {
 "values": [ Vector2( 45.0936, -4.85509 ) ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("torso/arm_r/forearm_r/hand_r:rotation_degrees")
+tracks/13/path = NodePath("Body/torso/arm_r/forearm_r/hand_r:rotation_degrees")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -751,7 +823,7 @@ tracks/13/keys = {
 "values": [ -722.014 ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("torso/arm_r/forearm_r/hand_r:scale")
+tracks/14/path = NodePath("Body/torso/arm_r/forearm_r/hand_r:scale")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -763,7 +835,7 @@ tracks/14/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("torso/arm_l/forearm_l/hand_l:position")
+tracks/15/path = NodePath("Body/torso/arm_l/forearm_l/hand_l:position")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -775,7 +847,7 @@ tracks/15/keys = {
 "values": [ Vector2( 44.5118, 4.65445 ) ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("torso/arm_l/forearm_l/hand_l:rotation_degrees")
+tracks/16/path = NodePath("Body/torso/arm_l/forearm_l/hand_l:rotation_degrees")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -787,7 +859,7 @@ tracks/16/keys = {
 "values": [ 11.3269 ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("torso/arm_l/forearm_l/hand_l:scale")
+tracks/17/path = NodePath("Body/torso/arm_l/forearm_l/hand_l:scale")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
@@ -799,7 +871,7 @@ tracks/17/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/18/type = "value"
-tracks/18/path = NodePath("torso/arm_l/forearm_l:position")
+tracks/18/path = NodePath("Body/torso/arm_l/forearm_l:position")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
@@ -811,7 +883,7 @@ tracks/18/keys = {
 "values": [ Vector2( 47.2124, -12.1982 ) ]
 }
 tracks/19/type = "value"
-tracks/19/path = NodePath("torso/arm_l/forearm_l:rotation_degrees")
+tracks/19/path = NodePath("Body/torso/arm_l/forearm_l:rotation_degrees")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/imported = false
@@ -823,7 +895,7 @@ tracks/19/keys = {
 "values": [ -695.494 ]
 }
 tracks/20/type = "value"
-tracks/20/path = NodePath("torso/arm_l/forearm_l:scale")
+tracks/20/path = NodePath("Body/torso/arm_l/forearm_l:scale")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/imported = false
@@ -835,7 +907,7 @@ tracks/20/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/21/type = "value"
-tracks/21/path = NodePath("torso/arm_l:position")
+tracks/21/path = NodePath("Body/torso/arm_l:position")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/imported = false
@@ -847,7 +919,7 @@ tracks/21/keys = {
 "values": [ Vector2( 2.07697, -59.229 ) ]
 }
 tracks/22/type = "value"
-tracks/22/path = NodePath("torso/arm_l:rotation_degrees")
+tracks/22/path = NodePath("Body/torso/arm_l:rotation_degrees")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/imported = false
@@ -859,7 +931,7 @@ tracks/22/keys = {
 "values": [ 5.10327 ]
 }
 tracks/23/type = "value"
-tracks/23/path = NodePath("torso/arm_l:scale")
+tracks/23/path = NodePath("Body/torso/arm_l:scale")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/imported = false
@@ -871,7 +943,7 @@ tracks/23/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/24/type = "value"
-tracks/24/path = NodePath("torso/arm_r/forearm_r/hand_r/hand_r_position:position")
+tracks/24/path = NodePath("Body/torso/arm_r/forearm_r/hand_r/hand_r_position:position")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/imported = false
@@ -883,7 +955,7 @@ tracks/24/keys = {
 "values": [ Vector2( 29.2784, -3.97173 ) ]
 }
 tracks/25/type = "value"
-tracks/25/path = NodePath("torso/arm_r/forearm_r/hand_r/hand_r_position:rotation_degrees")
+tracks/25/path = NodePath("Body/torso/arm_r/forearm_r/hand_r/hand_r_position:rotation_degrees")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/imported = false
@@ -895,7 +967,7 @@ tracks/25/keys = {
 "values": [ -15.9626 ]
 }
 tracks/26/type = "value"
-tracks/26/path = NodePath("torso/arm_r/forearm_r/hand_r/hand_r_position:scale")
+tracks/26/path = NodePath("Body/torso/arm_r/forearm_r/hand_r/hand_r_position:scale")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/imported = false
@@ -943,7 +1015,7 @@ tracks/29/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/30/type = "value"
-tracks/30/path = NodePath("torso/arm_l/forearm_l/hand_l/hand_l_position:position")
+tracks/30/path = NodePath("Body/torso/arm_l/forearm_l/hand_l/hand_l_position:position")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/imported = false
@@ -955,7 +1027,7 @@ tracks/30/keys = {
 "values": [ Vector2( 31.0152, 4.94097 ) ]
 }
 tracks/31/type = "value"
-tracks/31/path = NodePath("torso/arm_l/forearm_l/hand_l/hand_l_position:rotation_degrees")
+tracks/31/path = NodePath("Body/torso/arm_l/forearm_l/hand_l/hand_l_position:rotation_degrees")
 tracks/31/interp = 1
 tracks/31/loop_wrap = true
 tracks/31/imported = false
@@ -967,7 +1039,7 @@ tracks/31/keys = {
 "values": [ 0.0 ]
 }
 tracks/32/type = "value"
-tracks/32/path = NodePath("torso/arm_l/forearm_l/hand_l/hand_l_position:scale")
+tracks/32/path = NodePath("Body/torso/arm_l/forearm_l/hand_l/hand_l_position:scale")
 tracks/32/interp = 1
 tracks/32/loop_wrap = true
 tracks/32/imported = false
@@ -979,17 +1051,78 @@ tracks/32/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=4]
+resource_name = "walk"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/leg_r:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 30, 32 ), Vector2( -20, 32 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/leg_l:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -20, -16 ), Vector2( 30, -16 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body/leg_r/foot_r:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 24, 0 ), Vector2( -9, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Body/leg_l/foot_l:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -9, 0 ), Vector2( 24, 0 ) ]
+}
+
 [node name="player" type="Node2D"]
 
-[node name="torso" type="Sprite" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/idle = SubResource( 3 )
+anims/rest = SubResource( 2 )
+anims/walk = SubResource( 4 )
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="torso" type="Sprite" parent="Body"]
 texture = ExtResource( 2 )
 
-[node name="head" type="Sprite" parent="torso"]
+[node name="head" type="Sprite" parent="Body/torso"]
 position = Vector2( 0, 1 )
 texture = ExtResource( 1 )
 offset = Vector2( 10, 0 )
 
-[node name="arm_r" type="Sprite" parent="torso"]
+[node name="arm_r" type="Sprite" parent="Body/torso"]
 position = Vector2( 5, 61 )
 rotation = -6.14324
 texture = ExtResource( 5 )
@@ -1000,7 +1133,7 @@ __meta__ = {
 "_edit_ik_": true
 }
 
-[node name="forearm_r" type="Sprite" parent="torso/arm_r"]
+[node name="forearm_r" type="Sprite" parent="Body/torso/arm_r"]
 position = Vector2( 50.2192, 8.72891 )
 rotation = -1.03364
 scale = Vector2( 1.00821, 1 )
@@ -1012,7 +1145,7 @@ __meta__ = {
 "_edit_bone_": true
 }
 
-[node name="hand_r" type="Sprite" parent="torso/arm_r/forearm_r"]
+[node name="hand_r" type="Sprite" parent="Body/torso/arm_r/forearm_r"]
 position = Vector2( 45.0936, -4.85509 )
 rotation = -12.6015
 z_index = -1
@@ -1023,14 +1156,14 @@ __meta__ = {
 "_edit_bone_": true
 }
 
-[node name="hand_r_position" type="Position2D" parent="torso/arm_r/forearm_r/hand_r"]
+[node name="hand_r_position" type="Position2D" parent="Body/torso/arm_r/forearm_r/hand_r"]
 position = Vector2( 29.2784, -3.97173 )
 rotation = -0.2786
 __meta__ = {
 "_edit_bone_": true
 }
 
-[node name="arm_l" type="Sprite" parent="torso"]
+[node name="arm_l" type="Sprite" parent="Body/torso"]
 position = Vector2( 2.07697, -59.229 )
 rotation = 0.0890689
 texture = ExtResource( 5 )
@@ -1040,7 +1173,7 @@ __meta__ = {
 "_edit_ik_": true
 }
 
-[node name="forearm_l" type="Sprite" parent="torso/arm_l"]
+[node name="forearm_l" type="Sprite" parent="Body/torso/arm_l"]
 position = Vector2( 47.2124, -12.1982 )
 rotation = -12.1387
 texture = ExtResource( 4 )
@@ -1049,7 +1182,7 @@ __meta__ = {
 "_edit_bone_": true
 }
 
-[node name="hand_l" type="Sprite" parent="torso/arm_l/forearm_l"]
+[node name="hand_l" type="Sprite" parent="Body/torso/arm_l/forearm_l"]
 position = Vector2( 44.5118, 4.65445 )
 rotation = 0.197692
 z_index = -1
@@ -1059,21 +1192,38 @@ __meta__ = {
 "_edit_bone_": true
 }
 
-[node name="hand_l_position" type="Position2D" parent="torso/arm_l/forearm_l/hand_l"]
+[node name="hand_l_position" type="Position2D" parent="Body/torso/arm_l/forearm_l/hand_l"]
 position = Vector2( 31.0152, 4.94097 )
 __meta__ = {
 "_edit_bone_": true
 }
 
-[node name="leg_l" type="Sprite" parent="torso"]
+[node name="leg_l" type="Sprite" parent="Body/torso"]
 z_index = -1
 texture = ExtResource( 6 )
 
-[node name="foot_l" type="Sprite" parent="torso/leg_l"]
+[node name="foot_l" type="Sprite" parent="Body/torso/leg_l"]
 position = Vector2( 1, 0 )
 texture = ExtResource( 7 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 1 )
-anims/idle = SubResource( 3 )
-anims/rest = SubResource( 2 )
+[node name="leg_l" type="Sprite" parent="Body"]
+position = Vector2( 0, -16 )
+z_index = -1
+texture = ExtResource( 6 )
+
+[node name="foot_l" type="Sprite" parent="Body/leg_l"]
+position = Vector2( 24, 0 )
+z_index = -2
+texture = ExtResource( 7 )
+
+[node name="leg_r" type="Sprite" parent="Body"]
+position = Vector2( 0, 32 )
+z_index = -1
+texture = ExtResource( 6 )
+flip_v = true
+
+[node name="foot_r" type="Sprite" parent="Body/leg_r"]
+position = Vector2( 24, 0 )
+z_index = -2
+texture = ExtResource( 7 )
+flip_v = true
