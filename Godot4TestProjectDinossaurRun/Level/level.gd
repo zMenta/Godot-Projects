@@ -24,5 +24,10 @@ func _on_timer_timeout() -> void:
 	new_obstacle.scale.y = randf_range(1, 3.5)
 	obstacles_node.add_child(new_obstacle)
 	
+func stop_world() -> void:
+	var obstacles := obstacles_node.get_children()
 	
+	for obstacle in obstacles:
+		if obstacle is Obstacle:
+			obstacle.stop()
 	

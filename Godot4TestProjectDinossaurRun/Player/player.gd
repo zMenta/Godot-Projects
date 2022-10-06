@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
+signal died
+
 const JUMP_VELOCITY := -175
 const MAX_JUMP_VELOCITY := -1100
 
@@ -34,3 +36,4 @@ func death() -> void:
 	# 3.14 radians = 180 degrees 
 	rotation = 3.14
 	dead = true
+	died.emit()

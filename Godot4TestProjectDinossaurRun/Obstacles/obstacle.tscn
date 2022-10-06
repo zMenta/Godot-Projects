@@ -20,4 +20,7 @@ texture = ExtResource("1_pe308")
 position = Vector2(-1.5, 1)
 shape = SubResource("RectangleShape2D_124xs")
 
+[node name="VisibleOnScreenNotifier2d" type="VisibleOnScreenNotifier2D" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_obstacle_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2d" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
