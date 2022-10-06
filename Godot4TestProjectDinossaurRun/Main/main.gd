@@ -24,5 +24,4 @@ func _player_died() -> void:
 
 	
 func _restart_game() -> void:
-	print("reloaded")
 	get_tree().reload_current_scene()
