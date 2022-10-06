@@ -8,4 +8,5 @@ func _physics_process(delta):
 
 
 func _on_obstacle_body_entered(body):
-	print(body)
+	if body is Player:
+		body.death()
