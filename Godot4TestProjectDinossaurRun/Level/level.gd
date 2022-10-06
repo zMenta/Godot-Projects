@@ -29,9 +29,9 @@ func stop_world() -> void:
 	timer.stop()
 	var obstacles := obstacles_node.get_children()
 	
-	for obstacle in obstacles:
-		if obstacle is Obstacle:
-			obstacle.stop()
+	for node in obstacles:
+		if node is Obstacle:
+			node.stop()
 
 
 func _on_Player_death() -> void:
