@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bv1gkuhi0rlnk"]
+[gd_scene load_steps=4 format=3 uid="uid://bv1gkuhi0rlnk"]
 
 [ext_resource type="Texture2D" uid="uid://cfd1eivtsa8r4" path="res://icon.svg" id="1_yvwmy"]
+[ext_resource type="PackedScene" uid="uid://6bl2b6jh7uaf" path="res://Obstacles/obstacle.tscn" id="2_tqruj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqie7"]
 size = Vector2(1253, 20)
@@ -10,6 +11,8 @@ size = Vector2(1253, 20)
 [node name="StaticBody2d" type="StaticBody2D" parent="."]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(-5, 582)
+collision_layer = 4
+collision_mask = 0
 metadata/_edit_group_ = true
 
 [node name="Sprite2d" type="Sprite2D" parent="StaticBody2d"]
@@ -20,3 +23,11 @@ texture = ExtResource("1_yvwmy")
 [node name="CollisionShape2d" type="CollisionShape2D" parent="StaticBody2d"]
 position = Vector2(582, 44)
 shape = SubResource("RectangleShape2D_kqie7")
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="Obstacle" parent="Obstacles" instance=ExtResource("2_tqruj")]
+position = Vector2(1189, 581)
+
+[node name="GroundObstaclePosition" type="Marker2D" parent="."]
+position = Vector2(1189, 580)

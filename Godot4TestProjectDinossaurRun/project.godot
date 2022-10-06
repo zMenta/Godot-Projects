@@ -26,6 +26,12 @@ jump={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Obstacles"
+2d_physics/layer_3="Ground"
+
 [physics]
 
 2d/default_gravity=2940.0

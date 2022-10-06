@@ -6,6 +6,7 @@ const MAX_JUMP_VELOCITY := -1100
 var _gravity : float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var _can_jump := false
 
+# Movement
 func _physics_process(delta):
 	# Jumping code, the jump will be higher if the jump key be held for longer.
 	if not is_on_floor():
