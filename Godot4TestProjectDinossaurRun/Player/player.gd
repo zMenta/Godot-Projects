@@ -4,8 +4,6 @@ class_name Player
 const JUMP_VELOCITY := -175
 const MAX_JUMP_VELOCITY := -1100
 
-@onready var sprite := $Sprite2d
-
 var _gravity : float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var _can_jump := false
 var dead := false
