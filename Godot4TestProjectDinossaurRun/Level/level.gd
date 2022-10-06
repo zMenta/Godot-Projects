@@ -23,11 +23,16 @@ func _on_timer_timeout() -> void:
 	# Random Y size for the obstacles
 	new_obstacle.scale.y = randf_range(1, 3.5)
 	obstacles_node.add_child(new_obstacle)
-	
+
+# Makes all obstacle stop moving and stops spawn timer.
 func stop_world() -> void:
+	timer.stop()
 	var obstacles := obstacles_node.get_children()
 	
 	for obstacle in obstacles:
 		if obstacle is Obstacle:
 			obstacle.stop()
-	
+
+
+func _on_Player_death() -> void:
+	stop_world()

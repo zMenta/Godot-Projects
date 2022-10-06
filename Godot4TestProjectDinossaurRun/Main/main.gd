@@ -6,4 +6,5 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	randomize()
-
+	
+	player.died.connect(level._on_Player_death)
