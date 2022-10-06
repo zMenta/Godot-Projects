@@ -4,11 +4,17 @@ class_name Player
 const JUMP_VELOCITY := -175
 const MAX_JUMP_VELOCITY := -1100
 
+@onready var sprite := $Sprite2d
+
 var _gravity : float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var _can_jump := false
+var dead := false
 
 # Movement
 func _physics_process(delta) -> void:
+	if dead:
+		return
+	
 	# Jumping code, the jump will be higher if the jump key be held for longer.
 	if not is_on_floor():
 		velocity.y += _gravity * delta
@@ -27,4 +33,6 @@ func _physics_process(delta) -> void:
 
 
 func death() -> void:
-	print(self , " died")
+	# 3.14 radians = 180 degrees 
+	rotation = 3.14
+	dead = true
