@@ -34,5 +34,3 @@ func stop_world() -> void:
 			node.stop()
 
 
-func _on_Player_death() -> void:
-	stop_world()
