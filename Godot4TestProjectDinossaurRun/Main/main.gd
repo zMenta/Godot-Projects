@@ -8,3 +8,4 @@ func _ready() -> void:
 	randomize()
 	
 	player.died.connect(level._on_Player_death)
+
