@@ -21,6 +21,7 @@ func _start_game() -> void:
 func _player_died() -> void:
 	level.stop_world()
 	menu.change_to_restart_layout()
+	menu.stop_score_timer()
 
 	
 func _restart_game() -> void:

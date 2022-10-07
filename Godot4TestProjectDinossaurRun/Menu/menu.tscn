@@ -12,7 +12,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p8squ")
 
-[node name="Label" type="Label" parent="."]
+[node name="MainMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="MainMenu"]
 layout_mode = 0
 offset_left = 191.0
 offset_top = 147.0
@@ -20,7 +26,7 @@ offset_right = 395.0
 offset_bottom = 173.0
 text = "Press \"SpaceBar\" to begin."
 
-[node name="StartButton" type="Button" parent="."]
+[node name="StartButton" type="Button" parent="MainMenu"]
 layout_mode = 0
 offset_left = 192.0
 offset_top = 180.0
@@ -29,4 +35,16 @@ offset_bottom = 211.0
 text = "Start
 "
 
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 31.0
+offset_right = 80.0
+offset_bottom = 54.0
+text = "0"
+
+[node name="ScoreTimer" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="pressed" from="MainMenu/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
