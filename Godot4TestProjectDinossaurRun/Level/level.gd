@@ -8,6 +8,7 @@ extends Node2D
 @onready var ground_obstacle_postition : Marker2D = $GroundObstaclePosition
 @onready var obstacles_node := $Obstacles
 
+var obstacle_speed_multiplier := 1.0
 
 func _ready() -> void:
 	timer.wait_time = randf_range(spawn_time_minimum, spawn_time_maximum)
@@ -19,6 +20,7 @@ func _on_timer_timeout() -> void:
 	
 	var new_obstacle : Obstacle = obstacle.instantiate()
 	new_obstacle.global_position = ground_obstacle_postition.global_position
+	new_obstacle.speed *= obstacle_speed_multiplier
 	
 	# Random Y size for the obstacles
 	new_obstacle.scale.y = randf_range(1, 3.5)
