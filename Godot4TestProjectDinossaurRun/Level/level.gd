@@ -36,3 +36,12 @@ func stop_world() -> void:
 			node.stop()
 
 
+func change_obstacle_speed(value_to_add: float) -> void:
+	obstacle_speed_multiplier += value_to_add
+	
+	var obstacles := obstacles_node.get_children()
+	
+	for node in obstacles:
+		if node is Obstacle:
+			node.speed *= obstacle_speed_multiplier
+

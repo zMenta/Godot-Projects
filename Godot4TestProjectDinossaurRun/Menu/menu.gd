@@ -9,7 +9,6 @@ signal game_restarted
 @onready var button : Button = $MainMenu/StartButton
 @onready var main_menu := $MainMenu
 
-var _game_started := false
 
 func _unhandled_key_input(event):
 	if event.is_action_pressed("jump"):
