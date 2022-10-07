@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgr6okcubxojf"]
+[gd_scene load_steps=8 format=3 uid="uid://bgr6okcubxojf"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_lehfj"]
 [ext_resource type="Texture2D" uid="uid://cfd1eivtsa8r4" path="res://icon.svg" id="1_n4fcc"]
+[ext_resource type="Texture2D" uid="uid://rex2vxl3gnjs" path="res://Player/Sprites/dino_body.png" id="3_bec5c"]
+[ext_resource type="Texture2D" uid="uid://vks2ats8kqbh" path="res://Player/Sprites/dino_head.png" id="3_so2ru"]
+[ext_resource type="Texture2D" uid="uid://6nmqu8m3w1ic" path="res://Player/Sprites/dino_leg.png" id="5_354kw"]
+[ext_resource type="Texture2D" uid="uid://cyechkdxyuc72" path="res://Player/Sprites/dino_arm.png" id="6_bsups"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mm6wr"]
 size = Vector2(119, 116)
@@ -17,3 +21,25 @@ texture = ExtResource("1_n4fcc")
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -1)
 shape = SubResource("RectangleShape2D_mm6wr")
+
+[node name="DinoBody" type="Sprite2D" parent="."]
+position = Vector2(80, 5)
+texture = ExtResource("3_bec5c")
+
+[node name="DinoHead" type="Sprite2D" parent="."]
+position = Vector2(135, -28)
+rotation = 0.00342397
+texture = ExtResource("3_so2ru")
+
+[node name="DinoLeg" type="Sprite2D" parent="."]
+position = Vector2(102, 36)
+texture = ExtResource("5_354kw")
+
+[node name="DinoArm" type="Sprite2D" parent="."]
+position = Vector2(120, 0)
+texture = ExtResource("6_bsups")
+
+[node name="DinoLeg2" type="Sprite2D" parent="."]
+position = Vector2(111, 33)
+z_index = -1
+texture = ExtResource("5_354kw")
