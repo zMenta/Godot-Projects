@@ -1,17 +1,15 @@
 extends Control
+class_name Menu
 
 signal game_started
 signal game_restarted
 
 @onready var label : Label = $MainMenu/Label
 @onready var score_label : Label = $ScoreLabel
-@onready var score_timer : Timer = $ScoreTimer
 @onready var button : Button = $MainMenu/StartButton
 @onready var main_menu := $MainMenu
 
 var _game_started := false
-var score := 0
-
 
 func _unhandled_key_input(event):
 	if event.is_action_pressed("jump"):
@@ -28,11 +26,6 @@ func emit_start_game() -> void:
 	
 	if button.text == "Restart":
 		game_restarted.emit()
-
-	if not _game_started:
-		score = 0
-		score_timer.start()
-		_game_started = true	
 		
 
 func change_to_restart_layout() -> void:
@@ -41,10 +34,6 @@ func change_to_restart_layout() -> void:
 	button.text = "Restart"
 
 
-func _on_score_timer_timeout() -> void:
-	score += 1
-	score_label.text = str(score)
+func update_score_label(new_value: int) -> void:
+	score_label.text = str(new_value)
 
-
-func stop_score_timer() -> void:
-	score_timer.stop()

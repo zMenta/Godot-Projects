@@ -2,7 +2,8 @@ extends Node2D
 
 @onready var level := $level01
 @onready var player : Player = $Player
-@onready var menu := $Menu
+@onready var menu : Menu = $Menu
+@onready var score_timer := $ScoreTimer
 
 var score := 0
 
@@ -23,8 +24,14 @@ func _start_game() -> void:
 func _player_died() -> void:
 	level.stop_world()
 	menu.change_to_restart_layout()
-	menu.stop_score_timer()
-
+	score_timer.stop()
+	
 	
 func _restart_game() -> void:
 	get_tree().reload_current_scene()
+
+
+func _on_score_timer_timeout():
+	score += 1
+	menu.update_score_label(score)
+	
