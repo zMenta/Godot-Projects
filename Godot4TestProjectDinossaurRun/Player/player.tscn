@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://cyechkdxyuc72" path="res://Player/Sprites/dino_arm.png" id="6_bsups"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mm6wr"]
-
 size = Vector2(119, 116)
 
 [sub_resource type="Animation" id="Animation_w1803"]
