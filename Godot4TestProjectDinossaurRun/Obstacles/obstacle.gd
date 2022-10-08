@@ -5,10 +5,6 @@ var speed := 300
 var is_moving := true
 
 
-func _ready() -> void:
-	print(speed)
-	
-
 func _physics_process(delta):
 	if is_moving:
 		position.x -= speed * delta
