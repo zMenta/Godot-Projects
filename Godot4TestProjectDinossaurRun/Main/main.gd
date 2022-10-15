@@ -35,5 +35,7 @@ func _on_score_timer_timeout():
 	score += 1
 	menu.update_score_label(score)
 	
-	if score % 25 == 0:
-		level.change_obstacle_speed(1)
+#	if score % 25 == 0:
+#		level.change_obstacle_speed(0.15)
+
+	level.change_obstacle_speed(1)
