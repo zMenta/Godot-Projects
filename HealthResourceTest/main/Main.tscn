@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/destructable_object/Destructable_object.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/health_resource/health_resource.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=1]
+resource_local_to_scene = true
+script = ExtResource( 2 )
+health = 50
+
+[sub_resource type="Resource" id=2]
+resource_local_to_scene = true
+script = ExtResource( 2 )
+health = 100
+
+[sub_resource type="Resource" id=3]
+resource_local_to_scene = true
+script = ExtResource( 2 )
+health = 140
+
+[node name="Main" type="Node2D"]
+
+[node name="DesObject" parent="." instance=ExtResource( 1 )]
+position = Vector2( 142, 358 )
+health = SubResource( 1 )
+
+[node name="DesObject2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 770, 337 )
+health = SubResource( 2 )
+
+[node name="DesObject3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 485, 350 )
+health = SubResource( 3 )
