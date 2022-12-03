@@ -9,6 +9,10 @@
 radius = 12.0
 height = 12.0
 
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
+region = Rect2( 38, 0, 38, 53 )
+
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 38, 53 )
@@ -17,12 +21,13 @@ region = Rect2( 0, 0, 38, 53 )
 atlas = ExtResource( 3 )
 region = Rect2( 76, 0, 38, 53 )
 
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 3 )
-region = Rect2( 38, 0, 38, 53 )
-
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
+"frames": [ SubResource( 4 ) ],
+"loop": false,
+"name": "aiming",
+"speed": 0.0
+}, {
 "frames": [ SubResource( 2 ) ],
 "loop": false,
 "name": "idle",
@@ -31,11 +36,6 @@ animations = [ {
 "frames": [ SubResource( 3 ) ],
 "loop": false,
 "name": "reloading",
-"speed": 0.0
-}, {
-"frames": [ SubResource( 4 ) ],
-"loop": false,
-"name": "aiming",
 "speed": 0.0
 } ]
 
@@ -50,11 +50,13 @@ current = true
 shape = SubResource( 1 )
 
 [node name="Drawing" parent="." instance=ExtResource( 1 )]
+visible = false
 position = Vector2( 0, 0 )
 rotation = 1.5708
 scale = Vector2( 0.5, 0.8 )
 
 [node name="DrawingArms" parent="." instance=ExtResource( 4 )]
+visible = false
 position = Vector2( 2, 2 )
 rotation = 1.5708
 scale = Vector2( 0.5, 1 )
