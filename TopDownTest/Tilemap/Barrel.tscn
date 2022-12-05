@@ -20,5 +20,18 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 205.714, 71.8674, 34.0562, 34.3805 )
 
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Sprite"]
+remote_path = NodePath("../../CanvasLayer4/Sprite")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="CanvasLayer4" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
+follow_viewport_scale = 1.02
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer4"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 205.714, 71.8674, 34.0562, 34.3805 )
