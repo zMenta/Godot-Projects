@@ -44,8 +44,7 @@ position = Vector2( 200, 65 )
 position = Vector2( 132, 111 )
 
 [node name="Door" parent="." instance=ExtResource( 2 )]
-position = Vector2( 153, 101 )
-scale = Vector2( 1, 1 )
+position = Vector2( 153, 100 )
 
 [node name="TileMap" parent="." instance=ExtResource( 3 )]
 position = Vector2( 49, 52 )

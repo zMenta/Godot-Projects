@@ -8,8 +8,7 @@ radius = 5.0
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 31.25, 3.5 )
 
-[node name="StaticBody2D" type="StaticBody2D"]
-scale = Vector2( 0.5, 0.5 )
+[node name="Door" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -4, 0 )
@@ -29,6 +28,15 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 284, 82, 45, 15 )
 
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Door/Sprite"]
+remote_path = NodePath("../../../CanvasLayer4/Sprite")
+
+[node name="RemoteTransform2D2" type="RemoteTransform2D" parent="Door/Sprite"]
+remote_path = NodePath("../../../CanvasLayer3/Sprite")
+
+[node name="RemoteTransform2D3" type="RemoteTransform2D" parent="Door/Sprite"]
+remote_path = NodePath("../../../CanvasLayer2/Sprite")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
 position = Vector2( 10.375, 0 )
 scale = Vector2( 0.5, 0.5 )
@@ -39,3 +47,36 @@ position = Vector2( -6, 0 )
 scale = Vector2( 0.5, 0.5 )
 node_a = NodePath("..")
 node_b = NodePath("../Door")
+
+[node name="CanvasLayer4" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
+follow_viewport_scale = 1.02
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer4"]
+position = Vector2( 11.375, 0 )
+scale = Vector2( 0.738889, 0.5 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 284, 82, 45, 15 )
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
+follow_viewport_scale = 1.04
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer3"]
+position = Vector2( 11.375, 0 )
+scale = Vector2( 0.738889, 0.5 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 284, 82, 45, 15 )
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
+follow_viewport_scale = 1.06
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer2"]
+position = Vector2( 11.375, 0 )
+scale = Vector2( 0.738889, 0.5 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 284, 82, 45, 15 )
