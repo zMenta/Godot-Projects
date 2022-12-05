@@ -43,7 +43,7 @@ position = Vector2( 200, 65 )
 [node name="Wardrobe2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 132, 111 )
 
-[node name="StaticBody2D" parent="." instance=ExtResource( 2 )]
+[node name="Door" parent="." instance=ExtResource( 2 )]
 position = Vector2( 153, 101 )
 scale = Vector2( 1, 1 )
 
