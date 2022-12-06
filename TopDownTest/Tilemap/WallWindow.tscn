@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Tilemap/TileMap.tscn" type="PackedScene" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource( 1 )]
+position = Vector2( 307, 137 )
+cell_size = Vector2( 3, 3 )
+centered_textures = true
+tile_data = PoolIntArray( -1572887, 0, 0, -1572876, 0, 0, -1572865, 0, 0, -1638390, 0, 0, -1638355, 1, 0, -1638341, 1, 0, -1638327, 1, 0 )
+
+[node name="CanvasLayer4" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
+follow_viewport_scale = 1.02
+
+[node name="TileMap" parent="CanvasLayer4" instance=ExtResource( 1 )]
+position = Vector2( 307, 137 )
+cell_size = Vector2( 3, 3 )
+centered_textures = true
+tile_data = PoolIntArray( -1572887, 0, 0, -1572876, 0, 0, -1572865, 0, 0, -1638390, 0, 0, -1638355, 1, 0, -1638341, 1, 0, -1638327, 1, 0 )
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
+follow_viewport_scale = 1.04
+
+[node name="TileMap" parent="CanvasLayer3" instance=ExtResource( 1 )]
+position = Vector2( 307, 137 )
+cell_size = Vector2( 3, 3 )
+centered_textures = true
+tile_data = PoolIntArray( -1572887, 0, 0, -1638390, 0, 0, -1638355, 1, 0, -1638327, 1, 0 )
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
+follow_viewport_scale = 1.06
+
+[node name="TileMap2" parent="CanvasLayer2" instance=ExtResource( 1 )]
+position = Vector2( 307, 137 )
+cell_size = Vector2( 3, 3 )
+centered_textures = true
+tile_data = PoolIntArray( -1572887, 0, 0, -1638390, 0, 0, -1638355, 1, 0, -1638327, 1, 0 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
+follow_viewport_scale = 1.08
+
+[node name="TileMap" parent="CanvasLayer" instance=ExtResource( 1 )]
+position = Vector2( 307, 137 )
+cell_size = Vector2( 3, 3 )
+centered_textures = true
+tile_data = PoolIntArray( -1572887, 0, 0, -1572876, 0, 0, -1572865, 0, 0, -1638390, 0, 0, -1638355, 1, 0, -1638341, 1, 0, -1638327, 1, 0 )
