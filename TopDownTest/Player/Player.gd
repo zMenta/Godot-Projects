@@ -37,8 +37,8 @@ func _input(event: InputEvent) -> void:
 		$AnimatedSprite.animation = animations[anim_state.idle]
 		speed = 100
 		
-	if Input.is_action_pressed("attack"):
-		weapon.play_shovel()
+#	if Input.is_action_pressed("attack"):
+#		weapon.play_shovel()
 		
 			
 func get_movement_input() -> Vector2:
