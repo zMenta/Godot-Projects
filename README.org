@@ -1,0 +1,3 @@
+* Godot Projects
+
+Repository containing a lot of games I made. Not all projects are playable or functional.
