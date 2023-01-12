@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7tso735vpf65"]
+
+[ext_resource type="Texture2D" uid="uid://viv1uj6d3mk1" path="res://common/light_textures/player_light.tres" id="1_rmilo"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="2_2u60a"]
+
+[node name="Player" type="PointLight2D"]
+position = Vector2(610, 296)
+enabled = false
+shadow_enabled = true
+texture = ExtResource("1_rmilo")
+script = ExtResource("2_2u60a")

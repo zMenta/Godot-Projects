@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://w6hinxox2rd3"]
+
+[ext_resource type="Shader" path="res://common/shaders/set_color.gdshader" id="1_k6alk"]
+[ext_resource type="Texture2D" uid="uid://cxn4qkishitsn" path="res://icon.svg" id="1_wtcbc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vxl38"]
+resource_local_to_scene = true
+shader = ExtResource("1_k6alk")
+shader_parameter/color = Color(0.933333, 0.607843, 0.54902, 1)
+
+[node name="object" type="Sprite2D"]
+material = SubResource("ShaderMaterial_vxl38")
+position = Vector2(-1, 0)
+scale = Vector2(0.765625, 0.78125)
+texture = ExtResource("1_wtcbc")

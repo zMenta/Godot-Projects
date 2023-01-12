@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://545um1rw6mmn"]
+
+[ext_resource type="Texture2D" uid="uid://cxn4qkishitsn" path="res://icon.svg" id="1_c14ys"]
+[ext_resource type="Shader" path="res://common/shaders/set_color.gdshader" id="1_i2c78"]
+[ext_resource type="Texture2D" uid="uid://d7hm2202472n" path="res://common/light_textures/lamp_textures.tres" id="3_r5fi0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p6jgs"]
+shader = ExtResource("1_i2c78")
+shader_parameter/color = Color(0.627451, 0, 0, 1)
+
+[node name="Lamp" type="Sprite2D"]
+material = SubResource("ShaderMaterial_p6jgs")
+scale = Vector2(0.507812, 0.507812)
+texture = ExtResource("1_c14ys")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+shadow_enabled = true
+texture = ExtResource("3_r5fi0")
