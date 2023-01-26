@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://m80tgf0x3mbq"]
+
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_42h8a"]
+[ext_resource type="Texture2D" uid="uid://c6jn6lshr2pis" path="res://icon.svg" id="1_nuons"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dyj0"]
+size = Vector2(53, 52)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_1j21b"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/1/path = NodePath("Label:text")
+properties/1/spawn = true
+properties/1/sync = true
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(589, 310)
+collision_layer = 0
+script = ExtResource("1_42h8a")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(1.90735e-06, -4)
+scale = Vector2(0.421621, 0.443031)
+texture = ExtResource("1_nuons")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -5)
+shape = SubResource("RectangleShape2D_8dyj0")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -28.0
+offset_top = -66.0
+offset_right = 29.0
+offset_bottom = -40.0
+text = "peer_id
+"
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_1j21b")

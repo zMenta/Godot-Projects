@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://d058wcjing1xm"]
+
+[ext_resource type="Script" path="res://scenes/world/world.gd" id="1_ioraj"]
+[ext_resource type="PackedScene" uid="uid://m80tgf0x3mbq" path="res://scenes/player/player.tscn" id="1_r23y2"]
+[ext_resource type="PackedScene" uid="uid://rrfludcj2c24" path="res://scenes/map/map.tscn" id="3_0kgp0"]
+
+[node name="World" type="Node"]
+script = ExtResource("1_ioraj")
+Player = ExtResource("1_r23y2")
+
+[node name="Map" parent="." instance=ExtResource("3_0kgp0")]
+visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Menu" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 293.0
+offset_top = 216.0
+offset_right = -293.0
+offset_bottom = -216.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Menu"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Menu/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="LabelTitle" type="Label" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu
+"
+
+[node name="ButtonHost" type="Button" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Host
+"
+
+[node name="ButtonJoin" type="Button" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Join
+"
+
+[node name="LineEditAddress" type="LineEdit" parent="CanvasLayer/Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Address to join"
+alignment = 1
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://scenes/player/player.tscn")
+spawn_path = NodePath("..")
+
+[connection signal="pressed" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/ButtonHost" to="." method="_on_button_host_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menu/MarginContainer/VBoxContainer/ButtonJoin" to="." method="_on_button_join_pressed"]
