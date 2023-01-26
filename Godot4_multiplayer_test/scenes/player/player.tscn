@@ -291,3 +291,6 @@ replication_config = SubResource("SceneReplicationConfig_1j21b")
 libraries = {
 "": SubResource("AnimationLibrary_0hvx0")
 }
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 1)

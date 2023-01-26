@@ -19,6 +19,7 @@ func _ready() -> void:
 	if not is_multiplayer_authority() : return
 
 	health_label.text = str(health)
+	$Camera2D.current = true
 	_set_player_name()
 
 
