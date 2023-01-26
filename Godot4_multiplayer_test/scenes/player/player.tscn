@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://m80tgf0x3mbq"]
+[gd_scene load_steps=10 format=3 uid="uid://m80tgf0x3mbq"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_42h8a"]
 [ext_resource type="Texture2D" uid="uid://c6jn6lshr2pis" path="res://icon.svg" id="1_nuons"]
+[ext_resource type="PackedScene" uid="uid://d3jhm1g03c2iy" path="res://scenes/bomb/bomb.tscn" id="2_evcsn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8dyj0"]
 size = Vector2(53, 52)
@@ -13,11 +14,248 @@ properties/0/sync = true
 properties/1/path = NodePath("Label:text")
 properties/1/spawn = true
 properties/1/sync = true
+properties/2/path = NodePath("RayCast2D:rotation")
+properties/2/spawn = true
+properties/2/sync = true
+
+[sub_resource type="Animation" id="Animation_xdmcy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Happy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.983765, -5.64603)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Happy:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Happy:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.26662, 0.227526)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Happy:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0.678431, 0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Angry:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.983765, -5.64603)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Angry:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Angry:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.245954, 0.217982)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Angry:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ptgsi"]
+resource_name = "angry"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Angry:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.983765, -5.64603), Vector2(-1.99988, -97)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Angry:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -2.61799]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Angry:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.245954, 0.217982), Vector2(0.845535, 0.706265)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Angry:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_awdw8"]
+resource_name = "happy"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Happy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.983765, -5.64603), Vector2(2, -91)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Happy:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.00780612]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Happy:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.26662, 0.227526), Vector2(0.793948, 0.626973)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Happy:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0.678431, 0, 1), Color(0, 0.678431, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0hvx0"]
+_data = {
+"RESET": SubResource("Animation_xdmcy"),
+"angry": SubResource("Animation_ptgsi"),
+"happy": SubResource("Animation_awdw8")
+}
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(589, 310)
-collision_layer = 0
+collision_layer = 2
 script = ExtResource("1_42h8a")
+bomb = ExtResource("2_evcsn")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 1000)
+collision_mask = 2
+
+[node name="direction" type="Sprite2D" parent="RayCast2D"]
+modulate = Color(0, 0.286275, 0.639216, 1)
+position = Vector2(-1, 30)
+rotation = 1.5708
+scale = Vector2(0.622297, 0.0572332)
+texture = ExtResource("1_nuons")
+
+[node name="Happy" type="Sprite2D" parent="."]
+modulate = Color(0, 0.678431, 0, 1)
+position = Vector2(0.983765, -5.64603)
+scale = Vector2(0.26662, 0.227526)
+texture = ExtResource("1_nuons")
+
+[node name="Angry" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(0.983765, -5.64603)
+scale = Vector2(0.245954, 0.217982)
+texture = ExtResource("1_nuons")
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(1.90735e-06, -4)
@@ -36,5 +274,20 @@ offset_bottom = -40.0
 text = "peer_id
 "
 
+[node name="LabelHealth" type="Label" parent="."]
+visible = false
+offset_left = -29.0
+offset_top = 21.0
+offset_right = 28.0
+offset_bottom = 47.0
+text = "3
+"
+horizontal_alignment = 1
+
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_1j21b")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0hvx0")
+}

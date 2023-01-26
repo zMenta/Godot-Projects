@@ -5,6 +5,9 @@ extends Node
 @onready var menu := $CanvasLayer/Menu
 @onready var map := $Map
 @onready var address_entry := $CanvasLayer/Menu/MarginContainer/VBoxContainer/LineEditAddress
+@onready var hud_health : Label = $CanvasLayer/PanelContainer/Label
+@onready var hud := $CanvasLayer/PanelContainer
+
 
 const PORT : int = 9999
 var enet_peer := ENetMultiplayerPeer.new()
@@ -12,6 +15,7 @@ var enet_peer := ENetMultiplayerPeer.new()
 
 func _on_button_host_pressed() -> void:
 	menu.hide()
+	hud.show()
 	map.show()
 
 	enet_peer.create_server(PORT)
@@ -24,8 +28,9 @@ func _on_button_host_pressed() -> void:
 
 
 func _on_button_join_pressed() -> void:
-	map.show()
 	menu.hide()
+	map.show()
+	hud.show()
 
 	enet_peer.create_client("localhost", PORT)
 	multiplayer.multiplayer_peer = enet_peer
@@ -38,10 +43,15 @@ func remove_player(peer_id) -> void:
 
 
 func add_player(peer_id) -> void:
-	var player : CharacterBody2D = Player.instantiate()
+	var player : Player = Player.instantiate()
 	player.name = str(peer_id)
 	add_child(player)
+	if player.is_multiplayer_authority():
+		player.health_changed.connect(update_hud_health)
 
+
+func update_hud_health(new_health: int) -> void:
+	hud_health.text = "Health: " + str(new_health)
 
 func upnp_setup() -> void:
 	var upnp := UPNP.new()
@@ -59,3 +69,9 @@ func upnp_setup() -> void:
 
 	print("Sucess! Join address: ")
 	print(upnp.query_external_address())
+
+
+
+func _on_multiplayer_spawner_spawned(node:Node) -> void:
+	if node.is_multiplayer_authority():
+		node.health_changed.connect(update_hud_health)
